@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 09:18:29 by berard            #+#    #+#             */
-/*   Updated: 2022/10/25 09:45:09 by berard           ###   ########.fr       */
+/*   Created: 2022/10/25 09:52:02 by berard            #+#    #+#             */
+/*   Updated: 2022/10/25 10:09:03 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_isalpha(int c)
 {
-	int	i;
-	int	sign;
-	int	nb;
-
-	i = 0;
-	sign = 1;
-	nb = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		i++;
-	if (str[i] == '-')
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
-		sign = -1;
-		i++;
+		return (1);
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = ((nb * 10) + (str[i] - 48));
-		i++;
-	}
-	nb = nb * sign;
-	return (nb);
+	return (0);
 }
