@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:56:29 by berard            #+#    #+#             */
-/*   Updated: 2022/10/25 18:09:05 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/25 18:13:13 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <ctype.h>
 
 int	ft_atoi(const char *str)
 int	ft_isalnum(int c)
