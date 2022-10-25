@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:14:36 by berard            #+#    #+#             */
-/*   Updated: 2022/10/25 15:34:10 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/25 15:57:17 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	ft_putnbr_fd(int n, int fd)
 
 /*int	main(void)
 {
-	ft_putnbr_fd(21312, 1);
+	ft_putnbr_fd(2131322, 1);
 	return(0);
 }*/
