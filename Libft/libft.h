@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 16:05:13 by berard            #+#    #+#             */
-/*   Updated: 2022/10/25 16:18:24 by berard           ###   ########.fr       */
+/*   Created: 2022/10/25 17:56:29 by berard            #+#    #+#             */
+/*   Updated: 2022/10/25 18:02:41 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef LIBFT_H
+# define LIBFT_H
 
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+
+int	ft_atoi(char *str)
+int	ft_isalnum(int c)
+int	ft_isalpha(int c)
+int	ft_isascii(int c)
+int	ft_isdigit(int c)
+int	ft_isprint(int c)
+int	ft_strlen(char *str)
+int	ft_tolower(int c)
+int	ft_toupper(int c)
+void	ft_putchar_fd(char c, int fd)
 void	ft_putendl_fd(char *s, int fd)
-{
-	int	i;
+void	ft_putnbr_fd(int n, int fd)
+void	ft_putstr_fd(char *s, int fd)
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	write(fd, '\n', 1);
-}
+#endif
