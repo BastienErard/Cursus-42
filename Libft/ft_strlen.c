@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 09:18:29 by berard            #+#    #+#             */
-/*   Updated: 2022/10/25 09:30:34 by berard           ###   ########.fr       */
+/*   Created: 2022/10/24 17:28:42 by berard            #+#    #+#             */
+/*   Updated: 2022/10/25 09:10:29 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+/*#include <stdio.h>*/
+
+int	ft_strlen(char *str)
 {
 	int	i;
-	int	sign;
-	int	nb;
 
 	i = 0;
-	sign = 1;
-	nb = 1;
-	while (str[i] != "\t" || str[i] != "\n" || str[i] != "\v"
-		|| str[i] != "\f" || str[i] != "\r" || str[i] != " ")
+	while (str[i] != '\0')
 	{
 		i++;
 	}
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-	{
-		i++;
-	}
-	while (str[i] >= "0" && str[i] <= str[i] <= "9")
-	{
-		nb = ((nb * 10) + (str[i] - 48));
-		i++;
-	}
-	nb = nb * sign;
-	return (nb);
+	return (i);
 }
+
+/*int	main(void)
+{
+	char	tab[] = "Super";
+
+	printf("%d\n", ft_strlen(tab));
+	return (0);
+}*/
