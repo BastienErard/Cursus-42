@@ -6,11 +6,11 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:18:29 by berard            #+#    #+#             */
-/*   Updated: 2022/10/25 09:45:09 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/25 18:09:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;
