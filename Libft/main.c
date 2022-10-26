@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:31:48 by berard            #+#    #+#             */
-/*   Updated: 2022/10/26 15:34:58 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/26 17:57:41 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ int	main(void)
 	printf("______tolower______\n");
 	printf("%c\n", ft_tolower('C'));
 	printf("%c\n", tolower('C'));
+	printf("______strncmp______\n");
+	printf("%d\n", ft_strncmp("Vacances", "Vacanxes", 7));
+	printf("%d\n", strncmp("Vacances", "Vacanxes", 7));
 	printf("______atoi______\n");
 	printf("%d\n", ft_atoi("     -33121das"));
 	printf("%d\n", atoi("     -33121das"));

@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 10:04:59 by berard            #+#    #+#              #
-#    Updated: 2022/10/26 15:35:01 by berard           ###   ########.fr        #
+#    Updated: 2022/10/26 18:21:23 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,11 @@ SRCS	=	main.c \
 			ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 			ft_strlen.c ft_toupper.c ft_tolower.c ft_atoi.c \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+			ft_strncmp.c \
 
 OBJS	=	${SRCS:.c=.o}
 
-NAME	=	Test
+NAME	=	test
 
 CC		=	gcc
 
