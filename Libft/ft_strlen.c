@@ -6,29 +6,20 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:28:42 by berard            #+#    #+#             */
-/*   Updated: 2022/10/26 11:58:03 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/26 13:40:05 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>*/
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
 		i++;
 	}
 	return (i);
 }
-
-/*int	main(void)
-{
-	char	tab[] = "Super";
-
-	printf("%d\n", ft_strlen(tab));
-	return (0);
-}*/

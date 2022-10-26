@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:59:12 by berard            #+#    #+#             */
-/*   Updated: 2022/10/26 11:57:31 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/26 15:03:05 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,3 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
-
-/*int	main(void)
-{
-	char	tab[] = "Test";
-
-	ft_putstr_fd(tab, 1);
-	return (0);
-}*/
