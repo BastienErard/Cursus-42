@@ -6,18 +6,15 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 10:04:59 by berard            #+#    #+#              #
-#    Updated: 2022/10/26 11:11:34 by berard           ###   ########.fr        #
+#    Updated: 2022/10/26 11:45:16 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	main.c \
-			ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-			ft_strlen.c ft_toupper.c ft_tolower.c ft_atoi.c \
-			ft_putchar_fd.c ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+SRCS	=	main.c ft_isalnum.c \
 
 OBJS	=	${SRCS:.c=.o}
 
-Name	=	libft.a
+NAME	=	Test
 
 CC		=	gcc
 
@@ -25,18 +22,19 @@ RM		=	rm -f
 
 CFLAGS	=	-Wall -Wextra -Werror -g
 
-.c.o	:	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+.c.o:		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}	:	${OBJS}
+${NAME}:	${OBJS}
 			${CC} -o ${NAME} ${OBJS}
 
-all		:	${NAME}
+all:		${NAME}
 
-clean	:	${RM} ${OBJS}
+clean:
+			${RM} ${OBJS}
 
-fclean	:	clean
+fclean:		clean
 			${RM} ${NAME}
 
-re		:	fclean all
+re:			fclean all
 
-.PHONY	:	all clean fclean re
+.PHONY:		all clean fclean re

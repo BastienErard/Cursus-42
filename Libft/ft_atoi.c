@@ -6,9 +6,11 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:18:29 by berard            #+#    #+#             */
-/*   Updated: 2022/10/25 18:09:16 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/26 11:56:53 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

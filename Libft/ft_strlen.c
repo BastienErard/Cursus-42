@@ -6,11 +6,12 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:28:42 by berard            #+#    #+#             */
-/*   Updated: 2022/10/25 09:10:29 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/26 11:58:03 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*#include <stdio.h>*/
+#include "libft.h"
 
 int	ft_strlen(char *str)
 {

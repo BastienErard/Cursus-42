@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:31:48 by berard            #+#    #+#             */
-/*   Updated: 2022/10/26 11:10:13 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/26 11:58:34 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(void)
 {
-	printf("%d", isalnum('b'));
-	return 0;
+	printf("%d\n", ft_isalnum('b'));
+	printf("%d\n", isalnum('b'));
+	return (0);
 }
