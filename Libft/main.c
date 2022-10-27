@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:31:48 by berard            #+#    #+#             */
-/*   Updated: 2022/10/27 14:51:41 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/27 18:38:15 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,28 @@ int	main(void)
 	ft_bzero(tab, 5);
 	printf("%s\n", tab);
 	printf("%s\n", bzero(tab, 5));
+	printf("______memcpy______\n");
+	char	dest[10];
+	char	src[] = "Bravo, tu as fait juste!";
+	printf("%s\n", ft_memcpy(dest, src, 5));
+	printf("%s\n", memcpy(dest, src, 5));
+	printf("______memmove______\n");
+	char	dst[10];
+	char	srco[] = "Bravo, tu as fait juste!";
+	printf("%s\n", ft_memmove(dst, srco, 5));
+	printf("%s\n", memmove(dst, srco, 5));
 	printf("______toupper______\n");
 	printf("%c\n", ft_toupper('c'));
 	printf("%c\n", toupper('c'));
 	printf("______tolower______\n");
 	printf("%c\n", ft_tolower('C'));
 	printf("%c\n", tolower('C'));
+	printf("______strchr______\n");
+	printf("%s\n", ft_strchr("Super bravo", 'v'));
+	printf("%s\n", strchr("Super bravo", 'v'));
+	printf("______strrchr______\n");
+	printf("%s\n", ft_strrchr("Super bravao", 'a'));
+	printf("%s\n", strrchr("Super bravao", 'a'));
 	printf("______strncmp______\n");
 	printf("%d\n", ft_strncmp("Vacances", "Vacanxes", 7));
 	printf("%d\n", strncmp("Vacances", "Vacanxes", 7));
