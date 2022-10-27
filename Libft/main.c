@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:31:48 by berard            #+#    #+#             */
-/*   Updated: 2022/10/26 17:57:41 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/27 13:58:01 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int	main(void)
 	printf("______strlen______\n");
 	printf("%zu\n", ft_strlen("Test"));
 	printf("%lu\n", strlen("Test"));
+	printf("______memset______\n");
+	char	tab[] = "Ceci est un test";
+	printf("%s\n", ft_memset(tab, '+', 5));
+	printf("%s\n", memset(tab, '+', 6));
+	printf("______bzero______\n");
+	ft_bzero(tab, 5);
+	printf("%s\n", tab);
+	printf("%s\n", bzero(tab, 5));
 	printf("______toupper______\n");
 	printf("%c\n", ft_toupper('c'));
 	printf("%c\n", toupper('c'));
