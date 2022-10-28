@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:31:48 by berard            #+#    #+#             */
-/*   Updated: 2022/10/27 18:38:15 by berard           ###   ########.fr       */
+/*   Updated: 2022/10/28 11:02:49 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ int	main(void)
 	printf("______strncmp______\n");
 	printf("%d\n", ft_strncmp("Vacances", "Vacanxes", 7));
 	printf("%d\n", strncmp("Vacances", "Vacanxes", 7));
+	printf("______memchr______\n");
+	unsigned char	tabmem[] = "vacances";
+	printf("%s\n", ft_memchr(tabmem, 'c', 7));
+	printf("%s\n", memchr(tabmem, 'c', 7));
 	printf("______atoi______\n");
 	printf("%d\n", ft_atoi("     -33121das"));
 	printf("%d\n", atoi("     -33121das"));
