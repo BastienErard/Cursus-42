@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 10:04:59 by berard            #+#    #+#              #
-#    Updated: 2022/10/27 18:38:17 by berard           ###   ########.fr        #
+#    Updated: 2022/10/28 09:11:50 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS	=	main.c \
 
 OBJS	=	${SRCS:.c=.o}
 
-NAME	=	test
+NAME	=	libft.a
 
 CC		=	gcc
 
@@ -30,7 +30,7 @@ CFLAGS	=	-Wall -Wextra -Werror -g
 .c.o:		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-			${CC} -o ${NAME} ${OBJS}
+			ar rcs ${NAME} ${OBJS}
 
 all:		${NAME}
 
