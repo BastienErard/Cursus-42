@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 10:04:59 by berard            #+#    #+#              #
-#    Updated: 2022/10/31 16:19:38 by berard           ###   ########.fr        #
+#    Updated: 2022/10/31 17:45:23 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS	=	main.c \
 			ft_strncmp.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
 			ft_strchr.c ft_strrchr.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
 			ft_strlcpy.c ft_strlcat.c ft_calloc.c ft_strdup.c ft_substr.c \
+			ft_strjoin.c \
 
 OBJS	=	${SRCS:.c=.o}
 
