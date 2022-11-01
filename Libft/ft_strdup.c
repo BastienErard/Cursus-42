@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:31:49 by berard            #+#    #+#             */
-/*   Updated: 2022/10/31 16:03:59 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/01 17:20:35 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s1)
 	int		j;
 	char	*dest;
 
-	i = strlen(s1) + 1;
+	i = ft_strlen(s1) + 1;
 	j = 0;
 	dest = malloc(sizeof(char) * i);
 	if (dest == 0)

@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 11:31:39 by berard            #+#    #+#             */
-/*   Updated: 2022/10/28 17:39:15 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/01 18:07:24 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
+
+/*int	main(void)
+{
+	printf("%s", ft_strnstr("abcdefgh", "abc", 2));
+	return (0);
+}*/
