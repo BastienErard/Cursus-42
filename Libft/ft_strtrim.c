@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 10:20:58 by berard            #+#    #+#             */
-/*   Updated: 2022/11/01 14:20:10 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/01 16:23:48 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	sta = 0;
-	if (s1 == 0 || set == 0)
-		return (NULL);
 	end = ft_strlen(s1);
 	while (s1[sta] != '\0' && ft_check(s1[sta], set))
 		sta++;
