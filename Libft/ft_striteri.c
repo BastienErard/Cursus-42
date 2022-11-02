@@ -6,18 +6,18 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 09:41:24 by berard            #+#    #+#             */
-/*   Updated: 2022/11/02 09:53:47 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/02 11:01:06 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
-		s[i] = (char *)f(i, &s[i]);
+		f(i, &s[i]);
 		i++;
 	}
 }
