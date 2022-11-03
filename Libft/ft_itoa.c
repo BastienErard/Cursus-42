@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:05:08 by berard            #+#    #+#             */
-/*   Updated: 2022/11/03 14:44:20 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:01:28 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_itoa(int n)
 	int		i;
 
 	if (n == -2147483648)
-		return (ptr = ft_strdup("-2147483648"));
+		return (ft_strdup("-2147483648"));
 	i = ft_sizemalloc(n);
 	ptr = malloc(sizeof(char) * (i + 1));
 	if (ptr == 0)
