@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:12:17 by berard            #+#    #+#             */
-/*   Updated: 2022/11/03 18:22:20 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/04 17:06:28 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,104 +21,45 @@ static int	ft_countword(char const *s, char c)
 	j = 0;
 	while (s[i] != '\0')
 	{
-		while(s[i] == c)
+		while (s[i] == c)
 			i++;
-		while (s[i] != c)
+		while (s[i] != c && i[s] != '\0')
 			i++;
 		j++;
-		i++;
-		while(s[i] == c)
+		while (s[i] == c)
 			i++;
 	}
 	return (j);
 }
 
-char	**ft_split(char const *s, char c)
-{
-	char	**ptr;
-	int		i;
-	int		j;
-	int		x;
-
-	j = 0;
-	i = ft_countword(s, c);
-	ptr = malloc(sizeof(char *) * (i + 1));
-	if (ptr == 0)
-	{
-		return(NULL);
-	}
-	ptr[i][0] = '\0';
-	i = 0;
-	while (s[j] != '\0')
-	{
-		x = 0;
-
-		while(s[j] == c)
-		j++;
-
-		char *word;
-		word = malloc(wordlen);
-		while (s[j] != c)
-		{
-			word[x] = s[j];
-			j++;
-			x++;
-		}
-		ptr[i] = word;
-		i++;
-	}
-	return (ptr);
-}
-
-/*int	main(void)
-{
-	char	*tab = "  Super spectacle   ce soir!    ";
-	char	c = ' ';
-
-	printf("%d", ft_countword(tab, c));
-	return (0);
-}*/
-
-
-
-
-
-
-
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 15:12:17 by berard            #+#    #+#             */
-/*   Updated: 2022/11/03 18:02:25 by berard           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "libft.h"
-
-static int	ft_countword(char const *s, char c)
+static int	ft_wordlen(const char *s, char c)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
-	while (s[i] != '\0')
+	while (s[i] != '\0' && s[i] != c)
 	{
-		while(s[i] == c)
-			i++;
-		while (s[i] != c)
-			i++;
-		j++;
 		i++;
-		while(s[i] == c)
-			i++;
 	}
-	return (j);
+	return (i);
+}
+
+static char	*ft_strndup(const char *s, int n)
+{
+	char	*ptr;
+	int		i;
+
+	i = 0;
+	ptr = malloc(sizeof(char) * (n + 1));
+	if (ptr == NULL)
+		return (NULL);
+	while (i < n)
+	{
+		ptr[i] = s[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 char	**ft_split(char const *s, char c)
@@ -126,38 +67,61 @@ char	**ft_split(char const *s, char c)
 	char	**ptr;
 	int		i;
 	int		j;
-	int		x;
 
-	j = 0;
-	i = ft_countword(s, c);
-	ptr = malloc(sizeof(char *) * (i + 1));
-	if (ptr == 0)
-	{
-		return(NULL);
-	}
-	ptr[i][0] = '\0';
 	i = 0;
-	while (s[j] != '\0')
+	j = 0;
+	ptr = malloc(sizeof(char *) * (ft_countword(s, c) + 1));
+	if (ptr == 0)
+		return (NULL);
+	while (s[i] != '\0')
 	{
-		x = 0;
-		while(s[j] == c)
-		j++;
-		while (s[j] != c)
+		if (s[i] != c)
 		{
-			ptr[i][x] = s[j];
+			ptr[j] = ft_strndup(&s[i], ft_wordlen(&s[i], c));
+			if (ptr[j] == NULL)
+			{
+				while (j > 0)
+					free(ptr[--j]);
+				free(ptr);
+				return (NULL);
+			}
+			i += ft_strlen(ptr[j]) - 1;
 			j++;
-			x++;
 		}
 		i++;
 	}
+	ptr[j] = (NULL);
 	return (ptr);
 }
 
-/*int	main(void)
-{
-	char	*tab = "  Super spectacle   ce soir!    ";
-	char	c = ' ';
+// int	main(void)
+// {
+// 	char	tab[] = "       olol";
+// 	char	c = ' ';
 
-	printf("%d", ft_countword(tab, c));
-	return (0);
-}*/
+// 	printf("%s", ft_split(tab, c));
+// 	return (0);
+// }
+
+// int	main(void)
+// {
+// 	char	*tab = "                  olol";
+// 	char	c = ' ';
+
+// 	printf("%d", ft_countword(tab, c));
+// 	return (0);
+// }
+
+// int	main(void)
+// {
+// 	char	*tab = "ggggggggggg";
+// 	char	c = 'g';
+
+// 	printf("%s", ft_split(tab, c)[0]);
+// 	printf("%s", ft_split(tab, c)[0]);
+// 	printf("\n\n");
+
+// 	printf("%s", ft_split(tab, c)[0]);
+
+// 	return (0);
+// }
