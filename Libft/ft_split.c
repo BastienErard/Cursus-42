@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:12:17 by berard            #+#    #+#             */
-/*   Updated: 2022/11/07 10:02:17 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/07 11:09:52 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,35 +98,3 @@ char	**ft_split(char const *s, char c)
 	ptr[j] = (NULL);
 	return (ptr);
 }
-
-// int	main(void)
-// {
-// 	char	tab[] = "       olol";
-// 	char	c = ' ';
-
-// 	printf("%s", ft_split(tab, c));
-// 	return (0);
-// }
-
-// int	main(void)
-// {
-// 	char	*tab = "                  olol";
-// 	char	c = ' ';
-
-// 	printf("%d", ft_countword(tab, c));
-// 	return (0);
-// }
-
-// int	main(void)
-// {
-// 	char	*tab = "ggggggggggg";
-// 	char	c = 'g';
-
-// 	printf("%s", ft_split(tab, c)[0]);
-// 	printf("%s", ft_split(tab, c)[0]);
-// 	printf("\n\n");
-
-// 	printf("%s", ft_split(tab, c)[0]);
-
-// 	return (0);
-// }
