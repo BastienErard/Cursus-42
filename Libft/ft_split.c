@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:12:17 by berard            #+#    #+#             */
-/*   Updated: 2022/11/04 17:37:59 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/07 10:02:17 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_countword(char const *s, char c)
 			i++;
 		if (s[i] == '\0')
 			return (j);
-		while (s[i] != c && i[s] != '\0')
+		while (s[i] != c && s[i] != '\0')
 			i++;
 		j++;
 		while (s[i] == c)
