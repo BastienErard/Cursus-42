@@ -1,48 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsidec.c                                 :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:35:21 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:50:36 by berard           ###   ########.fr       */
+/*   Created: 2022/10/31 17:43:55 by berard            #+#    #+#             */
+/*   Updated: 2022/11/01 17:22:59 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	ft_strlen_printf(unsigned int n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	char	*ptr;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (n != '\0')
+	j = 0;
+	ptr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (ptr == 0)
 	{
-		n = n / 10;
+		return (NULL);
+	}
+	while (s1[i] != '\0')
+	{
+		ptr[i] = s1[i];
 		i++;
 	}
-	return (i);
-}
-
-int	ft_print_unsidec(unsigned int n)
-{
-	int	i;
-
-	i = 0;
-	if (n >= 0 && n <= 9)
-		return (ft_print_c(n + 48));
-	else if (n < 0)
+	while (s2[j] != '\0')
 	{
-		ft_print_c('-');
-		i++;
-		ft_print_unsidec(n * -1);
+		ptr[i + j] = s2[j];
+		j++;
 	}
-	else
-	{
-		ft_print_unsidec(n / 10);
-		ft_print_unsidec(n % 10);
-	}
-	i += ft_strlen_printf(n);
-	return (i);
+	ptr[i + j] = '\0';
+	return (ptr);
 }

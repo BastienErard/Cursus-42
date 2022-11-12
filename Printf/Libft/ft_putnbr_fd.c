@@ -1,48 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsidec.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:35:21 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:50:36 by berard           ###   ########.fr       */
+/*   Created: 2022/10/25 15:14:36 by berard            #+#    #+#             */
+/*   Updated: 2022/11/03 09:33:55 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	ft_strlen_printf(unsigned int n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (n != '\0')
+	if (n == -2147483648)
 	{
-		n = n / 10;
-		i++;
+		write(fd, "-2147483648", 11);
 	}
-	return (i);
-}
-
-int	ft_print_unsidec(unsigned int n)
-{
-	int	i;
-
-	i = 0;
-	if (n >= 0 && n <= 9)
-		return (ft_print_c(n + 48));
+	else if (n >= 0 && n <= 9)
+	{
+		ft_putchar_fd(n + 48, fd);
+	}
 	else if (n < 0)
 	{
-		ft_print_c('-');
-		i++;
-		ft_print_unsidec(n * -1);
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(n * -1, fd);
 	}
 	else
 	{
-		ft_print_unsidec(n / 10);
-		ft_print_unsidec(n % 10);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
-	i += ft_strlen_printf(n);
-	return (i);
 }

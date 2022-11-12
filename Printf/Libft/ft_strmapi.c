@@ -1,48 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsidec.c                                 :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:35:21 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:50:36 by berard           ###   ########.fr       */
+/*   Created: 2022/11/01 16:27:26 by berard            #+#    #+#             */
+/*   Updated: 2022/11/01 17:15:42 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	ft_strlen_printf(unsigned int n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	unsigned int	i;
+	char			*ptr;
 
 	i = 0;
-	while (n != '\0')
+	ptr = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (ptr == 0)
 	{
-		n = n / 10;
+		return (NULL);
+	}
+	while (s[i] != '\0')
+	{
+		ptr[i] = f(i, s[i]);
 		i++;
 	}
-	return (i);
-}
-
-int	ft_print_unsidec(unsigned int n)
-{
-	int	i;
-
-	i = 0;
-	if (n >= 0 && n <= 9)
-		return (ft_print_c(n + 48));
-	else if (n < 0)
-	{
-		ft_print_c('-');
-		i++;
-		ft_print_unsidec(n * -1);
-	}
-	else
-	{
-		ft_print_unsidec(n / 10);
-		ft_print_unsidec(n % 10);
-	}
-	i += ft_strlen_printf(n);
-	return (i);
+	ptr[i] = '\0';
+	return (ptr);
 }

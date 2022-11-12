@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 13:57:52 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:52:56 by berard           ###   ########.fr       */
+/*   Created: 2022/10/25 12:16:38 by berard            #+#    #+#             */
+/*   Updated: 2022/10/26 15:26:52 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_percent(void)
+int	ft_isascii(int c)
 {
-	write(1, "%", 1);
-	return (1);
+	if (c >= 0 && c <= 127)
+	{
+		return (1);
+	}
+	return (0);
 }

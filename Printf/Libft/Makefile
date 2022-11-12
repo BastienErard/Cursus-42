@@ -5,19 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/11 09:57:23 by berard            #+#    #+#              #
-#    Updated: 2022/11/12 15:53:51 by berard           ###   ########.fr        #
+#    Created: 2022/10/26 10:04:59 by berard            #+#    #+#              #
+#    Updated: 2022/11/04 15:42:46 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	ft_printf.c ft_print_c.c ft_print_s.c ft_print_percent.c ft_print_iu.c \
-			ft_print_unsidec.c \
+SRCS	=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+			ft_strlen.c ft_toupper.c ft_tolower.c ft_atoi.c \
+			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+			ft_strncmp.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
+			ft_strchr.c ft_strrchr.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
+			ft_strlcpy.c ft_strlcat.c ft_calloc.c ft_strdup.c ft_substr.c \
+			ft_strjoin.c ft_strtrim.c ft_strmapi.c ft_striteri.c ft_itoa.c \
+			ft_split.c \
 
 OBJS	=	${SRCS:.c=.o}
 
-NAME	=	libftprintf.a
-
-LIBFT	= libft
+NAME	=	libft.a
 
 CC		=	gcc
 
@@ -28,20 +32,15 @@ CFLAGS	=	-Wall -Wextra -Werror -g
 .c.o:		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-			@make -C $(LIBFT)
-			@cp libft/libft.a .
-			@mv libft.a $(NAME)
 			ar rcs ${NAME} ${OBJS}
 
 all:		${NAME}
 
 clean:
 			${RM} ${OBJS}
-			@make clean -C $(LIBFT)
 
 fclean:		clean
 			${RM} ${NAME}
-			@$(RM) -f $(LIBFT)/libft.a
 
 re:			fclean all
 

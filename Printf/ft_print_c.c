@@ -1,48 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsidec.c                                 :+:      :+:    :+:   */
+/*   ft_print_c.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:35:21 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:50:36 by berard           ###   ########.fr       */
+/*   Created: 2022/11/10 18:05:02 by berard            #+#    #+#             */
+/*   Updated: 2022/11/12 15:49:59 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_strlen_printf(unsigned int n)
+int	ft_print_c(int c)
 {
-	int	i;
-
-	i = 0;
-	while (n != '\0')
-	{
-		n = n / 10;
-		i++;
-	}
-	return (i);
-}
-
-int	ft_print_unsidec(unsigned int n)
-{
-	int	i;
-
-	i = 0;
-	if (n >= 0 && n <= 9)
-		return (ft_print_c(n + 48));
-	else if (n < 0)
-	{
-		ft_print_c('-');
-		i++;
-		ft_print_unsidec(n * -1);
-	}
-	else
-	{
-		ft_print_unsidec(n / 10);
-		ft_print_unsidec(n % 10);
-	}
-	i += ft_strlen_printf(n);
-	return (i);
+	write(1, &c, 1);
+	return (1);
 }

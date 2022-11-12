@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 13:57:52 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:52:56 by berard           ###   ########.fr       */
+/*   Created: 2022/10/31 13:31:49 by berard            #+#    #+#             */
+/*   Updated: 2022/11/01 17:20:35 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_percent(void)
+char	*ft_strdup(const char *s1)
 {
-	write(1, "%", 1);
-	return (1);
+	int		i;
+	int		j;
+	char	*dest;
+
+	i = ft_strlen(s1) + 1;
+	j = 0;
+	dest = malloc(sizeof(char) * i);
+	if (dest == 0)
+	{
+		return (NULL);
+	}
+	while (s1[j] != '\0')
+	{
+		dest[j] = s1[j];
+		j++;
+	}
+	dest[j] = '\0';
+	return (dest);
 }

@@ -1,48 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsidec.c                                 :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:35:21 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:50:36 by berard           ###   ########.fr       */
+/*   Created: 2022/10/27 16:00:05 by berard            #+#    #+#             */
+/*   Updated: 2022/10/27 16:48:18 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	ft_strlen_printf(unsigned int n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (n != '\0')
+	if (dst == (NULL) && src == (NULL))
 	{
-		n = n / 10;
-		i++;
+		return (0);
 	}
-	return (i);
-}
-
-int	ft_print_unsidec(unsigned int n)
-{
-	int	i;
-
-	i = 0;
-	if (n >= 0 && n <= 9)
-		return (ft_print_c(n + 48));
-	else if (n < 0)
+	if (dst > src)
 	{
-		ft_print_c('-');
-		i++;
-		ft_print_unsidec(n * -1);
+		while (len > 0)
+		{
+			((unsigned char *)dst)[len - 1] = ((unsigned char *)src)[len - 1];
+			len --;
+		}
 	}
 	else
 	{
-		ft_print_unsidec(n / 10);
-		ft_print_unsidec(n % 10);
+		while (i < len)
+		{
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+			i++;
+		}
 	}
-	i += ft_strlen_printf(n);
-	return (i);
+	return (dst);
 }

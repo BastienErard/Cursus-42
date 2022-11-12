@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_dec.c                                     :+:      :+:    :+:   */
+/*   ft_print_iu.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:08:52 by berard            #+#    #+#             */
-/*   Updated: 2022/11/11 16:45:58 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/12 15:54:57 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_strlen_printf(int n)
 	return (i);
 }
 
-int	ft_print_dec(int n)
+int	ft_print_iu(int n)
 {
 	int	i;
 
@@ -36,17 +36,17 @@ int	ft_print_dec(int n)
 		return (11);
 	}
 	else if (n >= 0 && n <= 9)
-		return (ft_print_char(n + 48));
+		return (ft_print_c(n + 48));
 	else if (n < 0)
 	{
-		ft_print_char('-');
+		ft_print_c('-');
 		i++;
-		ft_print_dec(n * -1);
+		ft_print_iu(n * -1);
 	}
 	else
 	{
-		ft_print_dec(n / 10);
-		ft_print_dec(n % 10);
+		ft_print_iu(n / 10);
+		ft_print_iu(n % 10);
 	}
 	i += ft_strlen_printf(n);
 	return (i);

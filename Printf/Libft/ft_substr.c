@@ -1,48 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsidec.c                                 :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:35:21 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:50:36 by berard           ###   ########.fr       */
+/*   Created: 2022/10/31 16:04:53 by berard            #+#    #+#             */
+/*   Updated: 2022/10/31 17:43:42 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	ft_strlen_printf(unsigned int n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
+	char	*ptr;
+	int		i;
 
 	i = 0;
-	while (n != '\0')
+	if (ft_strlen(s) <= start)
 	{
-		n = n / 10;
+		len = 0;
+	}
+	if (ft_strlen(s) - start < len)
+	{
+		len = ft_strlen(s) - start;
+	}
+	ptr = malloc(sizeof(char const) * (len + 1));
+	if (ptr == 0)
+	{
+		return (NULL);
+	}
+	while (len > 0)
+	{
+		ptr[i] = s[start + i];
 		i++;
+		len --;
 	}
-	return (i);
-}
-
-int	ft_print_unsidec(unsigned int n)
-{
-	int	i;
-
-	i = 0;
-	if (n >= 0 && n <= 9)
-		return (ft_print_c(n + 48));
-	else if (n < 0)
-	{
-		ft_print_c('-');
-		i++;
-		ft_print_unsidec(n * -1);
-	}
-	else
-	{
-		ft_print_unsidec(n / 10);
-		ft_print_unsidec(n % 10);
-	}
-	i += ft_strlen_printf(n);
-	return (i);
+	ptr[i] = '\0';
+	return (ptr);
 }

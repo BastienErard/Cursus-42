@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 13:57:52 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:52:56 by berard           ###   ########.fr       */
+/*   Created: 2022/10/27 13:23:26 by berard            #+#    #+#             */
+/*   Updated: 2022/10/27 14:14:03 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_percent(void)
+void	ft_bzero(void *s, size_t n)
 {
-	write(1, "%", 1);
-	return (1);
+	ft_memset(s, 0, n);
 }

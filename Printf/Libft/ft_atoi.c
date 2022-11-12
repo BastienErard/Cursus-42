@@ -1,48 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsidec.c                                 :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:35:21 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:50:36 by berard           ###   ########.fr       */
+/*   Created: 2022/10/25 09:18:29 by berard            #+#    #+#             */
+/*   Updated: 2022/10/26 14:15:13 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	ft_strlen_printf(unsigned int n)
+int	ft_atoi(const char *str)
 {
 	int	i;
+	int	sign;
+	int	nb;
 
 	i = 0;
-	while (n != '\0')
+	sign = 1;
+	nb = 0;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
 	{
-		n = n / 10;
+		sign = -1;
 		i++;
 	}
-	return (i);
-}
-
-int	ft_print_unsidec(unsigned int n)
-{
-	int	i;
-
-	i = 0;
-	if (n >= 0 && n <= 9)
-		return (ft_print_c(n + 48));
-	else if (n < 0)
-	{
-		ft_print_c('-');
+	else if (str[i] == '+')
 		i++;
-		ft_print_unsidec(n * -1);
-	}
-	else
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		ft_print_unsidec(n / 10);
-		ft_print_unsidec(n % 10);
+		nb = ((nb * 10) + (str[i] - 48));
+		i++;
 	}
-	i += ft_strlen_printf(n);
-	return (i);
+	nb = nb * sign;
+	return (nb);
 }

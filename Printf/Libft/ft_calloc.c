@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 13:57:52 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:52:56 by berard           ###   ########.fr       */
+/*   Created: 2022/10/31 12:25:21 by berard            #+#    #+#             */
+/*   Updated: 2022/10/31 16:08:42 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_percent(void)
+void	*ft_calloc(size_t count, size_t size)
 {
-	write(1, "%", 1);
-	return (1);
+	char	*ptr;
+
+	ptr = malloc(count * size);
+	if (ptr == 0)
+	{
+		return (NULL);
+	}
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }

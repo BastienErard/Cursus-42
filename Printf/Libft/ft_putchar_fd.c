@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 13:57:52 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:52:56 by berard           ###   ########.fr       */
+/*   Created: 2022/10/25 14:51:12 by berard            #+#    #+#             */
+/*   Updated: 2022/11/03 09:33:45 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_percent(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	write(1, "%", 1);
-	return (1);
+	write(fd, &c, 1);
 }

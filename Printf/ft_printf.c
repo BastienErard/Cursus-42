@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:46:19 by berard            #+#    #+#             */
-/*   Updated: 2022/11/11 18:07:55 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/12 15:54:04 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static int	ft_params(va_list args, char input)
 
 	len = 0;
 	if (input == 'c')
-		len += ft_print_char(va_arg(args, int));
+		len += ft_print_c(va_arg(args, int));
 	else if (input == 's')
-		len += ft_print_str(va_arg(args, char *));
+		len += ft_print_s(va_arg(args, char *));
 	// else if (input == 'p')
 	// 	len += ft_print_ptr(va_arg(args, unsigned long));
 	else if (input == 'd' || input == 'i')
-		len += ft_print_dec(va_arg(args, int));
+		len += ft_print_iu(va_arg(args, int));
 	else if (input == 'u')
 		len += ft_print_unsidec(va_arg(args, unsigned int));
 	// else if (input == 'x')
@@ -53,7 +53,7 @@ int	ft_printf(const char *input, ...)
 			i++;
 		}
 		else
-			len += ft_print_char(input[i]);
+			len += ft_print_c(input[i]);
 		i++;
 	}
 	va_end (args);
