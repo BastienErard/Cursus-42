@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:46:19 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:54:04 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/12 16:03:36 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_params(va_list args, char input)
 	// else if (input == 'p')
 	// 	len += ft_print_ptr(va_arg(args, unsigned long));
 	else if (input == 'd' || input == 'i')
-		len += ft_print_iu(va_arg(args, int));
+		len += ft_print_di(va_arg(args, int));
 	else if (input == 'u')
 		len += ft_print_unsidec(va_arg(args, unsigned int));
 	// else if (input == 'x')

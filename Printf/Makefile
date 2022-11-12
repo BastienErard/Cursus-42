@@ -6,11 +6,11 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 09:57:23 by berard            #+#    #+#              #
-#    Updated: 2022/11/12 15:53:51 by berard           ###   ########.fr        #
+#    Updated: 2022/11/12 16:03:44 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	ft_printf.c ft_print_c.c ft_print_s.c ft_print_percent.c ft_print_iu.c \
+SRCS	=	ft_printf.c ft_print_c.c ft_print_s.c ft_print_percent.c ft_print_di.c \
 			ft_print_unsidec.c \
 
 OBJS	=	${SRCS:.c=.o}
