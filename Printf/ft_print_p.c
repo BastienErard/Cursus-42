@@ -6,13 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 18:45:45 by berard            #+#    #+#             */
-/*   Updated: 2022/11/14 13:37:10 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/14 15:08:40 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_countn_x(unsigned long n)
+static int	ft_countn_px(unsigned long n)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ static int	ft_print_px(unsigned long n)
 		else
 			ft_putchar_fd((n - 10 + 'a'), 1);
 	}
-	len = ft_countn_x(n);
+	len = ft_countn_px(n);
 	return (len);
 }
 
