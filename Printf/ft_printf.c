@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:46:19 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 16:03:36 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/14 13:34:15 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ static int	ft_params(va_list args, char input)
 		len += ft_print_c(va_arg(args, int));
 	else if (input == 's')
 		len += ft_print_s(va_arg(args, char *));
-	// else if (input == 'p')
-	// 	len += ft_print_ptr(va_arg(args, unsigned long));
+	else if (input == 'p')
+		len += ft_print_p(va_arg(args, unsigned long));
 	else if (input == 'd' || input == 'i')
 		len += ft_print_di(va_arg(args, int));
 	else if (input == 'u')
-		len += ft_print_unsidec(va_arg(args, unsigned int));
-	// else if (input == 'x')
-	// 	len += ft_print_nbhexmin(va_arg(args, unsigned int));
-	// else if (input == 'X')
-	// 	len += ft_print_nbhexmaj(va_arg(args, unsigned int));
+		len += ft_print_u(va_arg(args, unsigned int));
+	else if (input == 'x')
+		len += ft_print_x(va_arg(args, unsigned int));
+	else if (input == 'X')
+		len += ft_print_xx(va_arg(args, unsigned int));
 	else if (input == '%')
 		len += ft_print_percent();
 	return (len);

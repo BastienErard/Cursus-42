@@ -1,48 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsidec.c                                 :+:      :+:    :+:   */
+/*   ft_print_p.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 16:35:21 by berard            #+#    #+#             */
-/*   Updated: 2022/11/12 15:50:36 by berard           ###   ########.fr       */
+/*   Created: 2022/11/12 18:45:45 by berard            #+#    #+#             */
+/*   Updated: 2022/11/14 13:37:10 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_strlen_printf(unsigned int n)
+static int	ft_countn_x(unsigned long n)
 {
 	int	i;
 
 	i = 0;
+	if (n == 0)
+		return (1);
 	while (n != '\0')
 	{
-		n = n / 10;
+		n = n / 16;
 		i++;
 	}
 	return (i);
 }
 
-int	ft_print_unsidec(unsigned int n)
+static int	ft_print_px(unsigned long n)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	if (n >= 0 && n <= 9)
-		return (ft_print_c(n + 48));
-	else if (n < 0)
+	len = 0;
+	if (n >= 16)
 	{
-		ft_print_c('-');
-		i++;
-		ft_print_unsidec(n * -1);
+		ft_print_px(n / 16);
+		ft_print_px(n % 16);
 	}
 	else
 	{
-		ft_print_unsidec(n / 10);
-		ft_print_unsidec(n % 10);
+		if (n <= 9)
+			ft_putchar_fd((n + '0'), 1);
+		else
+			ft_putchar_fd((n - 10 + 'a'), 1);
 	}
-	i += ft_strlen_printf(n);
-	return (i);
+	len = ft_countn_x(n);
+	return (len);
+}
+
+int	ft_print_p(unsigned long n)
+{
+	int	len;
+
+	len = 0;
+	write(1, "0x", 2);
+	len += ft_print_px(n);
+	return (len + 2);
 }
