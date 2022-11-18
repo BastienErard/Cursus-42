@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:00:27 by berard            #+#    #+#             */
-/*   Updated: 2022/11/17 15:36:17 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/18 14:58:49 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i] != '\0')
 	{
 		i++;
@@ -29,6 +31,8 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		if (s[i] == (char)c)
@@ -57,6 +61,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	{
 		return (NULL);
 	}
+	if (!s1 || !s2)
+		return (NULL);
 	while (s1[i] != '\0')
 	{
 		ptr[i] = s1[i];
