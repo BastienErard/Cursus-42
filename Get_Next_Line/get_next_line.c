@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:00:31 by berard            #+#    #+#             */
-/*   Updated: 2022/11/18 18:31:05 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/21 15:18:02 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ static char	*ft_extract_line(char *stash)
 		line[j] = stash[j];
 		j++;
 	}
+	if (stash[j] == '\n')
+	{
+		line[j] = stash[j];
+		j++;
+	}
 	line[j] = '\0';
 	return (line);
 }
@@ -70,10 +75,10 @@ static char	*ft_fill_stash(int fd, char *stash)
 	buffy = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buffy == NULL)
 		return (NULL);
-	while (byties != 0 && ft_strchr(stash, '\n') == NULL)
+	while (byties != 0 || ft_strchr(stash, '\n') != 0)
 	{
 		byties = read(fd, buffy, BUFFER_SIZE);
-	if (byties == -1)
+		if (byties == -1)
 		{
 			free(buffy);
 			return (NULL);
@@ -90,7 +95,7 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	char		*line;
 
-	stash = "abc---";
+	// stash = "abc---";
 	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
 		return (NULL);
 	stash = ft_fill_stash(fd, stash);
