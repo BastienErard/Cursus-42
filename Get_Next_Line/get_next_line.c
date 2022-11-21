@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:00:31 by berard            #+#    #+#             */
-/*   Updated: 2022/11/21 15:18:02 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/21 18:10:24 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static char	*ft_new_stash(char *stash)
 		return (NULL);
 	while (stash[i] != '\0' && stash[i] != '\n')
 		i++;
+	if (stash[i] == '\n')
+		i++;
 	str = malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
 	if (str == NULL)
 		return (NULL);
@@ -33,6 +35,7 @@ static char	*ft_new_stash(char *stash)
 		i++;
 		j++;
 	}
+	free(stash);
 	str[j] = '\0';
 	return (str);
 }
@@ -49,7 +52,7 @@ static char	*ft_extract_line(char *stash)
 		return (NULL);
 	while (stash[i] != '\0' && stash[i] != '\n')
 		i++;
-	line = malloc(sizeof(char) * (i + 1));
+	line = malloc(sizeof(char) * (i + 2));
 	if (line == NULL)
 		return (NULL);
 	while (j < i)
@@ -75,7 +78,7 @@ static char	*ft_fill_stash(int fd, char *stash)
 	buffy = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buffy == NULL)
 		return (NULL);
-	while (byties != 0 || ft_strchr(stash, '\n') != 0)
+	while (byties != 0 && ft_strchr(stash, '\n') == 0)
 	{
 		byties = read(fd, buffy, BUFFER_SIZE);
 		if (byties == -1)
@@ -95,23 +98,35 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	char		*line;
 
-	// stash = "abc---";
 	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
+	{
+		free(stash);
+		stash = 0;
 		return (NULL);
+	}
+	if (!stash)
+	{
+		stash = malloc(sizeof(char) * 1);
+		stash[0] = 0;
+	}
 	stash = ft_fill_stash(fd, stash);
-	if (stash == NULL)
-		return (NULL);
+	if (*stash == 0)
+	{
+		free(stash);
+		return (stash = 0);
+	}
 	line = ft_extract_line(stash);
 	stash = ft_new_stash(stash);
 	return (line);
-	// return (stash); // Pour faire des tests
 }
 
-int	main(void)
-{
-	int	fd = open("test.txt", O_RDONLY);
-	printf("Ceci est la first line :\n%s\n", get_next_line(fd));
-	printf("Ceci est la second line :\n%s\n", get_next_line(fd));
-	printf("Ceci est la third line :\n%s\n", get_next_line(fd));
-	return (0);
-}
+// int	main(void)
+// {
+// 	int	fd = open("test.txt", O_RDONLY);
+// 	printf("Ceci est la 1 line :\n%s\n", get_next_line(fd));
+// 	printf("Ceci est la 2 line :\n%s\n", get_next_line(fd));
+// 	printf("Ceci est la 3 line :\n%s\n", get_next_line(fd));
+// 	printf("Ceci est la 4 line :\n%s\n", get_next_line(fd));
+// 	printf("Ceci est la 5 line :\n%s\n", get_next_line(fd));
+// 	return (0);
+// }

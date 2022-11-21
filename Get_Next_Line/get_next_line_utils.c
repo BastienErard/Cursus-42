@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:00:27 by berard            #+#    #+#             */
-/*   Updated: 2022/11/21 15:18:04 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/21 18:08:43 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	ptr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (ptr == 0)
@@ -72,5 +72,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	ptr[i + j] = '\0';
+	free((char *)s1);
 	return (ptr);
 }
