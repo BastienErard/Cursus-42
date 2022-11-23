@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:00:31 by berard            #+#    #+#             */
-/*   Updated: 2022/11/22 18:49:14 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/23 11:06:28 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,10 +123,11 @@ char	*get_next_line(int fd)
 // int	main(void)
 // {
 // 	int	fd = open("test.txt", O_RDONLY);
-// 	printf("Ceci est la 1 line :\n%s\n", get_next_line(fd));
+// 	printf("Ceci est la 1 line :\n%s", get_next_line(fd));
 // 	printf("Ceci est la 2 line :\n%s\n", get_next_line(fd));
 // 	printf("Ceci est la 3 line :\n%s\n", get_next_line(fd));
 // 	printf("Ceci est la 4 line :\n%s\n", get_next_line(fd));
 // 	printf("Ceci est la 5 line :\n%s\n", get_next_line(fd));
+// 	printf("Ceci est la 6 line :\n%s\n", get_next_line(fd));
 // 	return (0);
 // }
