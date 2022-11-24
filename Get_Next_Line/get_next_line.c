@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:00:31 by berard            #+#    #+#             */
-/*   Updated: 2022/11/23 18:16:19 by berard           ###   ########.fr       */
+/*   Updated: 2022/11/24 15:50:09 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,12 @@ static char	*ft_extract_line(char *stash)
 		return (NULL);
 	while (stash[i] != '\0' && stash[i] != '\n')
 		i++;
-	line = malloc(sizeof(char) * (i + 2));
+	if (stash[i] == '\n')
+		i++;
+	line = malloc(sizeof(char) * (i + 1));
 	if (line == NULL)
 		return (NULL);
 	while (j < i)
-	{
-		line[j] = stash[j];
-		j++;
-	}
-	if (stash[j] == '\n')
 	{
 		line[j] = stash[j];
 		j++;
