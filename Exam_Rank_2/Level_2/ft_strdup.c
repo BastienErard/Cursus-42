@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 16:56:36 by berard            #+#    #+#             */
-/*   Updated: 2022/12/07 16:47:14 by tastybao         ###   ########.fr       */
+/*   Created: 2022/12/07 16:48:51 by tastybao          #+#    #+#             */
+/*   Updated: 2022/12/07 17:06:33 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char    *ft_strdup(char *src)
 {
-	size_t	i;
+    char    *ptr;
+    int     len;
 
-	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
-	{
-		if (s1[i] != s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
-		i++;
-	}
-	return (0);
+    len = 0;
+    while (str[len] != '\0')
+    {
+        len++;
+    }
+    ptr = malloc(sizeof(char) * len + 1)
+    if (ptr == NULL)
+    {
+        return (NULL);
+    }
+    len = 0;
+    while(str[len] != '\0')
+    {
+        ptr[len] = str[len];
+        len++;
+    }
+    ptr[len] = '\0';
+    return (ptr);
 }

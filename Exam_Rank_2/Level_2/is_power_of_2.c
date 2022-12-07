@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 16:56:36 by berard            #+#    #+#             */
-/*   Updated: 2022/12/07 16:47:14 by tastybao         ###   ########.fr       */
+/*   Created: 2022/12/07 18:40:43 by tastybao          #+#    #+#             */
+/*   Updated: 2022/12/07 18:47:08 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int is_power_of_2(unsigned int n)
 {
-	size_t	i;
+    unsigned int i;
 
-	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
-	{
-		if (s1[i] != s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
-		i++;
-	}
-	return (0);
+    i = 1;
+    while (i <= n)
+    {
+        if (i == n)
+        {
+            return (1);
+        }
+        i = i * 2;
+    }
+    return (0);
 }
+
+int main(void)
+{
+    unsigned int    n;
+
+    n = 167772216;
+    printf("%d", is_power_of_2(n));
+    return (0);
+    }
