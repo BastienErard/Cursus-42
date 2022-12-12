@@ -1,36 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bits.c                                       :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 09:41:46 by berard            #+#    #+#             */
-/*   Updated: 2022/12/12 09:47:28 by berard           ###   ########.fr       */
+/*   Created: 2022/12/12 11:17:17 by berard            #+#    #+#             */
+/*   Updated: 2022/12/12 13:27:45 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-void	print_bits(unsigned char octet)
+int	*ft_range(int start, int end)
 {
-	int				i;
-	unsigned char	bits;
+	int		size;
+	int		i;
+	int		*tab;
 
-	i = 7;
-	while (i >= 0)
+	i = 0;
+	size = end - start;
+	if (size < 0)
 	{
-		bits = (octet >> i & 1) + '0';
-		write(1, &bits, 1);
-		i--;
+		size *= -1;
 	}
+	if (!size)
+	{
+		return (NULL);
+	}
+	tab = malloc(sizeof(int) * size);
+	if (!tab)
+	{
+		return (NULL);
+	}
+	while (start <= end)
+	{
+		tab[i] = start;
+		start++;
+		i++;
+	}
+	return (tab);
 }
 
 int	main(void)
 {
-	unsigned char	c;
+	int	start = 5;
+	int	end = 10;
 
-	c = 'A';
-	print_bits(c);
+	printf("%d", ft_range(start, end)[8]);
 	return (0);
 }
