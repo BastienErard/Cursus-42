@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_prime_sum.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:56:33 by berard            #+#    #+#             */
-/*   Updated: 2022/12/12 15:51:36 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/13 16:22:42 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_prime(int i)
 	x = 0;
 	while (j <= i)
 	{
-		if (i % j != 0)
+		if (i % j == 0)
 		{
 			x++;
 		}
@@ -85,15 +85,19 @@ int	main(int argc, char *argv[])
 	i = ft_atoi(argv[1]);
 	if (argc == 2 && i > 0)
 	{
-		while (j < i)
+		while (j <= i)
 		{
-			if (ft_prime(j) != 2)
+			if (ft_prime(j) == 2)
 			{
 				x += j;
 			}
 			j++;
 		}
 		ft_putnbr(x);
+	}
+	else
+	{
+		write(1, "0", 1);
 	}
 	write(1, "\n", 1);
 	return (0);
