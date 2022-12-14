@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:35:13 by tastybao          #+#    #+#             */
-/*   Updated: 2022/12/13 17:45:05 by tastybao         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:48:05 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     i = ft_atoi(argv[1]);
     if (argc == 2)
     {
-       ft_hex(i); 
+       ft_hex(i);
     }
     write(1, "\n", 1);
     return (0);

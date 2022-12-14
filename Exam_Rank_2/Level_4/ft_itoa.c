@@ -6,11 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:26:03 by berard            #+#    #+#             */
-/*   Updated: 2022/12/14 13:07:20 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/14 13:21:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int	ft_malloc(int nbr)
 {
@@ -18,6 +20,10 @@ int	ft_malloc(int nbr)
 
 	i = 0;
 	if (nbr < 0)
+	{
+		i++;
+	}
+	if (nbr == 0)
 	{
 		i++;
 	}
@@ -37,7 +43,7 @@ char	*ft_itoa(int n)
 
 	i = 0;
 	size = ft_malloc(n);
-	if (n == -2147483647)
+	if (n == -2147483648)
 	{
 		ptr = malloc(sizeof(char) * 12);
 		ptr[0] = '-';
@@ -50,7 +56,7 @@ char	*ft_itoa(int n)
 		ptr[7] = '3';
 		ptr[8] = '6';
 		ptr[9] = '4';
-		ptr[10] = '7';
+		ptr[10] = '8';
 		ptr[11] = '\0';
 		return (ptr);
 	}
@@ -79,12 +85,12 @@ char	*ft_itoa(int n)
 	return (ptr);
 }
 
-// int	main(void)
-// {
-// 	int	i = -32321;
+int	main(void)
+{
+	int	i = 0;
 
-// 	printf("%d\n", i);
-// 	printf("%d\n", ft_malloc(i));
-// 	printf("%s\n", ft_itoa(i));
-// 	return (0);
-// }
+	printf("%d\n", i);
+	printf("%d\n", ft_malloc(i));
+	printf("%s\n", ft_itoa(i));
+	return (0);
+}
