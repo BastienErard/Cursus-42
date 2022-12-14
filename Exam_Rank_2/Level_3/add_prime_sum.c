@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   add_prime_sum.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:56:33 by berard            #+#    #+#             */
-/*   Updated: 2022/12/13 16:22:42 by tastybao         ###   ########.fr       */
+/*   Updated: 2022/12/14 09:41:30 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 int	ft_atoi(char	*str)
 {
@@ -32,7 +33,7 @@ int	ft_atoi(char	*str)
 	}
 	while(str[i] >= '0' && str[i] <= '9')
 	{
-		nb = nb * 2 + (str[i] - 48);
+		nb = nb * 10 + (str[i] - 48);
 		i++;
 	}
 	return (nb * sign);
@@ -80,7 +81,7 @@ int	main(int argc, char *argv[])
 	int	j;
 	int	x;
 
-	j = 1;
+	j = 0;
 	x = 0;
 	i = ft_atoi(argv[1]);
 	if (argc == 2 && i > 0)
@@ -100,5 +101,6 @@ int	main(int argc, char *argv[])
 		write(1, "0", 1);
 	}
 	write(1, "\n", 1);
+	printf("%d\n", x);
 	return (0);
 }
