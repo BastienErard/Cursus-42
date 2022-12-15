@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 09:41:46 by berard            #+#    #+#             */
-/*   Updated: 2022/12/12 09:47:28 by berard           ###   ########.fr       */
+/*   Created: 2022/12/15 11:37:41 by berard            #+#    #+#             */
+/*   Updated: 2022/12/15 11:44:52 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 
 void	print_bits(unsigned char octet)
 {
+	unsigned char	oct;
 	int				i;
-	unsigned char	bits;
 
 	i = 7;
 	while (i >= 0)
 	{
-		bits = (octet >> i & 1) + '0';
-		write(1, &bits, 1);
+		oct = (octet >> i & 1) + '0';
+		write(1, &oct, 1);
 		i--;
 	}
 }
 
 int	main(void)
 {
-	unsigned char	c;
+	unsigned char	c = 'a';
 
-	c = 'A';
 	print_bits(c);
 	return (0);
 }
