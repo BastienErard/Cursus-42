@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/19 11:15:04 by berard            #+#    #+#              #
-#    Updated: 2022/12/19 14:10:35 by berard           ###   ########.fr        #
+#    Created: 2022/12/19 14:29:36 by berard            #+#    #+#              #
+#    Updated: 2022/12/19 17:22:11 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,38 +16,29 @@ OBJS	=	$(SRCS:.c=.o)
 
 CC		=	gcc
 
-RM		=	rm -f
-
 CFLAGS	=	-Wall -Wextra -Werror -g
 
-.c.o:		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+all: 		server client
 
-${NAME}:	${OBJS}
+server: 	server.o Printf/libftprintf.a
+			$(CC) -o $@ $^
 
+client:		client.o Printf/libftprintf.a
+			$(CC) -o $@ $^
 
-all: server client
+%.o: 		%.c
+			$(CC) -c $(CFLAGS) $?
 
-
-server: server.o libft/libft.a
-	$(CC) -o $@ $^
-
-client: client.o libft/libft.a
-	$(CC) -o $@ $^
-
-
-
-libft/libft.a:
-	make -C libft
+Printf/libftprintf.a:
+			@make -C Printf
 
 clean:
-	rm -f $(OBJECTS)
-	make -C libft clean
+			rm -f $(OBJS)
+			@make -C Printf clean
 
 fclean:		clean
-			${RM} ${NAME}
-			@${RM} -f $(LIBFT)/
-	rm -f server client libft/libft.a
+			rm -f server client Printf/libftprintf.a
 
-re:			fclean all
+re: 		fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all  clean fclean re

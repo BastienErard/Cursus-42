@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:50 by berard            #+#    #+#             */
-/*   Updated: 2022/12/19 11:33:13 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/19 17:22:05 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MINITALK_H
 
 # include <signal.h>
-# include <unistd.h>
-# include <stdio.h>
+# include "Printf/ft_printf.h"
+# include "Printf/Libft/libft.h"
+
 #endif
