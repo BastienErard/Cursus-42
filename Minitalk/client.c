@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:41 by berard            #+#    #+#             */
-/*   Updated: 2022/12/19 17:51:46 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/20 16:37:00 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	ft_send(int pid, char *str)
 			{
 				kill(pid, SIGUSR2);
 			}
-			printf("%d", bit);
-			usleep(1000);
+			printf("%d\n", bit);
+			usleep(50);
 			j++;
 		}
 		i++;
@@ -50,13 +50,13 @@ int	main(int argc, char *argv[])
 		pid = atoi(argv[1]);
 		if (!pid)
 		{
-			printf("Please use the correct PID with only one argument.\n");
+			printf("Please use the correct PID with only 1 argument behind.\n");
 			return (0);
 		}
 	}
 	if (argc == 3)
 		ft_send(pid, argv[2]);
 	else
-		printf("Please use the correct PID with only one argument.\n");
+		printf("Please use the correct PID with only 1 argument behind.\n");
 	return (0);
 }
