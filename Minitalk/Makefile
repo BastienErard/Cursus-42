@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 14:29:36 by berard            #+#    #+#              #
-#    Updated: 2022/12/19 17:22:11 by berard           ###   ########.fr        #
+#    Updated: 2022/12/21 17:43:35 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ clean:
 
 fclean:		clean
 			rm -f server client Printf/libftprintf.a
+			@make -C Printf fclean
 
 re: 		fclean all
 

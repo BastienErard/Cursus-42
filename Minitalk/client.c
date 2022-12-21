@@ -6,13 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:41 by berard            #+#    #+#             */
-/*   Updated: 2022/12/20 16:37:00 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/21 17:18:03 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_send(int pid, char *str)
+void	ft_send_str(int pid, char *str)
 {
 	int	i;
 	int	j;
@@ -26,18 +26,31 @@ void	ft_send(int pid, char *str)
 		{
 			bit = (str[i] >> j & 1);
 			if (bit == 1)
-			{
 				kill(pid, SIGUSR1);
-			}
 			else if (bit == 0)
-			{
 				kill(pid, SIGUSR2);
-			}
-			printf("%d\n", bit);
-			usleep(50);
+			usleep(100);
 			j++;
 		}
 		i++;
+	}
+}
+
+void	ft_send_end(int pid, char c)
+{
+	int	j;
+	int	bit;
+
+	j = 0;
+	while (j < 8)
+	{
+		bit = (c >> j & 1);
+		if (bit == 1)
+			kill(pid, SIGUSR1);
+		else if (bit == 0)
+			kill(pid, SIGUSR2);
+		usleep(50);
+		j++;
 	}
 }
 
@@ -47,7 +60,7 @@ int	main(int argc, char *argv[])
 
 	if (argv[1])
 	{
-		pid = atoi(argv[1]);
+		pid = ft_atoi(argv[1]);
 		if (!pid)
 		{
 			printf("Please use the correct PID with only 1 argument behind.\n");
@@ -55,7 +68,10 @@ int	main(int argc, char *argv[])
 		}
 	}
 	if (argc == 3)
-		ft_send(pid, argv[2]);
+	{
+		ft_send_str(pid, argv[2]);
+		ft_send_end(pid, 0);
+	}
 	else
 		printf("Please use the correct PID with only 1 argument behind.\n");
 	return (0);
