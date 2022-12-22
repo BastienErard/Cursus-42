@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:28 by berard            #+#    #+#             */
-/*   Updated: 2022/12/21 17:40:55 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/22 13:22:05 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	man_signal(int sig)
 	{
 		if (ascii == 0)
 		{
-			ft_printf("%s", str);
+			ft_printf("%s\n", str);
 			free(str);
 			str = NULL;
 		}
