@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:28 by berard            #+#    #+#             */
-/*   Updated: 2022/12/22 16:14:56 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/22 16:32:56 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_str_char_join(char *str, char c)
 
 void	man_signal(int sig)
 {
-	static t_data data = {0, 0, NULL};
+	static t_data	data = {0, 0, NULL};
 
 	if (!data.str)
 	{
