@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:28 by berard            #+#    #+#             */
-/*   Updated: 2022/12/22 13:22:05 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/22 15:16:42 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,30 +44,27 @@ char	*ft_str_char_join(char *str, char c)
 
 void	man_signal(int sig)
 {
-	static int	i = 0;
-	static int	ascii = 0;
-	static char	*str;
+	static t_data data = {0, 0, NULL};
 
-	if (!str)
+	if (!data.str)
 	{
-		str = malloc(sizeof(char) * 1);
-		str[0] = 0;
+		data.str = malloc(sizeof(char) * 1);
+		data.str[0] = 0;
 	}
 	if (sig == SIGUSR1)
-		ascii += ft_recursive_power(2, i);
-	i++;
-	if (i == 8)
+		data.ascii += ft_recursive_power(2, data.i);
+	if (++data.i == 8)
 	{
-		if (ascii == 0)
+		if (data.ascii == 0)
 		{
-			ft_printf("%s\n", str);
-			free(str);
-			str = NULL;
+			ft_printf("%s\n", data.str);
+			free(data.str);
+			data.str = NULL;
 		}
 		else
-			str = ft_str_char_join(str, ascii);
-		i = 0;
-		ascii = 0;
+			data.str = ft_str_char_join(data.str, data.ascii);
+		data.i = 0;
+		data.ascii = 0;
 	}
 }
 

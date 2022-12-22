@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:41 by berard            #+#    #+#             */
-/*   Updated: 2022/12/22 11:31:09 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/22 14:50:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_send_str(int pid, char *str)
 				kill(pid, SIGUSR1);
 			else if (bit == 0)
 				kill(pid, SIGUSR2);
-			usleep(60);
+			usleep(50);
 			j++;
 		}
 		i++;
