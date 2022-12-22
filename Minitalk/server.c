@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:28 by berard            #+#    #+#             */
-/*   Updated: 2022/12/22 16:12:35 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/22 16:14:56 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ int	main(void)
 	struct sigaction	signal;
 
 	signal = (struct sigaction){0};
-	sigemptyset(&signal.sa.mask);
-	sigaddset(&signal.sa.mask, SIGUSR1);
-	sigaddset(&signal.sa.mask, SIGUSR2);
+	sigemptyset(&signal.sa_mask);
+	sigaddset(&signal.sa_mask, SIGUSR1);
+	sigaddset(&signal.sa_mask, SIGUSR2);
 	signal.sa_handler = &man_signal;
 	ft_printf("This is the PID : %d\n", getpid());
 	if (sigaction(SIGUSR1, &signal, NULL) != 0)
