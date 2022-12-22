@@ -6,40 +6,52 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 14:29:36 by berard            #+#    #+#              #
-#    Updated: 2022/12/21 17:43:35 by berard           ###   ########.fr        #
+#    Updated: 2022/12/22 18:20:20 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	server.c client.c \
+SRCS	=		server.c client.c \
 
-OBJS	=	$(SRCS:.c=.o)
+SRCSB	=		server_bonus.c client_bonus.c \
 
-CC		=	gcc
+OBJS	=		$(SRCS:.c=.o)
 
-CFLAGS	=	-Wall -Wextra -Werror -g
+OBJSB	=		$(SRCSB:.c=.0)
 
-all: 		server client
+CC		=		gcc
 
-server: 	server.o Printf/libftprintf.a
-			$(CC) -o $@ $^
+CFLAGS	=		-Wall -Wextra -Werror -g
 
-client:		client.o Printf/libftprintf.a
-			$(CC) -o $@ $^
+all: 			server client server_bonus client_bonus
 
-%.o: 		%.c
-			$(CC) -c $(CFLAGS) $?
+server: 		server.o Printf/libftprintf.a
+				$(CC) -o $@ $^
+
+server_bonus:	server_bonus.o Printf/libftprintf.a
+				$(CC) -o $@ $^
+
+client:			client.o Printf/libftprintf.a
+				$(CC) -o $@ $^
+
+client_bonus:	client_bonus.o Printf/libftprintf.a
+				$(CC) -o $@ $^
+
+%.o: 			%.c
+				$(CC) -c $(CFLAGS) $?
 
 Printf/libftprintf.a:
-			@make -C Printf
+				@make -C Printf
 
 clean:
-			rm -f $(OBJS)
-			@make -C Printf clean
+				rm -f $(OBJS)
+				rm -f $(OBJSB)
+				@make -C Printf clean
 
-fclean:		clean
-			rm -f server client Printf/libftprintf.a
-			@make -C Printf fclean
+fclean:			clean
+				rm -f server client Printf/libftprintf.a
+				rm -f server_bonus client_bonus
+				@make -C Printf fclean
 
-re: 		fclean all
+re: 			fclean all
 
-.PHONY:		all  clean fclean re
+.PHONY:			all  clean fclean re
