@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 14:29:36 by berard            #+#    #+#              #
-#    Updated: 2022/12/22 18:20:20 by berard           ###   ########.fr        #
+#    Updated: 2022/12/23 10:32:45 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCSB	=		server_bonus.c client_bonus.c \
 
 OBJS	=		$(SRCS:.c=.o)
 
-OBJSB	=		$(SRCSB:.c=.0)
+OBJSB	=		$(SRCSB:.c=.o)
 
 CC		=		gcc
 
@@ -43,8 +43,7 @@ Printf/libftprintf.a:
 				@make -C Printf
 
 clean:
-				rm -f $(OBJS)
-				rm -f $(OBJSB)
+				rm -f $(OBJS) $(OBJSB)
 				@make -C Printf clean
 
 fclean:			clean
