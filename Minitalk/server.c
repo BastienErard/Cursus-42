@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:28 by berard            #+#    #+#             */
-/*   Updated: 2022/12/22 16:32:56 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/23 15:00:08 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	ft_recursive_power(int nb, int power)
 {
 	if (power == 0)
-	{
 		return (1);
-	}
 	return (nb * ft_recursive_power(nb, power - 1));
 }
 
