@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:28 by berard            #+#    #+#             */
-/*   Updated: 2022/12/23 15:00:08 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/28 10:11:13 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(void)
 	signal.sa_handler = &man_signal;
 	ft_printf("This is the PID : %d\n", getpid());
 	if (sigaction(SIGUSR1, &signal, NULL) != 0)
-		printf("Error SIGUSR1\n");
+		ft_printf("Error SIGUSR1\n");
 	if (sigaction(SIGUSR2, &signal, NULL) != 0)
 		ft_printf("Error SIGUSR2\n");
 	while (1)

@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:41 by berard            #+#    #+#             */
-/*   Updated: 2022/12/23 15:36:54 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/28 10:10:42 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	man_signal(int sig)
 {
 	if (sig == SIGUSR1)
 	{
-		printf("Houston, we don't have a problem 🚀.\n");
+		ft_printf("Houston, we don't have a problem 🚀.\n");
 		exit(0);
 	}
 }
@@ -71,17 +71,17 @@ int	main(int argc, char *argv[])
 	struct sigaction	signal;
 
 	if (argc != 3)
-		return (printf("Please use the correct PID with 1 argument behind.\n"));
+		return (ft_printf("Please use the correct PID with 1 argument behind.\n"));
 	signal = (struct sigaction){0};
 	sigemptyset(&signal.sa_mask);
 	sigaddset(&signal.sa_mask, SIGUSR1);
 	signal.sa_handler = &man_signal;
 	if (sigaction(SIGUSR1, &signal, NULL) != 0)
-		printf("Error SIGUSR1\n");
+		ft_printf("Error SIGUSR1\n");
 	pid = ft_atoi(argv[1]);
 	selfpid = ft_itoa(getpid());
 	if (!pid || !selfpid)
-		return (printf("Please use the correct PID with 1 argument behind.\n"));
+		return (ft_printf("Please use the correct PID with 1 argument behind.\n"));
 	ft_send_str(pid, argv[2]);
 	ft_send_str(pid, selfpid);
 	free(selfpid);
