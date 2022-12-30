@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:39:35 by berard            #+#    #+#             */
-/*   Updated: 2022/12/29 18:16:10 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/30 11:00:32 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	ft_check_int(char *str)
 
 	i = ft_atoi(str);
 	if (i > 2147483647 || i < -2147483648)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 int	ft_check_sign(char *str)
@@ -56,17 +56,17 @@ int	ft_check_error(int argc, char *argv[])
 	while (argv[i])
 	{
 		j = 0;
-		if (ft_check_sign(argv[i]) != 0)
+		if (ft_check_sign(argv[i]) == 1)
 			j++;
 		if (argv[i][j] == '\0')
 			return (0);
 		while (argv[i][j] != '\0')
 		{
-			if (ft_isdigit(argv[i][j] != 0))
+			if (ft_isdigit(argv[i][j]) == 0)
 				return (0);
 			j++;
 		}
-		if (ft_check_int(argv[i]) != 0)
+		if (ft_check_int(argv[i]) == 0)
 			return (0);
 		i++;
 	}
@@ -79,7 +79,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	if (ft_check_error(argc, argv) != 1)
+	if (ft_check_error(argc, argv) == 0)
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
