@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:39:35 by berard            #+#    #+#             */
-/*   Updated: 2022/12/30 11:00:32 by berard           ###   ########.fr       */
+/*   Updated: 2022/12/30 14:44:18 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_check_int(char *str)
 {
 	long	i;
 
-	i = ft_atoi(str);
+	i = ft_atol(str);
 	if (i > 2147483647 || i < -2147483648)
 		return (0);
 	return (1);
@@ -29,9 +29,6 @@ int	ft_check_sign(char *str)
 
 	i = 0;
 	j = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		i++;
@@ -71,20 +68,4 @@ int	ft_check_error(int argc, char *argv[])
 		i++;
 	}
 	return (1);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (argc == 1)
-		return (0);
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	if (ft_check_error(argc, argv) == 0)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (0);
-	}
-	printf("Super");
-	// free(argv);
-	return (0);
 }
