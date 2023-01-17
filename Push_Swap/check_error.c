@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:39:35 by berard            #+#    #+#             */
-/*   Updated: 2022/12/30 16:22:10 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/17 15:43:46 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,33 @@ int	ft_check_error(int argc, char *argv[])
 		if (ft_check_int(argv[i]) == 0)
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	ft_check_double(int argc, char *argv[])
+{
+	int	i;
+	int	j;
+	int	add;
+
+	i = 1;
+	if (argc == 2)
+		i = 0;
+	j = i;
+	while (argv[i])
+		i++;
+	i--;
+	while (j < i)
+	{
+		add = 0;
+		while ((j + add) < i)
+		{
+			if (ft_atoi(argv[j]) == ft_atoi(argv[i - add]))
+				return (0);
+			add++;
+		}
+		j++;
 	}
 	return (1);
 }
