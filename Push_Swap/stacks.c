@@ -6,11 +6,29 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:55:50 by berard            #+#    #+#             */
-/*   Updated: 2023/01/17 15:38:45 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/19 15:22:43 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	*ft_create_empty_stack(int argc, char *argv[])
+{
+	int	*stack;
+	int	size;
+
+	size = 1;
+	if (argc == 2)
+		size = 0;
+	while (argv[size])
+		size++;
+	size--;
+	stack = (int *)malloc(sizeof(int) * size);
+	if (!stack)
+		return (0);
+	stack[3] = 123;
+	return (stack);
+}
 
 int	*ft_create_stack(int argc, char *argv[])
 {

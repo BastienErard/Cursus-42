@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:33:12 by berard            #+#    #+#             */
-/*   Updated: 2023/01/17 15:38:42 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/19 15:53:00 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char *argv[])
 {
 	int	*a;
+	int	*b;
 
 	if (argc == 1)
 		return (0);
@@ -26,9 +27,15 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	a = ft_create_stack(argc, argv);
-	printf("%d", a[2]);
+	printf("%d\n", a[1]);
+	ft_move_sa(a);
+	printf("%d\n", a[1]);
+	b = ft_create_empty_stack(argc, argv);
+	printf("%d\n", b[3]);
 	if (argc == 2)
 		free(argv);
+	free(a);
+	free(b);
 	return (0);
 }
 

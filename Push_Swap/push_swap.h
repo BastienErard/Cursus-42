@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:42:14 by berard            #+#    #+#             */
-/*   Updated: 2023/01/17 15:05:56 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/19 18:07:47 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,13 @@ long	ft_atol(const char *str);
 
 // Stacks
 int		*ft_create_stack(int argc, char *argv[]);
+int		*ft_create_empty_stack(int argc, char *argv[]);
+
+// Moves
+void	ft_swap_sa(int *stack_a);
+void	ft_swap_sb(int *stack_b);
+void	ft_swap_ss(int *stack_a, int *stack_b);
+void	ft_push_pa(int *stack_a, int *stack_b);
+void	ft_push_pb(int *stack_a, int *stack_b);
 
 #endif
