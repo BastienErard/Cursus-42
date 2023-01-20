@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:42:14 by berard            #+#    #+#             */
-/*   Updated: 2023/01/20 17:58:43 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/20 18:00:08 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	ft_reverse_rotate_rrb(int *stack_b);
 void	ft_reverse_rotate_rrr(int *stack_a, int *stack_b);
 
 // Operations
-// int		ft_operations(int *stack_a, int *stack_b);
+int		ft_operations(int *stack_a, int *stack_b);
 int		ft_operation_two(int *stack_a);
 #endif
