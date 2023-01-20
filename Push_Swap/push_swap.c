@@ -6,16 +6,41 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:33:12 by berard            #+#    #+#             */
-/*   Updated: 2023/01/19 15:53:00 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/20 17:59:54 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ft_operations(int *stack_a, int *stack_b)
+{
+	int	size;
+
+	size = 0;
+	while (stack_a[size])
+		size++;
+	size--;
+	if (size == 1)
+		return (0);
+	else (size == 2)
+		ft_operation_two(stack_a);
+	stack_b = 3;
+	// stack_b[0] = 3;
+	// else if (size == 3)
+	// 	ft_operation_three(stack_a);
+	// else if (size == 4)
+	// 	ft_operation_four(stack_a);
+	// else if (size == 5)
+	// 	ft_operation_five(stack_a);
+	// else
+	// 	ft_operation_more(stack_a, stack_b);
+	return (0);
+}
+
 int	main(int argc, char *argv[])
 {
-	int	*a;
-	int	*b;
+	int	*stack_a;
+	int	*stack_b;
 
 	if (argc == 1)
 		return (0);
@@ -26,16 +51,13 @@ int	main(int argc, char *argv[])
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	a = ft_create_stack(argc, argv);
-	printf("%d\n", a[1]);
-	ft_move_sa(a);
-	printf("%d\n", a[1]);
-	b = ft_create_empty_stack(argc, argv);
-	printf("%d\n", b[3]);
+	stack_a = ft_create_stack(argc, argv);
+	stack_b = ft_create_empty_stack(argc, argv);
+	ft_operations(stack_a, stack_b);
 	if (argc == 2)
 		free(argv);
-	free(a);
-	free(b);
+	free(stack_a);
+	free(stack_b);
 	return (0);
 }
 

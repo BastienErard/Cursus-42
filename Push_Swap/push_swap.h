@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:42:14 by berard            #+#    #+#             */
-/*   Updated: 2023/01/19 18:07:47 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/20 17:58:43 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,14 @@ void	ft_swap_sb(int *stack_b);
 void	ft_swap_ss(int *stack_a, int *stack_b);
 void	ft_push_pa(int *stack_a, int *stack_b);
 void	ft_push_pb(int *stack_a, int *stack_b);
+void	ft_rotate_ra(int *stack_a);
+void	ft_rotate_rb(int *stack_b);
+void	ft_rotate_rr(int *stack_a, int *stack_b);
+void	ft_reverse_rotate_rra(int *stack_a);
+void	ft_reverse_rotate_rrb(int *stack_b);
+void	ft_reverse_rotate_rrr(int *stack_a, int *stack_b);
 
+// Operations
+// int		ft_operations(int *stack_a, int *stack_b);
+int		ft_operation_two(int *stack_a);
 #endif

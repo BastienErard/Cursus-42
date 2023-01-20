@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:55:50 by berard            #+#    #+#             */
-/*   Updated: 2023/01/19 15:22:43 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/20 17:54:20 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	*ft_create_empty_stack(int argc, char *argv[])
 	stack = (int *)malloc(sizeof(int) * size);
 	if (!stack)
 		return (0);
-	stack[3] = 123;
 	return (stack);
 }
 
