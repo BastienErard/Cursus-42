@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 18:05:31 by berard            #+#    #+#             */
-/*   Updated: 2023/01/20 17:52:37 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/23 17:49:12 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_push_pa(int *stack_a, int *stack_b)
 		i++;
 	}
 	stack_a[1] = tmp;
+	stack_b[i - 1] = 0;
 	ft_printf("pa\n");
 }
 
@@ -63,5 +64,6 @@ void	ft_push_pb(int *stack_a, int *stack_b)
 		i++;
 	}
 	stack_b[1] = tmp;
+	stack_a[i - 1] = 0;
 	ft_printf("pb\n");
 }

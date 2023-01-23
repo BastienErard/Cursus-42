@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:55:50 by berard            #+#    #+#             */
-/*   Updated: 2023/01/20 17:54:20 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/23 17:48:38 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,20 @@ int	*ft_create_empty_stack(int argc, char *argv[])
 {
 	int	*stack;
 	int	size;
+	int	i;
 
+	i = 0;
 	size = 1;
 	if (argc == 2)
 		size = 0;
 	while (argv[size])
 		size++;
 	size--;
-	stack = (int *)malloc(sizeof(int) * size);
+	stack = (int *)malloc(sizeof(int) * size + 1);
 	if (!stack)
 		return (0);
+	while (i <= size + 1)
+		stack[i++] = 0;
 	return (stack);
 }
 
@@ -44,7 +48,7 @@ int	*ft_create_stack(int argc, char *argv[])
 		cstack.size++;
 	}
 	cstack.i = 0;
-	stack = (int *)malloc(sizeof(int) * cstack.size);
+	stack = (int *)malloc(sizeof(int) * cstack.size + 1);
 	if (!stack)
 		return (0);
 	while (argv[cstack.j])
@@ -53,5 +57,6 @@ int	*ft_create_stack(int argc, char *argv[])
 		cstack.i++;
 		cstack.j++;
 	}
+	stack[cstack.i] = 0;
 	return (stack);
 }

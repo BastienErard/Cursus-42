@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:42:14 by berard            #+#    #+#             */
-/*   Updated: 2023/01/20 18:00:08 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/23 17:52:14 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int		ft_check_double(int argc, char *argv[]);
 
 // Alternative functions
 long	ft_atol(const char *str);
+int		ft_free_argv(char *argv[]);
+int		ft_check_position(int *stack_a, int *stack_b);
 
 // Stacks
 int		*ft_create_stack(int argc, char *argv[]);
@@ -51,5 +53,9 @@ void	ft_reverse_rotate_rrr(int *stack_a, int *stack_b);
 
 // Operations
 int		ft_operations(int *stack_a, int *stack_b);
-int		ft_operation_two(int *stack_a);
+int		ft_operation_two(int *a);
+int		ft_operation_three(int *a);
+int		ft_operation_four(int *a, int *b);
+int		ft_operation_five(int *a, int *b);
+
 #endif
