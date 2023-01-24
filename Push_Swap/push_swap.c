@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:33:12 by berard            #+#    #+#             */
-/*   Updated: 2023/01/23 18:07:31 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/24 14:09:50 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char *argv[])
 	{
 		ft_putstr_fd("Error\n", 2);
 		if (argc == 2)
-			free(argv);
+			ft_free_argv(argv);
 		return (0);
 	}
 	stack_a = ft_create_stack(argc, argv);

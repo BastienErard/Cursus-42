@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:42:14 by berard            #+#    #+#             */
-/*   Updated: 2023/01/23 17:52:14 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/24 13:35:52 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_reverse_rotate_rrb(int *stack_b);
 void	ft_reverse_rotate_rrr(int *stack_a, int *stack_b);
 
 // Operations
+int		ft_correct_order(int *a);
 int		ft_operations(int *stack_a, int *stack_b);
 int		ft_operation_two(int *a);
 int		ft_operation_three(int *a);

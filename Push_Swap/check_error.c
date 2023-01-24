@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 13:39:35 by berard            #+#    #+#             */
-/*   Updated: 2023/01/17 15:43:46 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/24 15:04:15 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,19 @@
 
 int	ft_check_int(char *str)
 {
-	long	i;
+	long	nb;
 
-	i = ft_atol(str);
-	if (i > 2147483647 || i < -2147483648)
+	nb = ft_atol(str);
+	if (nb > 2147483647 || nb < -2147483648)
 		return (0);
 	return (1);
 }
 
 int	ft_check_sign(char *str)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		i++;
-		j++;
-	}
-	if (str[i] < '0' || str[i] > '9')
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(0);
-	}
-	return (j);
+	if (str[0] == '-' || str[0] == '+')
+		return (1);
+	return (0);
 }
 
 int	ft_check_error(int argc, char *argv[])
