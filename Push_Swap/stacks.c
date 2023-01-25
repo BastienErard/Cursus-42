@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 15:55:50 by berard            #+#    #+#             */
-/*   Updated: 2023/01/25 13:29:43 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/25 18:27:47 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	*ft_create_stack(int argc, char *argv[])
 		return (0);
 	while (argv[cstack.j])
 	{
-		stack[cstack.i] = ft_atoi(argv[cstack.j]);
+		stack[cstack.i] = ft_normal(argc, argv, argv[cstack.j], cstack.size);
 		cstack.j++;
 		cstack.i++;
 	}

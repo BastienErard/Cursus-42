@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 14:12:48 by berard            #+#    #+#             */
-/*   Updated: 2023/01/25 13:42:24 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/25 18:32:27 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,26 @@ int	ft_free_argv(char *argv[])
 	}
 	free(argv);
 	return (0);
+}
+
+int	ft_normal(int argc, char *argv[], char *str, int size)
+{
+	int	i;
+	int	bigger;
+	int	nb;
+
+	i = 1;
+	bigger = 0;
+	if (argc == 2)
+		i = 0;
+	while (argv[i])
+	{
+		if (ft_atoi(argv[i]) > ft_atoi(str))
+			bigger++;
+		i++;
+	}
+	nb = size - bigger;
+	return (nb);
 }
 
 int	ft_check_position(int *stack_a, int *stack_b)

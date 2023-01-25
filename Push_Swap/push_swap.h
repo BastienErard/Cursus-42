@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:42:14 by berard            #+#    #+#             */
-/*   Updated: 2023/01/25 13:42:27 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/25 18:26:22 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		ft_check_double(int argc, char *argv[]);
 // Alternative functions
 long	ft_atol(const char *str);
 int		ft_free_argv(char *argv[]);
+int		ft_normal(int argc, char *argv[], char *nb, int size);
 int		ft_check_position(int *stack_a, int *stack_b);
 
 // Stacks
