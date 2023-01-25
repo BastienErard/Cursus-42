@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:56:50 by berard            #+#    #+#             */
-/*   Updated: 2023/01/23 15:42:45 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/25 13:29:39 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_reverse_rotate_rra(int *stack_a)
 {
-	int	tmp;
 	int	i;
+	int	tmp;
 
 	i = 0;
 	while (stack_a[i])
@@ -33,8 +33,8 @@ void	ft_reverse_rotate_rra(int *stack_a)
 
 void	ft_reverse_rotate_rrb(int *stack_b)
 {
-	int	tmp;
 	int	i;
+	int	tmp;
 
 	i = 0;
 	while (stack_b[i])
@@ -52,8 +52,8 @@ void	ft_reverse_rotate_rrb(int *stack_b)
 
 void	ft_reverse_rotate_rrr(int *stack_a, int *stack_b)
 {
-	int	tmp;
 	int	i;
+	int	tmp;
 
 	i = 0;
 	while (stack_a[i])
@@ -65,7 +65,6 @@ void	ft_reverse_rotate_rrr(int *stack_a, int *stack_b)
 	i = 0;
 	while (stack_b[i])
 		i++;
-	i--;
 	tmp = stack_b[i - 1];
 	while (--i > 0)
 		stack_b[i] = stack_b[i - 1];

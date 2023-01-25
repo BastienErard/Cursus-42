@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 14:12:48 by berard            #+#    #+#             */
-/*   Updated: 2023/01/24 14:07:16 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:42:24 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ int	ft_check_position(int *stack_a, int *stack_b)
 
 	i = 0;
 	printf("1 stack : ");
-	while(stack_a[i])
+	while (stack_a[i])
 		printf(" %d ", stack_a[i++]);
 	printf("\n2 stack : ");
 	i = 0;
-	while(stack_b[i])
+	while (stack_b[i])
 		printf(" %d ", stack_b[i++]);
 	printf("\n");
 	return (0);

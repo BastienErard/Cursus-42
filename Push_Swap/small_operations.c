@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:48:32 by berard            #+#    #+#             */
-/*   Updated: 2023/01/24 14:06:13 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:29:42 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_correct_order(int *a)
 
 int	ft_operation_two(int *a)
 {
-	if (a[0] > a[1])
+	if (a[0] == 2)
 		ft_swap_sa(a);
 	return (0);
 }
