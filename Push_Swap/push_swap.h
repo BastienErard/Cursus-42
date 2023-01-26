@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:42:14 by berard            #+#    #+#             */
-/*   Updated: 2023/01/25 18:26:22 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/26 10:56:34 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ int		ft_operation_two(int *a);
 int		ft_operation_three(int *a);
 int		ft_operation_four(int *a, int *b);
 int		ft_operation_five(int *a, int *b);
+int		ft_operation_more(int *a, int *b);
 
 #endif

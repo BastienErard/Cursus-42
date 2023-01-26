@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:33:12 by berard            #+#    #+#             */
-/*   Updated: 2023/01/25 18:33:42 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/26 11:10:25 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ int	ft_operations(int *stack_a, int *stack_b)
 		ft_operation_four(stack_a, stack_b);
 	else if (size == 5)
 		ft_operation_five(stack_a, stack_b);
-	ft_check_position(stack_a, stack_b); // To delete
-	// else
-	// 	ft_operation_more(stack_a, stack_b);
+	else
+		ft_operation_more(stack_a, stack_b);
 	return (0);
 }
 

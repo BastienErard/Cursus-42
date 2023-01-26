@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 16:29:14 by berard            #+#    #+#              #
-#    Updated: 2023/01/20 17:57:26 by berard           ###   ########.fr        #
+#    Updated: 2023/01/26 10:57:27 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS	=		push_swap.c \
 				rotate.c \
 				reverse_rotate.c \
 				small_operations.c \
+				big_operations.c \
 
 OBJS	=		$(SRCS:.c=.o)
 
