@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 16:29:14 by berard            #+#    #+#              #
-#    Updated: 2023/01/26 10:57:27 by berard           ###   ########.fr        #
+#    Updated: 2023/01/27 10:48:24 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ RM		=		rm -f
 
 CFLAGS	=		-Wall -Wextra -Werror -g
 
-all: 			push_swap
+NAME	=		push_swap
+
+all: 			$(NAME)
 
 push_swap:		*.o Printf/libftprintf.a
 				$(CC) -o $@ $^
