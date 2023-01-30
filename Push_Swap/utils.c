@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 14:12:48 by berard            #+#    #+#             */
-/*   Updated: 2023/01/26 11:10:52 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/30 11:02:59 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,4 @@ int	ft_normal(int argc, char *argv[], char *str, int size)
 	}
 	nb = size - bigger;
 	return (nb);
-}
-
-int	ft_check_position(int *stack_a, int *stack_b)
-{
-	int	i;
-
-	i = 0;
-	printf("1 stack : ");
-	while (stack_a[i])
-		printf(" %d ", stack_a[i++]);
-	printf("\n2 stack : ");
-	i = 0;
-	while (stack_b[i])
-		printf(" %d ", stack_b[i++]);
-	printf("\n");
-	return (0);
 }

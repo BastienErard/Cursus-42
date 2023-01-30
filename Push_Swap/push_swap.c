@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:33:12 by berard            #+#    #+#             */
-/*   Updated: 2023/01/26 11:10:25 by berard           ###   ########.fr       */
+/*   Updated: 2023/01/30 11:02:52 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,3 @@ int	main(int argc, char *argv[])
 	free(stack_b);
 	return (0);
 }
-
-//Etape à suivre :
-// 1) Création des stacks (malloc, comptage des éléments, etc...)
-// 2) Verification des doublons
-// 3) Création des différents mouvements dans le projet
-// Quicksort? Radix sort? Median avec pivot? Insertion sort?
-// A priori, radix sort.
