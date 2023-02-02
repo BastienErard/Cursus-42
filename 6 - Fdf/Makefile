@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 16:29:14 by berard            #+#    #+#              #
-#    Updated: 2023/02/02 16:56:59 by berard           ###   ########.fr        #
+#    Updated: 2023/02/02 17:01:11 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ NAME	=		fdf
 all: 			$(NAME)
 
 fdf:			*.o libft/libft.a
-				*.o minilibx/libmlx.a
 				$(CC) -o $@ $^
 
 %.o: 			%.c
