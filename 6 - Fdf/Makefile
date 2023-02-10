@@ -3,44 +3,49 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
+#    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 16:29:14 by berard            #+#    #+#              #
-#    Updated: 2023/02/02 17:01:11 by berard           ###   ########.fr        #
+#    Updated: 2023/02/10 18:14:19 by tastybao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=		fdf.c \
+SRCS	=			fdf.c \
 
-OBJS	=		$(SRCS:.c=.o)
+OBJS	=			$(SRCS:.c=.o)
 
-CC		=		gcc
+CC		=			gcc
 
-RM		=		rm -f
+RM		=			rm -f
 
-CFLAGS	=		-Wall -Wextra -Werror -g
+CFLAGS	=			-Wall -Wextra -Werror -g
 
-NAME	=		fdf
+NAME	=			fdf
 
-all: 			$(NAME)
+all: 				$(NAME)
 
-fdf:			*.o libft/libft.a
-				$(CC) -o $@ $^
+%.o: 				%.c
+					$(CC) -c $(CFLAGS) $?
 
-%.o: 			%.c
-				$(CC) -c $(CFLAGS) $?
+${NAME}:			*.o libft/libft.a minilibx/libmlx.a
+					$(CC) -o $@ $^
 
 libft/libft.a:
-				@make -C libft
+					@make -C libft
+
+minilibx/libmlx.a:
+					@make -C minilibx
 
 clean:
-				${RM} $(OBJS)
-				@make -C libft clean
+					${RM} $(OBJS)
+					@make -C libft clean
+					@make -C minilibx clean
 
-fclean:			clean
-				${RM} fdf libft/libft.a
-				@make -C libft fclean
+fclean:				clean
+					${RM} fdf libft/libft.a
+					@make -C libft fclean
+					@make -C minilibx fclean
 
-re: 			fclean all
+re: 				fclean all
 
-.PHONY:			all  clean fclean re
+.PHONY:				all  clean fclean re
