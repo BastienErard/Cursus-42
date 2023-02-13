@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
+#    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 16:29:14 by berard            #+#    #+#              #
-#    Updated: 2023/02/10 18:14:19 by tastybao         ###   ########.fr        #
+#    Updated: 2023/02/13 11:24:49 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=			fdf.c \
 
-OBJS	=			$(SRCS:.c=.o)
+OBJS	=			$(SRCS:%.c=%.o)
 
 CC		=			gcc
 
@@ -25,10 +25,12 @@ NAME	=			fdf
 all: 				$(NAME)
 
 %.o: 				%.c
-					$(CC) -c $(CFLAGS) $?
+					${CC} ${CFLAGS} -Ilibft -I./minilibx -c $? -o $@
 
-${NAME}:			*.o libft/libft.a minilibx/libmlx.a
-					$(CC) -o $@ $^
+${NAME}:			${OBJS}
+					@make -C libft
+					@make -C minilibx
+					${CC} ${CFLAGS} $^ -Llibft -lft -L./minilibx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
 
 libft/libft.a:
 					@make -C libft
