@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2022/10/28 11:10:11 by berard            #+#    #+#             */
+/*   Updated: 2022/10/28 16:53:41 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_data	data;
+	size_t	i;
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
-	else
+	i = 0;
+	while (i < n)
 	{
-		ft_define_size(&data);
-		ft_check_size(&data);
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+		{
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		}
+		i++;
 	}
 	return (0);
 }

@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2022/11/01 16:27:26 by berard            #+#    #+#             */
+/*   Updated: 2022/11/01 17:15:42 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_data	data;
+	unsigned int	i;
+	char			*ptr;
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
-	else
+	i = 0;
+	ptr = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (ptr == 0)
 	{
-		ft_define_size(&data);
-		ft_check_size(&data);
+		return (NULL);
 	}
-	return (0);
+	while (s[i] != '\0')
+	{
+		ptr[i] = f(i, s[i]);
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }

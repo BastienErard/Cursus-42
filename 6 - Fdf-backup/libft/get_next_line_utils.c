@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2022/11/15 17:00:27 by berard            #+#    #+#             */
+/*   Updated: 2023/02/02 16:32:18 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strjoin_gnl(char const *s1, char const *s2)
 {
-	t_data	data;
+	char	*ptr;
+	int		i;
+	int		j;
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
-	else
+	i = -1;
+	j = 0;
+	ptr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (ptr == 0)
+		return (NULL);
+	while (s1[++i] != '\0')
+		ptr[i] = s1[i];
+	while (s2[j] != '\0')
 	{
-		ft_define_size(&data);
-		ft_check_size(&data);
+		ptr[i + j] = s2[j];
+		j++;
 	}
-	return (0);
+	ptr[i + j] = '\0';
+	free((char *)s1);
+	return (ptr);
 }

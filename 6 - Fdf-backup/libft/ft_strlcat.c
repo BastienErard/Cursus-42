@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2022/10/28 18:17:17 by berard            #+#    #+#             */
+/*   Updated: 2022/10/31 16:04:43 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	t_data	data;
+	size_t	i;
+	size_t	j;
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
-	else
+	i = 0;
+	j = 0;
+	while (dst[j] != '\0' && j < dstsize)
 	{
-		ft_define_size(&data);
-		ft_check_size(&data);
+		j++;
 	}
-	return (0);
+	while (src[i] != '\0' && i + j + 1 < dstsize)
+	{
+		dst[j + i] = src[i];
+		i++;
+	}
+	if (j != dstsize)
+	{
+	dst[j + i] = '\0';
+	}
+	return (j + ft_strlen(src));
 }

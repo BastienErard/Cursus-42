@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2022/10/31 16:04:53 by berard            #+#    #+#             */
+/*   Updated: 2022/10/31 17:43:42 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_data	data;
+	char	*ptr;
+	int		i;
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
-	else
+	i = 0;
+	if (ft_strlen(s) <= start)
 	{
-		ft_define_size(&data);
-		ft_check_size(&data);
+		len = 0;
 	}
-	return (0);
+	if (ft_strlen(s) - start < len)
+	{
+		len = ft_strlen(s) - start;
+	}
+	ptr = malloc(sizeof(char const) * (len + 1));
+	if (ptr == 0)
+	{
+		return (NULL);
+	}
+	while (len > 0)
+	{
+		ptr[i] = s[start + i];
+		i++;
+		len --;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }

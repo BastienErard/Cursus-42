@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2022/10/27 16:00:05 by berard            #+#    #+#             */
+/*   Updated: 2022/10/27 16:48:18 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	t_data	data;
+	size_t	i;
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
+	i = 0;
+	if (dst == (NULL) && src == (NULL))
+	{
+		return (0);
+	}
+	if (dst > src)
+	{
+		while (len > 0)
+		{
+			((unsigned char *)dst)[len - 1] = ((unsigned char *)src)[len - 1];
+			len --;
+		}
+	}
 	else
 	{
-		ft_define_size(&data);
-		ft_check_size(&data);
+		while (i < len)
+		{
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+			i++;
+		}
 	}
-	return (0);
+	return (dst);
 }

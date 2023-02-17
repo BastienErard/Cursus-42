@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_print_di.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2022/11/11 14:08:52 by berard            #+#    #+#             */
+/*   Updated: 2023/02/02 16:23:06 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+int	ft_print_di(int n)
 {
-	t_data	data;
+	char	*str;
+	int		len;
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
-	else
-	{
-		ft_define_size(&data);
-		ft_check_size(&data);
-	}
-	return (0);
+	str = ft_itoa(n);
+	ft_putstr_fd(str, 1);
+	len = ft_strlen(str);
+	free (str);
+	return (len);
 }

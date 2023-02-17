@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2022/10/28 11:31:39 by berard            #+#    #+#             */
+/*   Updated: 2022/11/02 09:35:48 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	t_data	data;
+	size_t	i;
+	size_t	j;
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
-	else
+	i = 0;
+	if (needle[0] == '\0')
 	{
-		ft_define_size(&data);
-		ft_check_size(&data);
+		return ((char *)haystack);
 	}
-	return (0);
+	while (haystack[i] != '\0' && i < len)
+	{
+		j = 0;
+		while (haystack[i + j] == needle[j] && i + j < len)
+		{
+			if (needle[j + 1] == '\0')
+			{
+				return ((char *)&haystack[i]);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
 }

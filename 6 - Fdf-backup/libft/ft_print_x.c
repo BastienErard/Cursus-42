@@ -1,30 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_print_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2022/11/12 16:21:02 by berard            #+#    #+#             */
+/*   Updated: 2023/02/02 16:23:01 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+static int	ft_countn_x(unsigned int n)
 {
-	t_data	data;
+	int	i;
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
+	i = 0;
+	if (n == 0)
+		return (1);
+	while (n != '\0')
+	{
+		n = n / 16;
+		i++;
+	}
+	return (i);
+}
+
+int	ft_print_x(unsigned int n)
+{
+	int	len;
+
+	len = 0;
+	if (n >= 16)
+	{
+		ft_print_x(n / 16);
+		ft_print_x(n % 16);
+	}
 	else
 	{
-		ft_define_size(&data);
-		ft_check_size(&data);
+		if (n <= 9)
+			ft_putchar_fd((n + '0'), 1);
+		else
+			ft_putchar_fd((n - 10 + 'a'), 1);
 	}
-	return (0);
+	len = ft_countn_x(n);
+	return (len);
 }

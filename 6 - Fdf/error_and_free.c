@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   error_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/17 16:47:34 by berard           ###   ########.fr       */
+/*   Created: 2023/02/17 11:36:19 by berard            #+#    #+#             */
+/*   Updated: 2023/02/17 16:37:28 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, char *argv[])
+void	ft_display_error(char *str)
 {
-	t_data	data;
+	ft_putstr_fd(str, 2);
+	exit(1);
+}
 
-	data.map_width = 0;
-	data.map_height = 0;
-	data.map_file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
-	else
+void	ft_free_tab(char *tab[])
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
 	{
-		ft_define_size(&data);
-		ft_check_size(&data);
+		free(tab[i]);
+		i++;
 	}
-	return (0);
+	free(tab);
 }
