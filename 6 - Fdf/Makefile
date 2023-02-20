@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 16:29:14 by berard            #+#    #+#              #
-#    Updated: 2023/02/17 16:54:05 by berard           ###   ########.fr        #
+#    Updated: 2023/02/20 17:09:03 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC		=			gcc
 
 RM		=			rm -f
 
-CFLAGS	=			-Wall -Wextra -Werror -g
+CFLAGS	=			-Wall -Wextra -Werror -g -w
 
 NAME	=			fdf
 

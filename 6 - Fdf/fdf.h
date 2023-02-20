@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/17 18:02:03 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:46:56 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,24 @@
 # define MLX_ERROR 1
 
 // Structures
+
+typedef struct s_map
+{
+	char	*file;
+	int		width;
+	int		height;
+	int		**parse;
+}	t_map;
+
 typedef struct s_data
 {
-	int		map_width;
-	int		map_height;
-	int		**tab_int;
-	char	*map_file;
+	int		fd;
+	char	*line;
+	char	**tab;
 	void	*mlx_ptr;
 	void	*win_ptr;
+	t_map	map;
+	t_img	img;
 }	t_data;
 
 typedef struct s_img
@@ -48,10 +58,12 @@ typedef struct s_img
 // Display error & free
 void	ft_display_error(char *str);
 void	ft_free_tab(char *tab[]);
+void	ft_free_parsing(t_data *data, int y);
+void	ft_free_map_parse(t_data *data);
 
 // Initialization
 void	ft_define_size(t_data *data);
-void	ft_check_size(t_data *data);
 void	ft_parsing(t_data *data);
+void	ft_parsing_bis(t_data *data, int y);
 
 #endif
