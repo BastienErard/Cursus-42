@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/20 17:46:56 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/21 18:03:32 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@
 
 // Structures
 
+typedef struct s_axis
+{
+	int		y;
+	int		x;
+	int		z;
+}	t_axis;
+
 typedef struct s_map
 {
 	char	*file;
@@ -34,17 +41,6 @@ typedef struct s_map
 	int		height;
 	int		**parse;
 }	t_map;
-
-typedef struct s_data
-{
-	int		fd;
-	char	*line;
-	char	**tab;
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_map	map;
-	t_img	img;
-}	t_data;
 
 typedef struct s_img
 {
@@ -55,6 +51,16 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+typedef struct s_data
+{
+	char	**tab;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_map	map;
+	t_img	img;
+	t_axis	*t_axis;
+}	t_data;
+
 // Display error & free
 void	ft_display_error(char *str);
 void	ft_free_tab(char *tab[]);
@@ -64,6 +70,9 @@ void	ft_free_map_parse(t_data *data);
 // Initialization
 void	ft_define_size(t_data *data);
 void	ft_parsing(t_data *data);
-void	ft_parsing_bis(t_data *data, int y);
+void	ft_parsing_bis(t_data *data, char *line, int y);
+
+// Convert
+void	ft_convert_three(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/20 16:26:47 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/21 17:38:07 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	main(int argc, char *argv[])
 	{
 		ft_define_size(&data);
 		ft_parsing(&data);
+		ft_convert_three(&data);
 	}
+	printf("Everything worked\n");
 	return (0);
 }

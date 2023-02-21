@@ -6,13 +6,14 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 16:29:14 by berard            #+#    #+#              #
-#    Updated: 2023/02/20 17:09:03 by berard           ###   ########.fr        #
+#    Updated: 2023/02/21 17:29:47 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=			fdf.c \
 					error_and_free.c \
 					initialization.c \
+					convert.c \
 
 OBJS	=			$(SRCS:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:36:19 by berard            #+#    #+#             */
-/*   Updated: 2023/02/20 17:40:17 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/21 16:05:28 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_free_parsing(t_data *data, int y)
 		free (data->map.parse[y]);
 		y--;
 	}
-	free (data->map.parse);
+	free(data->map.parse);
 	ft_display_error("Error during the parsing.\n");
 }
 
@@ -46,10 +46,10 @@ void	ft_free_map_parse(t_data *data)
 {
 	int	i;
 
-	i = data->map.width;
+	i = data->map.height - 1;
 	while (i >= 0)
 	{
-		free (data->map.parse[i]);
+		free(data->map.parse[i]);
 		i--;
 	}
 	free(data->map.parse);
