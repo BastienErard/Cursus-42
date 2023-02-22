@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:36:19 by berard            #+#    #+#             */
-/*   Updated: 2023/02/21 16:05:28 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/22 15:31:28 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_display_error(char *str)
 {
 	ft_putstr_fd(str, 2);
-	exit(0);
+	exit(1);
 }
 
 void	ft_free_tab(char *tab[])

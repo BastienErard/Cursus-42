@@ -6,35 +6,49 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:05:17 by berard            #+#    #+#             */
-/*   Updated: 2023/02/21 18:02:19 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/22 15:41:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_convert_three(t_data *data)
+void	ft_convert_fx(t_data *data, int x, int y, int i)
 {
-	int	y;
-	int	x;
+	data->t_point[i].fx = (x * cosf(data->alpha) + \
+							x * cosf(data->alpha + 2) + \
+							data->map.parse[y][x] * cosf(data->alpha - 2));
+}
+
+void	ft_convert_fy(t_data *data, int x, int y, int i)
+{
+	data->t_point[i].fy = (y * sinf(data->alpha) + \
+							x * sinf(data->alpha + 2) + \
+							data->map.parse[y][x] * sinf(data->alpha - 2));
+}
+
+void	ft_convert(t_data *data)
+{
 	int	i;
+	int	x;
+	int	y;
 
 	i = 0;
 	y = 0;
-	data->t_axis = malloc(sizeof(t_axis) * \
-						(data->map.height * data->map.width));
-	if (!data->t_axis)
+	data->t_point = malloc(sizeof(t_point) * \
+							(data->map.height * data->map.width));
+	if (!data->t_point)
 	{
 		ft_free_map_parse(data);
-		ft_display_error("Error with malloc during convert three.\n");
+		ft_display_error("Error with malloc during convert.\n");
 	}
 	while (y < data->map.height)
 	{
-		x = 0;
-		while (x < data->map.width)
+		x = -1;
+		while (++x < data->map.width)
 		{
-			data->t_axis[i] = ((t_axis){y, x, data->map.parse[y][x]});
+			ft_convert_fx(data, x, y, i);
+			ft_convert_fy(data, x, y, i);
 			i++;
-			x++;
 		}
 		y++;
 	}
