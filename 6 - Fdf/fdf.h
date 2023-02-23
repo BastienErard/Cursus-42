@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/23 16:26:41 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/23 20:44:14 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,5 @@ void	ft_initialization(t_data *data);
 // Draw
 void	ft_put_pixel(t_data *data, int x, int y, int color);
 void	ft_draw_background(t_data *data);
-
+void	ft_draw_line(t_data *data, float x0, float y0, float x1, float y1, int color);
 #endif
