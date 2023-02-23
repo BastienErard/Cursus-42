@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 16:29:14 by berard            #+#    #+#              #
-#    Updated: 2023/02/22 17:26:17 by berard           ###   ########.fr        #
+#    Updated: 2023/02/23 10:59:44 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRCS	=			fdf.c \
 					parsing.c \
 					convert.c \
 					graphic.c \
+					draw.c \
 
 OBJS	=			$(SRCS:%.c=%.o)
 

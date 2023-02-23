@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:36:19 by berard            #+#    #+#             */
-/*   Updated: 2023/02/22 18:07:08 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/23 13:06:56 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,17 @@ void	ft_free_mlx(t_data *data, int flag)
 		free(data->t_point);
 		ft_display_error("MLX_ERROR\n");
 	}
+	else if (flag == 2)
+	{
+		free(data->mlx_ptr);
+		free(data->t_point);
+		ft_display_error("MLX ERROR.\n");
+	}
 	else
 	{
 		free(data->mlx_ptr);
 		free(data->t_point);
+		free(data->win_ptr);
 		ft_display_error("MLX ERROR.\n");
 	}
 }

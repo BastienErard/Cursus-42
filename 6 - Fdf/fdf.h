@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/22 18:14:44 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/23 16:26:41 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # define PIXEL_GREEN 0xff00
 
 // Structures
-
 typedef struct s_point
 {
 	float	fy;
@@ -84,5 +83,9 @@ void	ft_convert_fy(t_data *data, int x, int y, int i);
 
 // Graphic
 void	ft_initialization(t_data *data);
+
+// Draw
+void	ft_put_pixel(t_data *data, int x, int y, int color);
+void	ft_draw_background(t_data *data);
 
 #endif
