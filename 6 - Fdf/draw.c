@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:50:00 by berard            #+#    #+#             */
-/*   Updated: 2023/02/23 22:43:03 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/02/24 13:36:09 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,35 +42,55 @@ void	ft_draw_background(t_data *data)
 	}
 }
 
-void	ft_draw_line(t_data *data, float x0, float y0, float x1, float y1, int color)
+void	ft_line(t_data *data, int start, int end, int color)
 {
-	float	delta_x;
-	float	delta_y;
-	float	pixel_x;
-	float	pixel_y;
-	float	step;
-	// int		pixels;
-	int		i;
+	double	delta_x;
+	double	delta_y;
+	double	pixels_x;
+	double	pixels_y;
+	int		pixels;
 
-	delta_x = x1 - x0;
-	delta_y = y1 - y0;
-	// pixels = sqrt((delta_x * delta_x) + (delta_y * delta_y));
-	if (fabsf(delta_x) >= fabsf(delta_y))
-		step = fabsf(delta_x);
-	else
-		step = fabsf(delta_y);
-	// delta_x /= pixels;
-	// delta_y /= pixels;
-	delta_x = delta_x / step;
-	delta_y = delta_y / step;
-	pixel_x = x0;
-	pixel_y = y0;
-	while (i < step)
+	delta_x = data->t_point[end].fx - data->t_point[start].fx;
+	delta_y = data->t_point[end].fy - data->t_point[start].fy;
+	pixels = sqrt((delta_x * delta_x) + (delta_y * delta_y));
+	delta_x /= pixels;
+	delta_y /= pixels;
+	pixels_x = data->t_point[start].fx;
+	pixels_y = data->t_point[start].fy;
+	while (pixels)
 	{
-		ft_put_pixel(data, pixel_x + WIN_WIDTH / 2, pixel_y + WIN_HEIGHT / 2, color);
-		pixel_x += delta_x;
-		pixel_y += delta_y;
-		// pixels--;
-		i++;
+		ft_put_pixel(data, -pixels_x + WIN_WIDTH / 2, -pixels_y + WIN_HEIGHT / 2, color);
+		pixels_x += delta_x;
+		pixels_y += delta_y;
+		pixels--;
 	}
+}
+
+void	ft_connect(t_data *data)
+{
+	int	i;
+	int	height;
+	int	width;
+
+	i = 0;
+	height = 0;
+	while (height < data->map.height)
+	{
+		width = -1;
+		while (++width < data->map.width)
+		{
+			if (height < data->map.height - 1 && width < data->map.width - 1)
+			{
+				ft_line(data, i, i + 1, PIXEL_RED);
+				ft_line(data, i, i + data->map.width, PIXEL_RED);
+			}
+			else if (height == data->map.height - 1 && width < data->map.width - 1)
+				ft_line(data, i, i + 1, PIXEL_RED);
+			else if (height < data->map.height - 1 && width == data->map.width - 1)
+				ft_line(data, i, i + data->map.width, PIXEL_RED);
+			i++;
+		}
+		height++;
+	}
+	free(data->t_point);
 }

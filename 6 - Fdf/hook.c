@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/24 13:31:25 by berard           ###   ########.fr       */
+/*   Created: 2023/02/24 13:40:30 by berard            #+#    #+#             */
+/*   Updated: 2023/02/24 14:15:29 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_struct_value(t_data *data)
+int		ft_shutdown(t_data *data, int keycode)
 {
-	data->alpha = 20;
-	data->size = 25;
-	data->map.width = 0;
-	data->map.height = 0;
+	if (keycode == 53)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		ft_free_map_parse(data);
+		return (0);
+	}
+	return (0);
 }
 
-int	main(int argc, char *argv[])
+void	ft_instructions(t_data *data)
 {
-	t_data	data;
-
-	data.map.file = argv[1];
-	if (argc != 2)
-		ft_display_error("Only one argument expected (correct map path).\n");
-	ft_struct_value(&data);
-	ft_define_size(&data);
-	ft_parsing(&data);
-	ft_convert(&data);
-	ft_initialization(&data);
-	return (0);
+	mlx_key_hook(data->win_ptr, 17, 0, ft_shutdown, data);
+	// mlx_mouse_hook(data->win_ptr, ft_mouse, data);
+	// mlx_key_hook(data->win_ptr, ft_keyboard, data);
 }

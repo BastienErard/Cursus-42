@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:05:17 by berard            #+#    #+#             */
-/*   Updated: 2023/02/23 13:06:52 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/24 13:33:56 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_convert_fy(t_data *data, int x, int y, int i)
 	data->t_point[i].fy = (y * sinf(data->alpha) + \
 							x * sinf(data->alpha + 2) + \
 							data->map.parse[y][x] * sinf(data->alpha - 2));
-	data->t_point[i].fy *= data->size;
+	data->t_point[i].fy *= -data->size;
 }
 
 void	ft_convert(t_data *data)
@@ -54,5 +54,5 @@ void	ft_convert(t_data *data)
 		}
 		y++;
 	}
-	ft_free_map_parse(data);
+	// ft_free_map_parse(data);
 }

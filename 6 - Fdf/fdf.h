@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/23 20:44:14 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:15:03 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,16 @@ void	ft_convert_fy(t_data *data, int x, int y, int i);
 
 // Graphic
 void	ft_initialization(t_data *data);
+void	ft_render(t_data *data);
 
 // Draw
 void	ft_put_pixel(t_data *data, int x, int y, int color);
 void	ft_draw_background(t_data *data);
-void	ft_draw_line(t_data *data, float x0, float y0, float x1, float y1, int color);
+void	ft_connect(t_data *data);
+void	ft_line(t_data *data, int start, int end, int color);
+
+// hook
+void	ft_instructions(t_data *data);
+int		ft_shutdown(t_data *data, int keycode);
+
 #endif
