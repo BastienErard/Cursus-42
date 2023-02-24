@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:50:00 by berard            #+#    #+#             */
-/*   Updated: 2023/02/24 13:36:09 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/24 15:40:33 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_line(t_data *data, int start, int end, int color)
 	pixels_y = data->t_point[start].fy;
 	while (pixels)
 	{
-		ft_put_pixel(data, -pixels_x + WIN_WIDTH / 2, -pixels_y + WIN_HEIGHT / 2, color);
+		ft_put_pixel(data, -pixels_x + WIN_WIDTH / 2 + data->key.horizontal, -pixels_y + WIN_HEIGHT / 2 + data->key.vertical, color);
 		pixels_x += delta_x;
 		pixels_y += delta_y;
 		pixels--;

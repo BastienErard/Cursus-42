@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/24 13:31:25 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/24 15:57:42 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void	ft_struct_value(t_data *data)
 	data->size = 25;
 	data->map.width = 0;
 	data->map.height = 0;
+	data->key.horizontal = 0;
+	data->key.vertical = 0;
+	data->key.altitude = 1;
 }
 
 int	main(int argc, char *argv[])

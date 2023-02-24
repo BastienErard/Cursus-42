@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/24 14:15:03 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/24 15:58:14 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,18 @@
 # define PIXEL_RED 0xff0000
 # define PIXEL_AZURE 0xf0ffff
 # define PIXEL_GREEN 0xff00
+# define MOVE 5
+# define ALTITUDE 1
 
 // Structures
+
+typedef struct s_key
+{
+	int		horizontal;
+	int		vertical;
+	int		altitude;
+} 	t_key;
+
 typedef struct s_point
 {
 	float	fy;
@@ -59,6 +69,7 @@ typedef struct s_data
 	t_map	map;
 	t_img	img;
 	t_point	*t_point;
+	t_key	key
 }	t_data;
 
 // Main
@@ -93,6 +104,7 @@ void	ft_line(t_data *data, int start, int end, int color);
 
 // hook
 void	ft_instructions(t_data *data);
-int		ft_shutdown(t_data *data, int keycode);
+void	ft_keyboard(int keycode, t_data *data);
+void	ft_shutdown(t_data *data);
 
 #endif
