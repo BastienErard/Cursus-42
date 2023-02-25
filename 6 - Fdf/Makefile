@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
+#    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 16:29:14 by berard            #+#    #+#              #
-#    Updated: 2023/02/24 13:40:15 by berard           ###   ########.fr        #
+#    Updated: 2023/02/25 19:17:43 by tastybao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS	=			fdf.c \
 					graphic.c \
 					draw.c \
 					hook.c \
+					# colors.c \ Que faire?
 
 OBJS	=			$(SRCS:%.c=%.o)
 

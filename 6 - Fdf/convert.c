@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:05:17 by berard            #+#    #+#             */
-/*   Updated: 2023/02/24 15:56:32 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/25 19:46:12 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_convert_fx(t_data *data, int x, int y, int i)
 {
 	data->t_point[i].fx = (x * cosf(data->alpha) + \
 							x * cosf(data->alpha + 2) + \
-							-data->map.parse[y][x] * cosf(data->alpha - 2));
+							-data->map.parse[y][x] * data->key.altitude * cosf(data->alpha - 2)); // A voir le / 5
 	data->t_point[i].fx *= data->size;
 }
 
@@ -24,7 +24,7 @@ void	ft_convert_fy(t_data *data, int x, int y, int i)
 {
 	data->t_point[i].fy = (y * sinf(data->alpha) + \
 							x * sinf(data->alpha + 2) + \
-							-data->map.parse[y][x] * data->key.altitude * sinf(data->alpha - 2));
+							-data->map.parse[y][x] * data->key.altitude * sinf(data->alpha - 2)); // A voir le / 5
 	data->t_point[i].fy *= -data->size;
 }
 

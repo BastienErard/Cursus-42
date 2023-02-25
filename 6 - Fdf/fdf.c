@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/24 15:57:42 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/25 19:39:21 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_struct_value(t_data *data)
 {
-	data->alpha = 20;
-	data->size = 25;
 	data->map.width = 0;
 	data->map.height = 0;
+	data->alpha = 19.8;
+	data->size = 40;
 	data->key.horizontal = 0;
 	data->key.vertical = 0;
 	data->key.altitude = 1;
@@ -33,7 +33,6 @@ int	main(int argc, char *argv[])
 	ft_struct_value(&data);
 	ft_define_size(&data);
 	ft_parsing(&data);
-	ft_convert(&data);
 	ft_initialization(&data);
 	return (0);
 }

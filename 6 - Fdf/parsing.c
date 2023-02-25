@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:01:59 by berard            #+#    #+#             */
-/*   Updated: 2023/02/24 13:31:57 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/25 19:36:35 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	ft_parsing_bis(t_data *data, char *line, int y)
 void	ft_parsing(t_data *data)
 {
 	int		fd;
-	char	*line;
 	int		y;
+	char	*line;
 
 	y = 0;
 	fd = open(data->map.file, O_RDONLY);

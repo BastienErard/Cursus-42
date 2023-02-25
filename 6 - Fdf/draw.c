@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:50:00 by berard            #+#    #+#             */
-/*   Updated: 2023/02/24 15:40:33 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/25 19:18:24 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void	ft_connect(t_data *data)
 				ft_line(data, i, i + data->map.width, PIXEL_RED);
 			}
 			else if (height == data->map.height - 1 && width < data->map.width - 1)
-				ft_line(data, i, i + 1, PIXEL_RED);
+				ft_line(data, i, i + 1, PIXEL_RED); // remplacement par colors? A voir...
 			else if (height < data->map.height - 1 && width == data->map.width - 1)
-				ft_line(data, i, i + data->map.width, PIXEL_RED);
+				ft_line(data, i, i + data->map.width, PIXEL_RED); // remplacement par colors? A voir...
 			i++;
 		}
 		height++;
