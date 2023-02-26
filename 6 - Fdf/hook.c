@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:40:30 by berard            #+#    #+#             */
-/*   Updated: 2023/02/25 19:00:16 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:56:58 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_shutdown(t_data *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	// free(data->mlx_ptr); A tester
+	free(data->mlx_ptr); // A tester
 	ft_free_map_parse(data);
 	exit (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/25 19:17:40 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:10:33 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define PIXEL_GREEN 0xff00
 # define PIXEL_GOLD 0xffd700
 # define PIXEL_PINK 0xffc0cb
-# define MOVE 5
-# define ALTITUDE 1
+# define MOVE 25
+# define ALTITUDE 0.1
 # define ROTATE 0.1
 # define ZOOM 1
 
@@ -37,7 +37,7 @@ typedef struct s_key
 {
 	int		horizontal;
 	int		vertical;
-	int		altitude;
+	float	altitude;
 } 	t_key;
 
 typedef struct s_point
