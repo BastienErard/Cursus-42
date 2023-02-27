@@ -6,12 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:05:17 by berard            #+#    #+#             */
-/*   Updated: 2023/02/27 17:54:36 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 18:40:15 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*	Math formula to convert 3D points to 2D points to draw a perspective map.*/
 void	ft_convert_fx(t_data *data, int x, int y, int i)
 {
 	data->t_point[i].fx = (x * cosf(data->alpha) + \
@@ -30,7 +31,7 @@ void	ft_convert_fy(t_data *data, int x, int y, int i)
 	data->t_point[i].fy *= -data->size;
 }
 
-/*	Convert the X, Y and Z with the above formula.*/
+/*	Convert the X, Y and Z with the above formula inside a structure. */
 void	ft_convert(t_data *data)
 {
 	int	i;

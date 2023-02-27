@@ -6,19 +6,24 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:26:05 by berard            #+#    #+#             */
-/*   Updated: 2023/02/27 11:36:38 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 18:40:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*	Initializes the various graphic elements */
 void	ft_initialization(t_data *data)
 {
 	data->mlx_ptr = mlx_init();
 	if (data->mlx_ptr == NULL)
 		ft_free_mlx(data, 1);
 	data->win_ptr = mlx_new_window(data->mlx_ptr, \
-							WIN_WIDTH, WIN_HEIGHT, "Fil de fer mon ami!");
+							WIN_WIDTH, WIN_HEIGHT, "Fil de fer mon ami! \
+							MOVE = awsd \
+							| ZOOM = zx \
+							| ROTATE = rt \
+							| ALTITUDE = ul");
 	if (data->win_ptr == NULL)
 		ft_free_mlx(data, 2);
 	data->img.mlx_img = mlx_new_image(data->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
@@ -31,6 +36,7 @@ void	ft_initialization(t_data *data)
 	mlx_loop(data->mlx_ptr);
 }
 
+/*	Function called in the mlx_loop_hook */
 void	ft_render(t_data *data)
 {
 	ft_draw_background(data);

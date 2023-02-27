@@ -6,12 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:40:30 by berard            #+#    #+#             */
-/*   Updated: 2023/02/27 14:52:19 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 18:40:17 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*	Function used when the window is closed. */
 void	ft_shutdown(t_data *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
@@ -19,6 +20,7 @@ void	ft_shutdown(t_data *data)
 	exit (0);
 }
 
+/*	Different actions that can be performed with the keyboard. */
 void	ft_keyboard(int keycode, t_data *data)
 {
 	if (keycode == 53)
@@ -45,6 +47,7 @@ void	ft_keyboard(int keycode, t_data *data)
 		data->size -= ZOOM;
 }
 
+/*	Different actions that can be performed with the mouse. */
 void	ft_mouse(int button, int x, int y, t_data *data)
 {
 	(void) x;
@@ -59,6 +62,7 @@ void	ft_mouse(int button, int x, int y, t_data *data)
 		data->key.background -= 1;
 }
 
+/*	The various possible actions described above. */
 void	ft_instructions(t_data *data)
 {
 	mlx_key_hook(data->win_ptr, ft_keyboard, data);
