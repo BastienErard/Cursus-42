@@ -6,12 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:50:00 by berard            #+#    #+#             */
-/*   Updated: 2023/02/27 14:43:02 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 18:40:05 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*	Draw pixel by pixel with a formula to get the right position. */
 void	ft_put_pixel(t_data *data, int x, int y, int color)
 {
 	char	*pxl;
@@ -24,32 +25,30 @@ void	ft_put_pixel(t_data *data, int x, int y, int color)
 	}
 }
 
+/*	Draw the background. The color is defined by an other function. */
 void	ft_draw_background(t_data *data)
 {
 	int	width;
 	int	height;
 	int	color;
 
-	height = 0;
+	height = -1;
 	color = ft_color_background(data);
-	while (height < WIN_HEIGHT)
+	while (++height < WIN_HEIGHT)
 	{
-		width = 0;
-		while (width < WIN_WIDTH)
-		{
+		width = -1;
+		while (++width < WIN_WIDTH)
 			ft_put_pixel(data, width, height, color);
-			width++;
-		}
-		height++;
 	}
 }
 
+/*	Function used to draw between two points. */
 void	ft_line(t_data *data, int start, int end, int color)
 {
-	double	delta_x;
-	double	delta_y;
-	double	pixels_x;
-	double	pixels_y;
+	float	delta_x;
+	float	delta_y;
+	float	pixels_x;
+	float	pixels_y;
 	int		pixels;
 
 	delta_x = data->t_point[end].fx - data->t_point[start].fx;
@@ -69,6 +68,7 @@ void	ft_line(t_data *data, int start, int end, int color)
 	}
 }
 
+/*	Function used to define which points need to be connected. */
 void	ft_connect(t_data *data)
 {
 	int	i;

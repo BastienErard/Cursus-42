@@ -6,12 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:05:50 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/27 14:38:09 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 18:40:05 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*	Function used to define the colors of the lines. */
 int	ft_colors(t_data *data, int x, int y)
 {
 	int	color;
@@ -31,6 +32,7 @@ int	ft_colors(t_data *data, int x, int y)
 	return (color);
 }
 
+/*	Function used to define the colors of the background. */
 int	ft_color_background(t_data *data)
 {
 	if (data->key.background == 0)

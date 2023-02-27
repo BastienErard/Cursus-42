@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/27 17:18:48 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 18:40:05 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,14 @@ void	ft_draw_background(t_data *data);
 void	ft_connect(t_data *data);
 void	ft_line(t_data *data, int start, int end, int color);
 
-// hook
+// Hook
 void	ft_instructions(t_data *data);
 void	ft_keyboard(int keycode, t_data *data);
 void	ft_shutdown(t_data *data);
 void	ft_mouse(int button, int x, int y, t_data *data);
 
-// colors
+// Colors
 int		ft_colors(t_data *data, int x, int y); // A verifier
 int		ft_color_background(t_data *data);
+
 #endif
