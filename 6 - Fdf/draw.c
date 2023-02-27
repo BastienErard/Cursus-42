@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:50:00 by berard            #+#    #+#             */
-/*   Updated: 2023/02/26 19:08:38 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:43:02 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ void	ft_draw_background(t_data *data)
 {
 	int	width;
 	int	height;
+	int	color;
 
 	height = 0;
+	color = ft_color_background(data);
 	while (height < WIN_HEIGHT)
 	{
 		width = 0;
 		while (width < WIN_WIDTH)
 		{
-			ft_put_pixel(data, width, height, PIXEL_AZURE);
+			ft_put_pixel(data, width, height, color);
 			width++;
 		}
 		height++;
@@ -59,7 +61,8 @@ void	ft_line(t_data *data, int start, int end, int color)
 	pixels_y = data->t_point[start].fy;
 	while (pixels)
 	{
-		ft_put_pixel(data, -pixels_x + WIN_WIDTH / 2 + data->key.horizontal, -pixels_y + WIN_HEIGHT / 2 + data->key.vertical, color);
+		ft_put_pixel(data, -pixels_x + WIN_WIDTH / 3 + data->key.horizontal, \
+					-pixels_y + WIN_HEIGHT / 3 + data->key.vertical, color);
 		pixels_x += delta_x;
 		pixels_y += delta_y;
 		pixels--;
@@ -69,28 +72,27 @@ void	ft_line(t_data *data, int start, int end, int color)
 void	ft_connect(t_data *data)
 {
 	int	i;
-	int	height;
-	int	width;
+	int	h;
+	int	w;
 
 	i = 0;
-	height = 0;
-	while (height < data->map.height)
+	h = -1;
+	while (++h < data->map.height)
 	{
-		width = -1;
-		while (++width < data->map.width)
+		w = -1;
+		while (++w < data->map.width)
 		{
-			if (height < data->map.height - 1 && width < data->map.width - 1)
+			if (h < data->map.height - 1 && w < data->map.width - 1)
 			{
-				ft_line(data, i, i + 1, PIXEL_RED);
-				ft_line(data, i, i + data->map.width, PIXEL_RED);
+				ft_line(data, i, i + 1, ft_colors(data, w, h));
+				ft_line(data, i, i + data->map.width, ft_colors(data, w, h));
 			}
-			else if (height == data->map.height - 1 && width < data->map.width - 1)
-				ft_line(data, i, i + 1, PIXEL_RED); // remplacement par colors? A voir...
-			else if (height < data->map.height - 1 && width == data->map.width - 1)
-				ft_line(data, i, i + data->map.width, PIXEL_RED); // remplacement par colors? A voir...
+			else if (h == data->map.height - 1 && w < data->map.width - 1)
+				ft_line(data, i, i + 1, ft_colors(data, w, h));
+			else if (h < data->map.height - 1 && w == data->map.width - 1)
+				ft_line(data, i, i + data->map.width, ft_colors(data, w, h));
 			i++;
 		}
-		height++;
 	}
 	free(data->t_point);
 }

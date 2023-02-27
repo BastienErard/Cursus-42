@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/26 19:10:33 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:37:01 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,16 @@
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define PIXEL_BLACK 0x0
-# define PIXEL_RED 0xff0000
+# define PIXEL_RED 0xffff
 # define PIXEL_AZURE 0xf0ffff
 # define PIXEL_GREEN 0xff00
 # define PIXEL_GOLD 0xffd700
 # define PIXEL_PINK 0xffc0cb
+# define PIXEL_PURPLE 0xa020f0
+# define PIXEL_SEASHELL 0xfff5ee
+# define PIXEL_BISQUE 0xffe4c4
+# define PIXEL_MISTYROSE 0xffe4e1
+# define PIXEL_HONEY 0xf0fff0
 # define MOVE 25
 # define ALTITUDE 0.1
 # define ROTATE 0.1
@@ -38,6 +43,8 @@ typedef struct s_key
 	int		horizontal;
 	int		vertical;
 	float	altitude;
+	float	test;
+	int		background;
 } 	t_key;
 
 typedef struct s_point
@@ -113,5 +120,6 @@ void	ft_shutdown(t_data *data);
 void	ft_mouse(int button, int x, int y, t_data *data);
 
 // colors
-// int		ft_colors(t_data *data, int color); A verifier
+int		ft_colors(t_data *data, int x, int y); // A verifier
+int		ft_color_background(t_data *data);
 #endif

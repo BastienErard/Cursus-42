@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:36:19 by berard            #+#    #+#             */
-/*   Updated: 2023/02/26 18:46:50 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:43:44 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,19 @@ void	ft_free_mlx(t_data *data, int flag)
 {
 	if (flag == 1)
 	{
-		free(data->t_point); // A voir, convert n a pas encore ete appele
+		free(data->t_point);
 		ft_display_error("MLX_ERROR\n");
 	}
 	else if (flag == 2)
 	{
 		free(data->mlx_ptr);
-		free(data->t_point); // A voir, convert n a pas encore ete appele
+		free(data->t_point);
 		ft_display_error("MLX ERROR.\n");
 	}
 	else
 	{
 		free(data->mlx_ptr);
-		free(data->t_point); // A voir, convert n a pas encore ete appele
+		free(data->t_point);
 		free(data->win_ptr);
 		ft_display_error("MLX ERROR.\n");
 	}

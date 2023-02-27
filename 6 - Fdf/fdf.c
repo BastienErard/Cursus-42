@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/26 19:07:36 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:43:43 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_struct_value(t_data *data)
 	data->key.horizontal = 0;
 	data->key.vertical = 0;
 	data->key.altitude = 1;
+	data->key.background = 0;
 }
 
 int	main(int argc, char *argv[])
@@ -30,9 +31,9 @@ int	main(int argc, char *argv[])
 	data.map.file = argv[1];
 	if (argc != 2)
 		ft_display_error("Only one argument expected (correct map path).\n");
-	ft_struct_value(&data); // OK
-	ft_define_size(&data); // OK
-	ft_parsing(&data); // OK
+	ft_struct_value(&data);
+	ft_define_size(&data);
+	ft_parsing(&data);
 	ft_initialization(&data);
 	return (0);
 }
