@@ -6,12 +6,14 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:01:59 by berard            #+#    #+#             */
-/*   Updated: 2023/02/27 11:36:40 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 17:52:27 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*	Define the size of the map (height / width).
+	Check the error cases */
 void	ft_define_size(t_data *data)
 {
 	int		fd;
@@ -41,40 +43,40 @@ void	ft_define_size(t_data *data)
 	close (fd);
 }
 
+/*	Continuation of previous function.
+	Parsing to save the value of Z regarding the height and width */
 void	ft_parsing_bis(t_data *data, char *line, int y)
 {
 	int	x;
 
-	x = 0;
+	x = -1;
 	data->tab = ft_split(line, ' ');
 	if (!data->tab)
 	{
 		free(line);
 		ft_free_parsing(data, y);
 	}
-	while (x < data->map.width)
-	{
+	while (++x < data->map.width)
 		data->map.parse[y][x] = ft_atoi(data->tab[x]);
-		x++;
-	}
 	ft_free_tab(data->tab);
 	free(line);
 }
 
+/*	Parsing to save the value of Z regarding the height and width */
 void	ft_parsing(t_data *data)
 {
 	int		fd;
 	int		y;
 	char	*line;
 
-	y = 0;
+	y = -1;
 	fd = open(data->map.file, O_RDONLY);
 	if (fd < 0)
 		ft_display_error("The file cannot be opened.\n");
 	data->map.parse = malloc(sizeof(int *) * data->map.height);
 	if (!data->map.parse)
 		ft_display_error("Error with malloc during the parsing.\n");
-	while (y < data->map.height)
+	while (++y < data->map.height)
 	{
 		data->map.parse[y] = malloc(sizeof(int) * data->map.width);
 		if (!data->map.parse[y])
@@ -83,7 +85,6 @@ void	ft_parsing(t_data *data)
 		if (!line)
 			ft_free_parsing(data, y);
 		ft_parsing_bis(data, line, y);
-		y++;
 	}
 	close (fd);
 }

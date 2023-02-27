@@ -6,12 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:25:33 by berard            #+#    #+#             */
-/*   Updated: 2023/02/27 14:43:43 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 17:42:52 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*	Initialise values of variables contained in structures */
 void	ft_struct_value(t_data *data)
 {
 	data->map.width = 0;
@@ -24,6 +25,7 @@ void	ft_struct_value(t_data *data)
 	data->key.background = 0;
 }
 
+/*	Main deliberately minimalist */
 int	main(int argc, char *argv[])
 {
 	t_data	data;

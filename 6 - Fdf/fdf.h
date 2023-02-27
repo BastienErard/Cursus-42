@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/27 14:37:01 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 17:18:48 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,8 @@ typedef struct s_key
 {
 	int		horizontal;
 	int		vertical;
-	float	altitude;
-	float	test;
 	int		background;
+	float	altitude;
 } 	t_key;
 
 typedef struct s_point

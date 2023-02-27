@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:05:17 by berard            #+#    #+#             */
-/*   Updated: 2023/02/27 14:38:45 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/27 17:54:36 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_convert_fy(t_data *data, int x, int y, int i)
 	data->t_point[i].fy *= -data->size;
 }
 
+/*	Convert the X, Y and Z with the above formula.*/
 void	ft_convert(t_data *data)
 {
 	int	i;
@@ -37,7 +38,7 @@ void	ft_convert(t_data *data)
 	int	y;
 
 	i = 0;
-	y = 0;
+	y = -1;
 	data->t_point = malloc(sizeof(t_point) * \
 							(data->map.height * data->map.width));
 	if (!data->t_point)
@@ -45,7 +46,7 @@ void	ft_convert(t_data *data)
 		ft_free_map_parse(data);
 		ft_display_error("Error with malloc during convert.\n");
 	}
-	while (y < data->map.height)
+	while (++y < data->map.height)
 	{
 		x = -1;
 		while (++x < data->map.width)
@@ -54,6 +55,5 @@ void	ft_convert(t_data *data)
 			ft_convert_fy(data, x, y, i);
 			i++;
 		}
-		y++;
 	}
 }
