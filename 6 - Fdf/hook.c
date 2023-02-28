@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:40:30 by berard            #+#    #+#             */
-/*   Updated: 2023/02/27 18:40:17 by berard           ###   ########.fr       */
+/*   Updated: 2023/02/28 18:22:39 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_keyboard(int keycode, t_data *data)
 		data->alpha -= ROTATE;
 	else if (keycode == 6)
 		data->size += ZOOM;
-	else if (keycode == 7)
+	else if (keycode == 7 && data->size > 5)
 		data->size -= ZOOM;
 }
 
@@ -54,7 +54,7 @@ void	ft_mouse(int button, int x, int y, t_data *data)
 	(void) y;
 	if (button == 4)
 		data->size += ZOOM;
-	else if (button == 5)
+	else if (button == 5 && data->size > 5)
 		data->size -= ZOOM;
 	else if (button == 1)
 		data->key.background += 1;
