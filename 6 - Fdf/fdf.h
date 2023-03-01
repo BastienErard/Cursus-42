@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/02/27 18:40:05 by berard           ###   ########.fr       */
+/*   Updated: 2023/03/01 11:22:54 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_key
 	int		vertical;
 	int		background;
 	float	altitude;
-} 	t_key;
+}	t_key;
 
 typedef struct s_point
 {
@@ -69,8 +69,7 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_data
-{
+typedef struct s_data {
 	float	alpha;
 	int		size;
 	char	**tab;
@@ -79,10 +78,10 @@ typedef struct s_data
 	t_map	map;
 	t_img	img;
 	t_point	*t_point;
-	t_key	key
+	t_key	key;
 }	t_data;
 
-// Main
+/* Main */
 void	ft_struct_value(t_data *data);
 
 // Display error & free
@@ -119,7 +118,7 @@ void	ft_shutdown(t_data *data);
 void	ft_mouse(int button, int x, int y, t_data *data);
 
 // Colors
-int		ft_colors(t_data *data, int x, int y); // A verifier
+int		ft_colors(t_data *data, int x, int y);
 int		ft_color_background(t_data *data);
 
 #endif
