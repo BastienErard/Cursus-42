@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:00:31 by berard            #+#    #+#             */
-/*   Updated: 2023/02/01 15:02:22 by berard           ###   ########.fr       */
+/*   Updated: 2023/04/18 20:02:19 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+/* Stores the excess in the stash for the next reading.*/
 static char	*ft_new_stash(char *stash)
 {
 	char	*str;
@@ -40,6 +41,7 @@ static char	*ft_new_stash(char *stash)
 	return (str);
 }
 
+/* Return the line cleaned of excess */
 static char	*ft_extract_line(char *stash)
 {
 	char	*line;
@@ -66,6 +68,8 @@ static char	*ft_extract_line(char *stash)
 	return (line);
 }
 
+/* reads BUFFER_SIZE elements and adds them to a buffer.
+Return the stash to be managed next. */
 static char	*ft_fill_stash(int fd, char *stash)
 {
 	char	*buffy;
@@ -90,6 +94,20 @@ static char	*ft_fill_stash(int fd, char *stash)
 	return (stash);
 }
 
+/*
+Reads a line from a file descriptor.
+@param fd The file descriptor to read from.
+@return On success, the function returns a
+pointer to the line read. On
+error, the function returns NULL.
+The function reads the file descriptor and
+returns a line of text, delimited by
+'\n'. It uses a static linked list to store
+the data read from the file descriptor
+between successive calls. The function returns
+NULL if an error occurs or if the
+end of file is reached.
+*/
 char	*get_next_line(int fd)
 {
 	static char	*stash;

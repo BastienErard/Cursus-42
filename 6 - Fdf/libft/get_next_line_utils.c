@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:00:27 by berard            #+#    #+#             */
-/*   Updated: 2023/02/02 16:32:18 by berard           ###   ########.fr       */
+/*   Updated: 2023/04/18 19:57:58 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Modification to the original strjoin to handle s1 which is malloc. */
 char	*ft_strjoin_gnl(char const *s1, char const *s2)
 {
 	char	*ptr;

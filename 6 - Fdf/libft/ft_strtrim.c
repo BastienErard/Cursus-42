@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 10:20:58 by berard            #+#    #+#             */
-/*   Updated: 2022/11/03 18:22:11 by berard           ###   ########.fr       */
+/*   Updated: 2023/04/18 19:53:53 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ static int	ft_check(char c, char const *set)
 	return (0);
 }
 
+/**
+Returns a new string by trimming characters from the
+beginning and end of the input string that are found in the set string.
+@param [s1] The input string to be trimmed.
+@param [set] The set of characters to be trimmed from
+the beginning and end of the input string.
+@return The new string with trimmed characters.
+This function allocates memory for the new string using
+malloc, so the caller is responsible for freeing the memory.
+*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*ptr;

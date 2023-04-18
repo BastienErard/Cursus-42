@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:12:17 by berard            #+#    #+#             */
-/*   Updated: 2022/11/08 15:04:04 by berard           ###   ########.fr       */
+/*   Updated: 2023/04/18 19:52:19 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ static char	**ft_free(char **final, int j)
 	return (NULL);
 }
 
+/**
+Splits a string into an array of strings using a delimiter character.
+@param s The string to split.
+@param c The delimiter character.
+@return A pointer to an array of strings resulting from the split operation.
+If the allocation fails or if the string is empty, returns NULL.
+Note: The returned array of strings should be freed using ft_free_tab.
+Note: If two consecutive delimiter characters are found,
+an empty string is added to the array.
+*/
 char	**ft_split(char const *s, char c)
 {
 	int		j;

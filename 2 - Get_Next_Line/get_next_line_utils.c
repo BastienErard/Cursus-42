@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:00:27 by berard            #+#    #+#             */
-/*   Updated: 2022/11/29 10:28:26 by berard           ###   ########.fr       */
+/*   Updated: 2023/04/18 19:58:08 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
+/* Modification to the original strjoin to handle s1 which is malloc. */
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*ptr;

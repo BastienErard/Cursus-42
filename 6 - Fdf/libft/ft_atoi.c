@@ -3,15 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 09:18:29 by berard            #+#    #+#             */
-/*   Updated: 2022/12/30 11:02:11 by berard           ###   ########.fr       */
+/*   Updated: 2023/04/18 19:49:54 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+Converts a string of digits to its integer representation.
+The function ignores leading whitespace characters,
+followed by an optional sign character ('+' or '-'),
+and converts subsequent digits to an integer value. The
+function returns the converted integer value.
+@param str The string to be converted to an integer.
+@return The integer value corresponding to the input string.
+The function has no side effects.
+Example usage:
+const char *str = " -1234 ";
+int result = ft_atoi(str); // Returns -1234
+*/
 int	ft_atoi(const char *str)
 {
 	int	i;

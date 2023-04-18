@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:46:19 by berard            #+#    #+#             */
-/*   Updated: 2023/02/02 16:22:58 by berard           ###   ########.fr       */
+/*   Updated: 2023/04/18 19:54:42 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,30 @@ static int	ft_params(va_list args, char input)
 	return (len);
 }
 
+/**
+This function takes a format string with
+optional format specifiers and
+arguments, formats them, and writes the
+result to the standard output.
+@param string Format string to be printed.
+@param ... Additional arguments corresponding
+to the format specifiers in the
+format string.
+@return The number of characters printed
+on success, -1 on failure.
+This function iterates over the format string
+and replaces any format specifier
+with its corresponding argument value formatted
+according to the specifier. The
+formatted string is then written to the standard
+output. If any errors occur during
+the processing of the format string or its
+arguments, -1 is returned. Note that the
+function can only write to the standard output,
+so it is not suitable for use in
+certain environments (e.g., embedded systems)
+where such output may not be available.
+*/
 int	ft_printf(const char *input, ...)
 {
 	va_list	args;
