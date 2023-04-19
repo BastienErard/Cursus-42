@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:41 by berard            #+#    #+#             */
-/*   Updated: 2022/12/28 10:07:56 by berard           ###   ########.fr       */
+/*   Updated: 2023/04/19 08:28:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char *argv[])
 		pid = ft_atoi(argv[1]);
 		if (!pid)
 		{
-			ft_printf("Please use the correct PID with only 1 argument behind.\n");
+			ft_printf("Please use the correct PID with only 1 arg behind.\n");
 			return (0);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 11:14:41 by berard            #+#    #+#             */
-/*   Updated: 2022/12/28 10:10:42 by berard           ###   ########.fr       */
+/*   Updated: 2023/04/19 08:29:35 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int argc, char *argv[])
 	struct sigaction	signal;
 
 	if (argc != 3)
-		return (ft_printf("Please use the correct PID with 1 argument behind.\n"));
+		return (ft_printf("Please use the correct PID with 1 arg behind.\n"));
 	signal = (struct sigaction){0};
 	sigemptyset(&signal.sa_mask);
 	sigaddset(&signal.sa_mask, SIGUSR1);
@@ -81,7 +81,7 @@ int	main(int argc, char *argv[])
 	pid = ft_atoi(argv[1]);
 	selfpid = ft_itoa(getpid());
 	if (!pid || !selfpid)
-		return (ft_printf("Please use the correct PID with 1 argument behind.\n"));
+		return (ft_printf("Please use the correct PID with 1 arg behind.\n"));
 	ft_send_str(pid, argv[2]);
 	ft_send_str(pid, selfpid);
 	free(selfpid);
