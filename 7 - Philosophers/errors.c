@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:40:35 by berard            #+#    #+#             */
-/*   Updated: 2023/05/12 14:40:45 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/13 15:01:15 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	check_errors(int argc, char *argv[])
 {
 	if (argc != 5 || argc != 6)
 		return (1);
+	if
 
 }
 
