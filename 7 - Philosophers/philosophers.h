@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/05/13 14:59:57 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/15 11:31:01 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ typedef struct s_philo
 
 // Main
 
-void	initialization(t_philo *philo, char *argv[]);
+void	initialization(t_philo *philo, char **argv);
 
 // Check and display errors
 
-int		check_errors(int argc, char *argv[]);
 void	display_errors(int flag);
+int		check_errors(int argc, char **argv);
+int		digital(char *argv);
+long	atol(const char *str);
 
 // Utils
 

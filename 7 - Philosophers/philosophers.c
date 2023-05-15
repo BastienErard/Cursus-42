@@ -6,13 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/05/13 14:59:00 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/15 11:44:39 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-void	initialization(t_philo *philo, char *argv[])
+void	initialization(t_philo *philo, char **argv)
 {
 	philo->n_philo = ft_atoi(argv[1]);
 	philo->t_die = ft_atoi(argv[2]);
@@ -27,12 +27,12 @@ int	main(int argc, char *argv[])
 	t_philo	philo;
 	int		flag;
 
-
-	flag = check_errors(argc, *argv[]);
+	flag = check_errors(argc, argv);
 	if (flag != 0)
 	{
 		display_errors(flag);
 		return (0);
 	}
-	initialization(&philo, *argv[]);
+	initialization(&philo, argv);
+	return (0);
 }
