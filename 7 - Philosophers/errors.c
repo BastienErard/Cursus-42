@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:40:35 by berard            #+#    #+#             */
-/*   Updated: 2023/05/15 11:33:35 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/17 13:51:53 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	display_errors(int flag)
 	else if (flag == 2)
 		printf("You need at least one philosopher for the simulation.\n");
 	else if (flag == 3)
-		printf("Arguments must consist exclusively of numbers.\n");
+		printf("Arguments must be composed exclusively of positive numbers.\n");
 	else if (flag == 4)
 		printf("The arguments must be contained in an int.\n");
 }
