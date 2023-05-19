@@ -6,12 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:40:35 by berard            #+#    #+#             */
-/*   Updated: 2023/05/17 13:51:53 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/19 11:43:51 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+/* Checks the possible errors in the arg when the program starts. */
 int	check_errors(int argc, char **argv)
 {
 	int	i;
@@ -31,6 +32,7 @@ int	check_errors(int argc, char **argv)
 	return (0);
 }
 
+/* Checks that the string consists of numbers only. */
 int	digital(char *argv)
 {
 	int	i;
@@ -42,6 +44,7 @@ int	digital(char *argv)
 	return (0);
 }
 
+/* Displays error messages if there is a problem with the arg. */
 void	display_errors(int flag)
 {
 	if (flag == 1)
@@ -53,4 +56,3 @@ void	display_errors(int flag)
 	else if (flag == 4)
 		printf("The arguments must be contained in an int.\n");
 }
-

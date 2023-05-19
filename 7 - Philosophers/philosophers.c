@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/05/17 13:59:23 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/19 15:49:10 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	initialization(&philo, argv);
+	get_timestamp();
+	sleep(1);
+	printf("This is value %d\n", get_timestamp());
 	return (0);
 }

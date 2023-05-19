@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/05/15 11:31:01 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/19 15:49:22 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,14 @@ void	initialization(t_philo *philo, char **argv);
 void	display_errors(int flag);
 int		check_errors(int argc, char **argv);
 int		digital(char *argv);
-long	atol(const char *str);
+
+// Time
+
+int		get_timestamp(void);
 
 // Utils
 
 int		ft_atoi(const char *str);
+long	atol(const char *str);
 
 #endif

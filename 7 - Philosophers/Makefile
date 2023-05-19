@@ -6,13 +6,14 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/11 17:09:34 by berard            #+#    #+#              #
-#    Updated: 2023/05/17 13:59:47 by berard           ###   ########.fr        #
+#    Updated: 2023/05/19 14:38:04 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=			philosophers.c \
 					errors.c \
 					utils.c \
+					time.c \
 
 OBJS	=			${SRCS:.c=.o}
 
