@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/05/19 15:49:22 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/22 17:18:45 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,19 @@
 
 // Structures
 
-typedef struct s_philo
+typedef struct s_data
 {
 	int	n_philo;
 	int	t_die;
 	int	t_eat;
 	int	t_sleep;
 	int	n_meal;
-}	t_philo;
+}	t_data;
 
 // Main
 
-void	initialization(t_philo *philo, char **argv);
+void	init_data(t_data *data, char **argv);
+void	init_philo(t_data *data);
 
 // Check and display errors
 
