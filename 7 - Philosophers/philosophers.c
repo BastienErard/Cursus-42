@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/05/24 18:24:46 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/25 15:05:37 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ void	init_struct_philo(t_data *data, t_philo *philo, int i)
 	philo->last_meal = 0;
 }
 
-t_philo	*init_philo(t_data *data)
+t_philo	*init_philo(t_data *data, t_philo *philo)
 {
-	t_philo	*philo;
 	int		i;
 
 	i = -1;
@@ -57,15 +56,17 @@ int	main(int argc, char *argv[])
 	int		flag;
 
 	flag = check_errors(argc, argv);
+	philo = NULL;
 	if (flag != 0)
 	{
 		display_errors(flag);
-		return (0);
+		return (EXIT_FAILURE);
 	}
 	init_data(&data, argv);
-	philo = init_philo(&data);
+	philo = init_philo(&data, philo);
 	if (!philo)
-		return (1);
+		return (EXIT_FAILURE);
+	launch_simulation(&data, philo);
 	free(philo);
-	return (0);
+	return (EXIT_SUCCESS);
 }

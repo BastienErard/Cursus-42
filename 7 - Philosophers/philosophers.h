@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/05/24 17:58:28 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/25 15:10:58 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_philo
 // Main
 
 void	init_data(t_data *data, char **argv);
-t_philo	*init_philo(t_data *data);
+t_philo	*init_philo(t_data *data, t_philo *philo);
 void	init_struct_philo(t_data *data, t_philo *philo, int i);
 
 // Check and display errors
@@ -56,6 +56,14 @@ int		digital(char *argv);
 // Time
 
 int		get_timestamp(void);
+
+// Threads
+
+void	launch_simulation(t_data *data, t_philo *philo);
+
+// Actions
+
+void	*actions(void *args);
 
 // Utils
 
