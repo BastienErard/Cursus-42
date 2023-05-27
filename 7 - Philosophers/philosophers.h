@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/05/25 15:10:58 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/27 15:57:14 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,15 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <pthread.h>
+# include <stdbool.h>
 
 // Structures
+
+typedef struct s_fork
+{
+	pthread_mutex_t	fork;
+	bool			taken;
+}	t_fork;
 
 typedef struct s_data
 {
@@ -32,13 +39,14 @@ typedef struct s_data
 
 typedef struct s_philo
 {
-	int	id;
-	int	t_die;
-	int	t_eat;
-	int	t_sleep;
-	int	n_meal;
-	int	meal;
-	int	last_meal;
+	int		id;
+	int		t_die;
+	int		t_eat;
+	int		t_sleep;
+	int		n_meal;
+	int		meal;
+	int		last_meal;
+	t_fork	*fork;
 }	t_philo;
 
 // Main

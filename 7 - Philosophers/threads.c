@@ -6,12 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:24:54 by berard            #+#    #+#             */
-/*   Updated: 2023/05/25 15:21:55 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/27 14:47:37 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+/* Starts the simu by creating the threads and waiting for them to finish. */
 void	launch_simulation(t_data *data, t_philo *philo)
 {
 	pthread_t	*thread_id;

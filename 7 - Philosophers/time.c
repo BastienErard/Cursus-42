@@ -6,12 +6,13 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:33:48 by berard            #+#    #+#             */
-/*   Updated: 2023/05/24 18:01:25 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/27 14:48:21 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+/* Used to obtain the initial time and then the time that has elapsed.*/
 int	get_timestamp(void)
 {
 	static struct timeval	init_time = {0};
