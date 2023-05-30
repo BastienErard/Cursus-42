@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/05/27 15:58:17 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/30 18:53:10 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 /* Initialize the structure of a philosopher with all available elements. */
 void	init_struct_philo(t_data *data, t_philo *philo, int i)
 {
+	t_fork	*fork;
+
+	fork[i].taken = false;
+	pthread_mutex_init(&fork[i].fork, NULL);
+	philo->fork = fork;
 	philo->id = i + 1;
 	philo->t_die = data->t_die;
 	philo->t_eat = data->t_eat;
@@ -22,19 +27,24 @@ void	init_struct_philo(t_data *data, t_philo *philo, int i)
 	philo->n_meal = data->n_meal;
 	philo->meal = 0;
 	philo->last_meal = 0;
-	// philo->fork[i].taken = false;
-	// pthread_mutex_init(&(philo->fork[i].fork), NULL);
 }
 
 /* Initializee one structure per philosopher. */
 t_philo	*init_philo(t_data *data, t_philo *philo)
 {
 	int		i;
+	t_fork	*fork;
 
 	i = -1;
 	philo = malloc(sizeof(*philo) * data->n_philo);
 	if (!philo)
 		return (NULL);
+	fork = malloc(sizeof(*fork) * data->n_philo);
+	if (!fork)
+	{
+		free(philo);
+		return (NULL);
+	}
 	while (++i < data->n_philo)
 		init_struct_philo(data, &philo[i], i);
 	return (philo);

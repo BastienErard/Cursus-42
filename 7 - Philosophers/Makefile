@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
+#    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/11 17:09:34 by berard            #+#    #+#              #
-#    Updated: 2023/05/25 15:07:22 by berard           ###   ########.fr        #
+#    Updated: 2023/05/30 18:43:11 by tastybao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CC		=			gcc -g3
 
 RM		=			rm -f
 
-CFLAGS	=			-Wall -Wextra -Werror -g
+# CFLAGS	=			-Wall -Wextra -Werror -g
 
 NAME	=			philo
 
