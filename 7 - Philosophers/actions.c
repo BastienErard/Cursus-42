@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:25:01 by berard            #+#    #+#             */
-/*   Updated: 2023/05/30 18:52:40 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:50:29 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	*actions(void *args)
 	t_philo	*philo;
 
 	philo = (t_philo *)args;
-	printf("This is philo number %d and fork number %d\n", philo->id, philo->fork->taken);
+	printf("This is philo number %d and fork number %d and total is %d\n", philo->id, philo->fork[philo->id - 1].taken, philo->nb_philos);
 	return (NULL);
 }

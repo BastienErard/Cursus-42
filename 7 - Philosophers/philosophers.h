@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/05/27 15:57:14 by berard           ###   ########.fr       */
+/*   Updated: 2023/05/31 17:49:56 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_data
 typedef struct s_philo
 {
 	int		id;
+	int		nb_philos;
 	int		t_die;
 	int		t_eat;
 	int		t_sleep;
@@ -53,13 +54,14 @@ typedef struct s_philo
 
 void	init_data(t_data *data, char **argv);
 t_philo	*init_philo(t_data *data, t_philo *philo);
-void	init_struct_philo(t_data *data, t_philo *philo, int i);
+void	init_struct_philo(t_data *data, t_philo *philo, int i, t_fork *fork);
 
 // Check and display errors
 
 void	display_errors(int flag);
 int		check_errors(int argc, char **argv);
 int		digital(char *argv);
+int		freedom(t_philo *philo);
 
 // Time
 

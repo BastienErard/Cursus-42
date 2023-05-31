@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:40:35 by berard            #+#    #+#             */
-/*   Updated: 2023/05/30 18:51:14 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:50:52 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,23 @@ void	display_errors(int flag)
 		printf("Arguments must be composed exclusively of positive numbers.\n");
 	else if (flag == 4)
 		printf("The arguments must be contained in an int.\n");
+}
+
+/* It frees up all the memory spaces and the various threads. */
+int	freedom(t_philo *philo)
+{
+	int	i;
+
+	i = -1;
+	while (++i < philo->nb_philos)
+	{
+		if (pthread_mutex_destroy(&philo[i].fork[i].fork) != 0)
+		{
+			printf("Error during pthread_destroy\n");
+			return (EXIT_FAILURE);
+		}
+	}
+	free(philo->fork);
+	free(philo);
+	return (EXIT_SUCCESS);
 }

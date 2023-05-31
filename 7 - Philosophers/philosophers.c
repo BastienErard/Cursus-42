@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/05/30 18:53:10 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:50:02 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
 /* Initialize the structure of a philosopher with all available elements. */
-void	init_struct_philo(t_data *data, t_philo *philo, int i)
+void	init_struct_philo(t_data *data, t_philo *philo, int i, t_fork *fork)
 {
-	t_fork	*fork;
-
 	fork[i].taken = false;
 	pthread_mutex_init(&fork[i].fork, NULL);
 	philo->fork = fork;
 	philo->id = i + 1;
+	philo->nb_philos = data->n_philo;
 	philo->t_die = data->t_die;
 	philo->t_eat = data->t_eat;
 	philo->t_sleep = data->t_sleep;
@@ -46,7 +45,7 @@ t_philo	*init_philo(t_data *data, t_philo *philo)
 		return (NULL);
 	}
 	while (++i < data->n_philo)
-		init_struct_philo(data, &philo[i], i);
+		init_struct_philo(data, &philo[i], i, fork);
 	return (philo);
 }
 
@@ -82,6 +81,5 @@ int	main(int argc, char *argv[])
 	if (!philo)
 		return (EXIT_FAILURE);
 	launch_simulation(&data, philo);
-	free(philo);
-	return (EXIT_SUCCESS);
+	return (freedom(philo));
 }
