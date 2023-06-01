@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/05/31 17:49:56 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/01 18:13:05 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,21 @@
 # include <pthread.h>
 # include <stdbool.h>
 
+// Macro
+
+# define DEAD 1
+# define EAT 2
+# define SLEEP 3
+# define THINK 4
+# define FORK 5
+
 // Structures
 
-typedef struct s_fork
+typedef struct s_forks
 {
 	pthread_mutex_t	fork;
 	bool			taken;
-}	t_fork;
+}	t_forks;
 
 typedef struct s_data
 {
@@ -47,14 +55,15 @@ typedef struct s_philo
 	int		n_meal;
 	int		meal;
 	int		last_meal;
-	t_fork	*fork;
+	bool	alive;
+	t_forks	*forks;
 }	t_philo;
 
 // Main
 
 void	init_data(t_data *data, char **argv);
 t_philo	*init_philo(t_data *data, t_philo *philo);
-void	init_struct_philo(t_data *data, t_philo *philo, int i, t_fork *fork);
+void	init_struct_philo(t_data *data, t_philo *philo, int i, t_forks *fork);
 
 // Check and display errors
 
@@ -74,10 +83,15 @@ void	launch_simulation(t_data *data, t_philo *philo);
 // Actions
 
 void	*actions(void *args);
+void	dead_or_alive(t_philo *philo);
 
 // Utils
 
 int		ft_atoi(const char *str);
 long	atol(const char *str);
+
+// Logs
+
+void	display_logs(t_philo *philo, int flag);
 
 #endif

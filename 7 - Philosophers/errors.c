@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:40:35 by berard            #+#    #+#             */
-/*   Updated: 2023/05/31 17:50:52 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/01 11:04:57 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,13 @@ int	freedom(t_philo *philo)
 	i = -1;
 	while (++i < philo->nb_philos)
 	{
-		if (pthread_mutex_destroy(&philo[i].fork[i].fork) != 0)
+		if (pthread_mutex_destroy(&philo[i].forks[i].fork) != 0)
 		{
 			printf("Error during pthread_destroy\n");
 			return (EXIT_FAILURE);
 		}
 	}
-	free(philo->fork);
+	free(philo->forks);
 	free(philo);
 	return (EXIT_SUCCESS);
 }

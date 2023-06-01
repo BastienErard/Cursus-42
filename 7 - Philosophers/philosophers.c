@@ -6,18 +6,18 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/05/31 17:50:02 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/01 17:40:27 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
 /* Initialize the structure of a philosopher with all available elements. */
-void	init_struct_philo(t_data *data, t_philo *philo, int i, t_fork *fork)
+void	init_struct_philo(t_data *data, t_philo *philo, int i, t_forks *forks)
 {
-	fork[i].taken = false;
-	pthread_mutex_init(&fork[i].fork, NULL);
-	philo->fork = fork;
+	forks[i].taken = false;
+	pthread_mutex_init(&forks[i].fork, NULL);
+	philo->forks = forks;
 	philo->id = i + 1;
 	philo->nb_philos = data->n_philo;
 	philo->t_die = data->t_die;
@@ -26,26 +26,27 @@ void	init_struct_philo(t_data *data, t_philo *philo, int i, t_fork *fork)
 	philo->n_meal = data->n_meal;
 	philo->meal = 0;
 	philo->last_meal = 0;
+	philo->alive = true;
 }
 
 /* Initializee one structure per philosopher. */
 t_philo	*init_philo(t_data *data, t_philo *philo)
 {
 	int		i;
-	t_fork	*fork;
+	t_forks	*forks;
 
 	i = -1;
 	philo = malloc(sizeof(*philo) * data->n_philo);
 	if (!philo)
 		return (NULL);
-	fork = malloc(sizeof(*fork) * data->n_philo);
-	if (!fork)
+	forks = malloc(sizeof(*forks) * data->n_philo);
+	if (!forks)
 	{
 		free(philo);
 		return (NULL);
 	}
 	while (++i < data->n_philo)
-		init_struct_philo(data, &philo[i], i, fork);
+		init_struct_philo(data, &philo[i], i, forks);
 	return (philo);
 }
 
@@ -60,7 +61,6 @@ void	init_data(t_data *data, char **argv)
 		data->n_meal = ft_atoi(argv[5]);
 	else
 		data->n_meal = 0;
-	get_timestamp();
 }
 
 int	main(int argc, char *argv[])
