@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/06/01 18:13:05 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/02 14:44:47 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void	launch_simulation(t_data *data, t_philo *philo);
 
 void	*actions(void *args);
 void	dead_or_alive(t_philo *philo);
+void	sleepy(t_philo *philo);
+void	think(t_philo *philo);
 
 // Utils
 
