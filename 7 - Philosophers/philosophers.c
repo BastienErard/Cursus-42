@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/06/01 17:40:27 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/03 16:35:23 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	init_struct_philo(t_data *data, t_philo *philo, int i, t_forks *forks)
 	philo->n_meal = data->n_meal;
 	philo->meal = 0;
 	philo->last_meal = 0;
+	philo->hand = 0;
 	philo->alive = true;
 }
 

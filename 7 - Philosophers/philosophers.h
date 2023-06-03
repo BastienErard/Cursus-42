@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/06/02 14:44:47 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/03 16:35:13 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_philo
 	int		n_meal;
 	int		meal;
 	int		last_meal;
+	int		hand;
 	bool	alive;
 	t_forks	*forks;
 }	t_philo;

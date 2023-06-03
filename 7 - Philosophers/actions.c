@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:25:01 by berard            #+#    #+#             */
-/*   Updated: 2023/06/02 14:45:56 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/03 17:12:31 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ void	think(t_philo *philo)
 	if (!philo->alive)
 		return ;
 	display_logs(philo, THINK);
+	philo->hand = 0;
+	while (philo->alive && philo->hand != 2)
+	{
+		//fork perso
+		//fork + 1
+		dead_or_alive(philo);
+	}
 }
 
 // void	*actions(void *args)
