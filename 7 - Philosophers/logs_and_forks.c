@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   logs.c                                             :+:      :+:    :+:   */
+/*   logs_and_forks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 18:10:18 by berard            #+#    #+#             */
-/*   Updated: 2023/06/01 18:25:46 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/05 16:00:51 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+/* Displays various messages on the terminal. */
 void	display_logs(t_philo *philo, int flag)
 {
 	if (flag == DEAD)
@@ -24,4 +25,15 @@ void	display_logs(t_philo *philo, int flag)
 		printf("%d %d is thinking\n", get_timestamp(), philo->id);
 	else if (flag == FORK)
 		printf("%d %d has taken a fork\n", get_timestamp(), philo->id);
+}
+
+bool	grab_fork(t_philo *philo)
+{
+
+
+}
+
+void	free_fork(parametre)
+{
+	// Liberation des fourchettes lock / unlock / taken
 }

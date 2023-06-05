@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/06/03 16:35:13 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/05 15:58:07 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,17 @@ void	*actions(void *args);
 void	dead_or_alive(t_philo *philo);
 void	sleepy(t_philo *philo);
 void	think(t_philo *philo);
+void	eat(t_philo *philo);
 
 // Utils
 
 int		ft_atoi(const char *str);
 long	atol(const char *str);
 
-// Logs
+// Logs and forks
 
 void	display_logs(t_philo *philo, int flag);
+bool	grab_fork(t_philo *philo);
+void	free_fork(t_philo *philo);
 
 #endif

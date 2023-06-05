@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:25:01 by berard            #+#    #+#             */
-/*   Updated: 2023/06/03 17:12:31 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/05 14:06:16 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	*actions(void *args)
 	while (philo->alive)
 	{
 		// dead_or_alive(philo);
-		// sleepy(philo);
 		// think(philo);
+		// eat(philo);
+		// sleepy(philo);
 		break ;
 	}
 	return (NULL);
@@ -68,11 +69,16 @@ void	think(t_philo *philo)
 	}
 }
 
-// void	*actions(void *args)
-// {
-// 	t_philo	*philo;
+void	eat(t_philo *philo)
+{
+	int	ultima_cena;
 
-// 	philo = (t_philo *)args;
-// 	printf("This is philo number %d and fork number %d and total is %d\n", philo->id, philo->forks[philo->id - 1].taken, philo->nb_philos);
-// 	return (NULL);
-// }
+	if (!philo->alive)
+		return ;
+	display_logs(philo, EAT);
+	ultima_cena = get_timestamp();
+	while (philo->alive && ultima_cena + philo->t_eat < get_timestamp())
+	{
+		dead_or_alive(philo);
+	}
+}

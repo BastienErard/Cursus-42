@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
+#    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/11 17:09:34 by berard            #+#    #+#              #
-#    Updated: 2023/06/01 18:10:34 by berard           ###   ########.fr        #
+#    Updated: 2023/06/05 14:07:14 by tastybao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS	=			philosophers.c \
 					time.c \
 					actions.c \
 					threads.c \
-					logs.c \
+					logs_and_forks.c \
 
 OBJS	=			${SRCS:.c=.o}
 
