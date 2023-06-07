@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:25:01 by berard            #+#    #+#             */
-/*   Updated: 2023/06/07 12:17:33 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:34:15 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*actions(void *args)
 	t_philo	*philo;
 
 	philo = (t_philo *)args;
-	if (philo->id % 2 == 0)
+	if ((philo->id - 1) % 2 == 0)
 		usleep(3000);
 	philo->last_meal = get_timestamp();
 	while (philo->alive)
@@ -52,7 +52,7 @@ void	sleepy(t_philo *philo)
 		return ;
 	asleep = get_timestamp();
 	display_logs(philo, SLEEP);
-	if (philo->alive && asleep + philo->t_sleep < get_timestamp())
+	if (philo->alive && asleep + philo->t_sleep > get_timestamp())
 		dead_or_alive(philo);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 18:10:18 by berard            #+#    #+#             */
-/*   Updated: 2023/06/07 11:49:43 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:04:14 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ bool	grab_fork(t_philo *philo, t_forks *forks)
 	if (!forks->taken)
 	{
 		forks->taken = true;
-		display_logs(philo, FORK);
 		pthread_mutex_unlock(&forks->fork);
+		display_logs(philo, FORK);
 		return (true);
 	}
 	pthread_mutex_unlock(&forks->fork);
