@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:25:01 by berard            #+#    #+#             */
-/*   Updated: 2023/06/05 14:06:16 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/07 12:17:33 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@ void	*actions(void *args)
 	t_philo	*philo;
 
 	philo = (t_philo *)args;
+	if (philo->id % 2 == 0)
+		usleep(3000);
 	philo->last_meal = get_timestamp();
 	while (philo->alive)
 	{
-		// dead_or_alive(philo);
-		// think(philo);
-		// eat(philo);
-		// sleepy(philo);
-		break ;
+		dead_or_alive(philo);
+		think(philo);
+		eat(philo);
+		sleepy(philo);
 	}
 	return (NULL);
 }
@@ -63,8 +64,10 @@ void	think(t_philo *philo)
 	philo->hand = 0;
 	while (philo->alive && philo->hand != 2)
 	{
-		//fork perso
-		//fork + 1
+		if (grab_fork(philo, &philo->forks[philo->id - 1]))
+			philo->hand++;
+		if (grab_fork(philo, &philo->forks[(philo->id % philo->nb_philos)]))
+			philo->hand++;
 		dead_or_alive(philo);
 	}
 }
@@ -77,8 +80,18 @@ void	eat(t_philo *philo)
 		return ;
 	display_logs(philo, EAT);
 	ultima_cena = get_timestamp();
-	while (philo->alive && ultima_cena + philo->t_eat < get_timestamp())
-	{
+	philo->last_meal = get_timestamp();
+	while (philo->alive && ultima_cena + philo->t_eat > get_timestamp())
 		dead_or_alive(philo);
+	if (philo->alive)
+	{
+		philo->meal++;
+		if (philo->meal == philo->n_meal)
+		{
+			; // Manager
+		}
 	}
+	free_fork(&philo->forks[philo->id - 1]);
+	free_fork(&philo->forks[(philo->id % philo->nb_philos)]);
 }
+

@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 18:10:18 by berard            #+#    #+#             */
-/*   Updated: 2023/06/05 16:00:51 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:49:43 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,23 @@ void	display_logs(t_philo *philo, int flag)
 		printf("%d %d has taken a fork\n", get_timestamp(), philo->id);
 }
 
-bool	grab_fork(t_philo *philo)
+bool	grab_fork(t_philo *philo, t_forks *forks)
 {
-
-
+	pthread_mutex_lock(&forks->fork);
+	if (!forks->taken)
+	{
+		forks->taken = true;
+		display_logs(philo, FORK);
+		pthread_mutex_unlock(&forks->fork);
+		return (true);
+	}
+	pthread_mutex_unlock(&forks->fork);
+	return (false);
 }
 
-void	free_fork(parametre)
+void	free_fork(t_forks *forks)
 {
-	// Liberation des fourchettes lock / unlock / taken
+	pthread_mutex_lock(&forks->fork);
+	forks->taken = false;
+	pthread_mutex_unlock(&forks->fork);
 }

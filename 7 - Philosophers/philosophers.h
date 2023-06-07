@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/06/05 15:58:07 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:44:04 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ long	atol(const char *str);
 // Logs and forks
 
 void	display_logs(t_philo *philo, int flag);
-bool	grab_fork(t_philo *philo);
-void	free_fork(t_philo *philo);
+bool	grab_fork(t_philo *philo, t_forks *forks);
+void	free_fork(t_forks *forks);
 
 #endif
