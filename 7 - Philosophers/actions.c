@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:25:01 by berard            #+#    #+#             */
-/*   Updated: 2023/06/07 15:34:15 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/08 16:32:51 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,11 @@ void	sleepy(t_philo *philo)
 		return ;
 	asleep = get_timestamp();
 	display_logs(philo, SLEEP);
-	if (philo->alive && asleep + philo->t_sleep > get_timestamp())
+	while (philo->alive && asleep + philo->t_sleep > get_timestamp())
 		dead_or_alive(philo);
 }
 
+/* Loop as long as the philo is alive and doesn't have two forks */
 void	think(t_philo *philo)
 {
 	if (!philo->alive)
@@ -72,6 +73,7 @@ void	think(t_philo *philo)
 	}
 }
 
+/* Loop the time to eat and then add the meal before releasing the forks. */
 void	eat(t_philo *philo)
 {
 	int	ultima_cena;

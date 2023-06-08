@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logs_and_forks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 18:10:18 by berard            #+#    #+#             */
-/*   Updated: 2023/06/07 15:04:14 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/08 16:33:53 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@
 void	display_logs(t_philo *philo, int flag)
 {
 	if (flag == DEAD)
-		printf("%d %d died\n", get_timestamp(), philo->id);
+		printf("\033[1;31m%d\t%d died💀\n", get_timestamp(), philo->id);
 	else if (flag == EAT)
-		printf("%d %d is eating\n", get_timestamp(), philo->id);
+		printf("\033[0;32m%d\t%d is eating🍝\n", get_timestamp(), philo->id);
 	else if (flag == SLEEP)
-		printf("%d %d is sleeping\n", get_timestamp(), philo->id);
+		printf("\033[0;34m%d\t%d is sleeping💤\n", get_timestamp(), philo->id);
 	else if (flag == THINK)
-		printf("%d %d is thinking\n", get_timestamp(), philo->id);
+		printf("\033[0;33m%d\t%d is thinking🤔\n", get_timestamp(), philo->id);
 	else if (flag == FORK)
-		printf("%d %d has taken a fork\n", get_timestamp(), philo->id);
+		printf("\033[0;35m%d\t%d has taken a fork🍴\n", get_timestamp(), philo->id);
 }
 
+/* Take the forks using the mutex beforehand. */
 bool	grab_fork(t_philo *philo, t_forks *forks)
 {
 	pthread_mutex_lock(&forks->fork);
@@ -41,6 +42,7 @@ bool	grab_fork(t_philo *philo, t_forks *forks)
 	return (false);
 }
 
+/* Releases used forks. */
 void	free_fork(t_forks *forks)
 {
 	pthread_mutex_lock(&forks->fork);
