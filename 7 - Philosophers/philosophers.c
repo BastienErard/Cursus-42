@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/06/07 12:12:42 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/09 11:56:15 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,15 @@ void	init_struct_philo(t_data *data, t_philo *philo, int i, t_forks *forks)
 	philo->last_meal = 0;
 	philo->hand = 0;
 	philo->alive = true;
+	// philo->manager = manager;
 }
 
 /* Initializee one structure per philosopher. */
 t_philo	*init_philo(t_data *data, t_philo *philo)
 {
-	int		i;
-	t_forks	*forks;
+	int			i;
+	t_forks		*forks;
+	// t_manager	*manager;
 
 	i = -1;
 	philo = malloc(sizeof(*philo) * data->n_philo);
@@ -46,6 +48,14 @@ t_philo	*init_philo(t_data *data, t_philo *philo)
 		free(philo);
 		return (NULL);
 	}
+	// manager = malloc(sizeof(manager) * 1);
+	// if (!manager)
+	// {
+	// 	free(forks);
+	// 	free(philo);
+	// 	return (NULL);
+	// }
+	// init_manager(manager);
 	while (++i < data->n_philo)
 		init_struct_philo(data, &philo[i], i, forks);
 	return (philo);
@@ -63,6 +73,13 @@ void	init_data(t_data *data, char **argv)
 	else
 		data->n_meal = 0;
 }
+
+// void	init_manager(t_manager *manager)
+// {
+// 	pthread_mutex_init(&manager.manager, NULL);
+// 	manager->alive = true;
+// 	manager->full = 0;
+// }
 
 int	main(int argc, char *argv[])
 {

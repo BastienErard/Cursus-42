@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:19:00 by berard            #+#    #+#             */
-/*   Updated: 2023/06/07 11:44:04 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/09 11:53:21 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@
 
 // Structures
 
+typedef struct s_manager
+{
+	pthread_mutex_t	manager;
+	bool			alive;
+	int				full;
+}	t_manager;
+
 typedef struct s_forks
 {
 	pthread_mutex_t	fork;
@@ -47,17 +54,18 @@ typedef struct s_data
 
 typedef struct s_philo
 {
-	int		id;
-	int		nb_philos;
-	int		t_die;
-	int		t_eat;
-	int		t_sleep;
-	int		n_meal;
-	int		meal;
-	int		last_meal;
-	int		hand;
-	bool	alive;
-	t_forks	*forks;
+	int			id;
+	int			nb_philos;
+	int			t_die;
+	int			t_eat;
+	int			t_sleep;
+	int			n_meal;
+	int			meal;
+	int			last_meal;
+	int			hand;
+	bool		alive;
+	t_forks		*forks;
+	// t_manager	*manager;
 }	t_philo;
 
 // Main
@@ -65,6 +73,7 @@ typedef struct s_philo
 void	init_data(t_data *data, char **argv);
 t_philo	*init_philo(t_data *data, t_philo *philo);
 void	init_struct_philo(t_data *data, t_philo *philo, int i, t_forks *fork);
+// void	init_manager(t_manager *manager);
 
 // Check and display errors
 

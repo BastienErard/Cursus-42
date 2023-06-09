@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:40:35 by berard            #+#    #+#             */
-/*   Updated: 2023/06/01 11:04:57 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/09 11:51:14 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	freedom(t_philo *philo)
 			return (EXIT_FAILURE);
 		}
 	}
+	// free(philo->manager);
 	free(philo->forks);
 	free(philo);
 	return (EXIT_SUCCESS);

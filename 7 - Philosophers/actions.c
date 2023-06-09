@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:25:01 by berard            #+#    #+#             */
-/*   Updated: 2023/06/08 16:32:51 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/09 11:43:26 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,11 @@ void	eat(t_philo *philo)
 		philo->meal++;
 		if (philo->meal == philo->n_meal)
 		{
-			; // Manager
+			// pthread_mutex_lock(&....);
+			// philo->manager.full++; // Manager
+			// pthread_mutex_unlock(&....);
 		}
 	}
 	free_fork(&philo->forks[philo->id - 1]);
 	free_fork(&philo->forks[(philo->id % philo->nb_philos)]);
 }
-
