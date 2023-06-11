@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/06/09 11:56:15 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/11 11:21:03 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	init_struct_philo(t_data *data, t_philo *philo, int i, t_forks *forks)
 	philo->last_meal = 0;
 	philo->hand = 0;
 	philo->alive = true;
+	philo->stop = false;
 	// philo->manager = manager;
 }
 
