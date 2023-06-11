@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:25:01 by berard            #+#    #+#             */
-/*   Updated: 2023/06/09 11:43:26 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/11 11:12:50 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*actions(void *args)
 	if ((philo->id - 1) % 2 == 0)
 		usleep(3000);
 	philo->last_meal = get_timestamp();
-	while (philo->alive)
+	while (philo->alive && !philo->stop)
 	{
 		dead_or_alive(philo);
 		think(philo);
@@ -34,7 +34,7 @@ void	*actions(void *args)
 /* Check whether the philosopher is already dead or whether he is due to die. */
 void	dead_or_alive(t_philo *philo)
 {
-	if (!philo->alive)
+	if (!philo->alive && !philo->stop)
 		return ;
 	if (philo->last_meal + philo->t_die < get_timestamp())
 	{
@@ -48,7 +48,7 @@ void	sleepy(t_philo *philo)
 {
 	int	asleep;
 
-	if (!philo->alive)
+	if (!philo->alive && !philo->stop)
 		return ;
 	asleep = get_timestamp();
 	display_logs(philo, SLEEP);
@@ -59,7 +59,7 @@ void	sleepy(t_philo *philo)
 /* Loop as long as the philo is alive and doesn't have two forks */
 void	think(t_philo *philo)
 {
-	if (!philo->alive)
+	if (!philo->alive && !philo->stop)
 		return ;
 	display_logs(philo, THINK);
 	philo->hand = 0;
@@ -78,7 +78,7 @@ void	eat(t_philo *philo)
 {
 	int	ultima_cena;
 
-	if (!philo->alive)
+	if (!philo->alive && !philo->stop)
 		return ;
 	display_logs(philo, EAT);
 	ultima_cena = get_timestamp();
