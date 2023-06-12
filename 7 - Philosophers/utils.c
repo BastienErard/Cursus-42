@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:42 by berard            #+#    #+#             */
-/*   Updated: 2023/05/27 14:48:25 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/12 21:55:29 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+/* Basically an atoi. */
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -40,6 +41,7 @@ int	ft_atoi(const char *str)
 	return (nb);
 }
 
+/* Function used to check that parameters fit into an integer. */
 long	atol(const char *str)
 {
 	int		i;

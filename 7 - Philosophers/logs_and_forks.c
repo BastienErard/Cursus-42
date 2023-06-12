@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logs_and_forks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 18:10:18 by berard            #+#    #+#             */
-/*   Updated: 2023/06/08 16:33:53 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/12 22:04:08 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /* Displays various messages on the terminal. */
 void	display_logs(t_philo *philo, int flag)
 {
+	// Mutex du manager
 	if (flag == DEAD)
 		printf("\033[1;31m%d\t%d died💀\n", get_timestamp(), philo->id);
 	else if (flag == EAT)
@@ -25,6 +26,8 @@ void	display_logs(t_philo *philo, int flag)
 		printf("\033[0;33m%d\t%d is thinking🤔\n", get_timestamp(), philo->id);
 	else if (flag == FORK)
 		printf("\033[0;35m%d\t%d has taken a fork🍴\n", get_timestamp(), philo->id);
+	 printf("\033[0m");
+	 // Mutex du manager
 }
 
 /* Take the forks using the mutex beforehand. */
