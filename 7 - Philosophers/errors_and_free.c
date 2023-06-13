@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   errors_and_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:40:35 by berard            #+#    #+#             */
-/*   Updated: 2023/06/12 21:51:34 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/13 11:05:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	freedom(t_philo *philo)
 			return (EXIT_FAILURE);
 		}
 	}
-	// free(philo->manager);
+	free(philo->manager);
 	free(philo->forks);
 	free(philo);
 	return (EXIT_SUCCESS);

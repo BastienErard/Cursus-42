@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:25:01 by berard            #+#    #+#             */
-/*   Updated: 2023/06/12 15:08:33 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/13 11:36:10 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,11 @@ void	eat(t_philo *philo)
 		philo->meal++;
 		if (philo->meal == philo->n_meal)
 		{
-			// pthread_mutex_lock(&....);
-			// philo->manager.full++; // Manager
-			// pthread_mutex_unlock(&....);
+			pthread_mutex_lock(&philo->manager->manager);
+			philo->manager->full++;
+			if (philo->manager->full == philo->n_meal)
+				philo->manager->stop = true;
+			pthread_mutex_unlock(&philo->manager->manager);
 		}
 	}
 	free_fork(&philo->forks[philo->id - 1]);

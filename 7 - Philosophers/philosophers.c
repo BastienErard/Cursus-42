@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/06/11 11:21:03 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/06/13 11:22:58 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_struct_philo(t_data *data, t_philo *philo, int i, t_forks *forks)
 	philo->hand = 0;
 	philo->alive = true;
 	philo->stop = false;
-	// philo->manager = manager;
+	philo->manager = data->manager;
 }
 
 /* Initializee one structure per philosopher. */
@@ -37,7 +37,7 @@ t_philo	*init_philo(t_data *data, t_philo *philo)
 {
 	int			i;
 	t_forks		*forks;
-	// t_manager	*manager;
+	t_manager	*manager;
 
 	i = -1;
 	philo = malloc(sizeof(*philo) * data->n_philo);
@@ -49,14 +49,14 @@ t_philo	*init_philo(t_data *data, t_philo *philo)
 		free(philo);
 		return (NULL);
 	}
-	// manager = malloc(sizeof(manager) * 1);
-	// if (!manager)
-	// {
-	// 	free(forks);
-	// 	free(philo);
-	// 	return (NULL);
-	// }
-	// init_manager(manager);
+	manager = malloc(sizeof(*manager) * 1);
+	if (!manager)
+	{
+		free(forks);
+		free(philo);
+		return (NULL);
+	}
+	init_manager(manager, data);
 	while (++i < data->n_philo)
 		init_struct_philo(data, &philo[i], i, forks);
 	return (philo);
@@ -73,14 +73,17 @@ void	init_data(t_data *data, char **argv)
 		data->n_meal = ft_atoi(argv[5]);
 	else
 		data->n_meal = 0;
+	data->manager = NULL;
 }
 
-// void	init_manager(t_manager *manager)
-// {
-// 	pthread_mutex_init(&manager.manager, NULL);
-// 	manager->alive = true;
-// 	manager->full = 0;
-// }
+void	init_manager(t_manager *manager, t_data *data)
+{
+	pthread_mutex_init(&manager->manager, NULL);
+	manager->alive = true;
+	manager->full = 0;
+	manager->stop = false;
+	data->manager = manager;
+}
 
 int	main(int argc, char *argv[])
 {
