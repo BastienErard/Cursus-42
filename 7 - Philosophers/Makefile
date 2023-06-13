@@ -6,7 +6,7 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/11 17:09:34 by berard            #+#    #+#              #
-#    Updated: 2023/06/13 09:38:18 by berard           ###   ########.fr        #
+#    Updated: 2023/06/13 15:44:21 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CC		=			gcc -g3
 
 RM		=			rm -f
 
-CFLAGS	=			-Wall -Wextra -Werror -g
+CFLAGS	=			-Wall -Wextra -Werror -g -fsanitize=thread
 
 NAME	=			philo
 
