@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:18:31 by berard            #+#    #+#             */
-/*   Updated: 2023/06/13 11:22:58 by berard           ###   ########.fr       */
+/*   Updated: 2023/06/14 10:21:51 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	init_data(t_data *data, char **argv)
 	data->manager = NULL;
 }
 
+/* Initialize the manager and link it with the data structure. */
 void	init_manager(t_manager *manager, t_data *data)
 {
 	pthread_mutex_init(&manager->manager, NULL);
