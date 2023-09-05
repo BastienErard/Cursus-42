@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/31 16:14:01 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/05 16:02:03 by berard           ###   ########.fr       */
+/*   Created: 2023/09/05 09:56:14 by berard            #+#    #+#             */
+/*   Updated: 2023/09/05 15:42:31 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include <iostream>
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	std::string	input;
-	PhoneBook	PhoneBook;
+	int	i;
+	int	j;
 
-	while (1)
+	i = 0;
+	if (argc == 1)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	else
 	{
-		std::cout << "Please enter a command ; ";
-		std::getline(std::cin, input);
-		if (input == "ADD")
-			PhoneBook.AddContact();
-		else if (input == "SEARCH")
-			PhoneBook.SearchContact();
-		else if (input == "EXIT" || std::cin.eof())
-			break;
-		else
-			std::cout << "Please enter a valid command (ADD, SEARCH, EXIT)" << std::endl;
+		while (++i < argc)
+		{
+			j = 0;
+			while (argv[i][j])
+			{
+				std::cout << (char)std::toupper(argv[i][j]);
+				j++;
+			}
+		}
 	}
+	std::cout << std::endl;
 	return (0);
 }

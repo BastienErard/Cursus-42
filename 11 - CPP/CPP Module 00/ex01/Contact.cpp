@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:17:10 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/04 15:56:09 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:01:31 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,39 @@ void	Contact::AddInformations(std::string Information)
 			_PhoneNumber = Input;
 		else if (Information == "darkest secret")
 			_DarkestSecret = Input;
+		if (Input.empty())
+			std::cout << "Please enter a valid " << Information << "." << std::endl;
 	}
+}
+
+std::string	Contact::GetFName(void) const
+{
+	return (_FName);
+}
+
+void	Contact::PrintIndex(void) const
+{
+	std::string tmp_FName = _FName;
+	std::string tmp_LName = _LName;
+	std::string tmp_Nickname = _Nickname;
+
+	if (tmp_FName.length() > 10)
+		tmp_FName = tmp_FName.substr(0, 9) + ".";
+	if (tmp_LName.length() > 10)
+		tmp_LName = tmp_LName.substr(0, 9) + ".";
+	if (tmp_Nickname.length() > 10)
+		tmp_Nickname = tmp_Nickname.substr(0, 9) + ".";
+	std::cout << std::setw(10) << tmp_FName << "|";
+	std::cout << std::setw(10) << tmp_LName << "|";
+	std::cout << std::setw(10) << tmp_Nickname << std::endl;
+	return;
+}
+
+void	Contact::DisplayContact(void) const
+{
+	std::cout << "First name : " << _FName << std::endl;
+	std::cout << "Last name : " << _LName << std::endl;
+	std::cout << "Nickname : " << _Nickname << std::endl;
+	std::cout << "Phone number : " << _PhoneNumber << std::endl;
+	std::cout << "Darkest secret : " << _DarkestSecret << std::endl;
 }

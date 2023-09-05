@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:15:05 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/04 15:02:18 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/09/05 15:07:25 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 #include <iostream>
+#include <iomanip>
 #include "Contact.hpp"
 
 class PhoneBook
@@ -22,9 +23,11 @@ class PhoneBook
 					PhoneBook();
 					~PhoneBook();
 		void		AddContact();
+		void		SearchContact() const;
 
 	private :
 		Contact		_Contact[8];
+		int			DisplayAllContacts(void) const;
 };
 
 #endif

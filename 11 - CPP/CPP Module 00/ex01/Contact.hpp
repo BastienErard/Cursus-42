@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:17:08 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/04 15:33:53 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/09/05 15:07:32 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ class Contact
 					Contact();
 					~Contact();
 		void		NewContact(void);
+		void		PrintIndex(void) const;
+		std::string	GetFName(void) const;
+		void		DisplayContact(void) const;
+
 
 	private :
 		std::string	_FName;
