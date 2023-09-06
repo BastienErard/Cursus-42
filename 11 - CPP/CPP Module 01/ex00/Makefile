@@ -5,16 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/31 16:41:12 by tastybao          #+#    #+#              #
-#    Updated: 2023/08/31 16:42:13 by tastybao         ###   ########.fr        #
+#    Created: 2023/09/06 10:20:53 by tastybao          #+#    #+#              #
+#    Updated: 2023/09/06 10:42:59 by tastybao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	phonebook
+NAME 		=	BraiiiiiiinnnzzzZ
 
 SRCS		=	main.cpp \
-				Contact.cpp \
-				PhoneBook.cpp \
+				Zombie.cpp \
+				newZombie.cpp \
+				randomChump.cpp \
 
 OBJS		=	$(SRCS:.cpp=.o)
 
