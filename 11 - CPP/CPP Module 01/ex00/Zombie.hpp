@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:43:21 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/07 18:03:27 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/09/08 10:50:06 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Zombie
 		std::string	_name;
 };
 
-Zombie	*newZombie(std::string name);
+Zombie*	newZombie(std::string name);
 void	randomChump(std::string name);
 
 #endif

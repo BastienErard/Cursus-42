@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 10:43:08 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/08 10:33:11 by berard           ###   ########.fr       */
+/*   Created: 2023/09/08 11:25:02 by berard            #+#    #+#             */
+/*   Updated: 2023/09/08 15:23:04 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+Zombie*	zombieHorde(int N, std::string name)
 {
-	Zombie	*Patricia = newZombie("Patricia");
+	Zombie*	zombieHorde = new Zombie[N];
+	int	i = -1;
 
-	Patricia->announce();
-	delete Patricia;
-	randomChump("Jean-Michel");
-	return (0);
+	while (++i < N)
+	{
+		zombieHorde[i].NameZombie(name);
+		zombieHorde[i].announce();
+	}
+	return (zombieHorde);
 }

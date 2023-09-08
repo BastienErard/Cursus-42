@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 10:43:08 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/08 10:33:11 by berard           ###   ########.fr       */
+/*   Created: 2023/09/08 11:24:37 by berard            #+#    #+#             */
+/*   Updated: 2023/09/08 15:24:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	main(void)
 {
-	Zombie	*Patricia = newZombie("Patricia");
+	int	Size = 0;
+	Zombie*	Zombie = zombieHorde(Size, "Test");
 
-	Patricia->announce();
-	delete Patricia;
-	randomChump("Jean-Michel");
+	delete [] Zombie;
 	return (0);
 }
