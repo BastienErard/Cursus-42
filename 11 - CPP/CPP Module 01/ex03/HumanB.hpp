@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 11:24:37 by berard            #+#    #+#             */
-/*   Updated: 2023/09/11 10:03:45 by berard           ###   ########.fr       */
+/*   Created: 2023/09/11 11:37:59 by berard            #+#    #+#             */
+/*   Updated: 2023/09/11 11:42:55 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-int	main(void)
+class HumanB
 {
-	int	Size = -4;
-	Zombie*	Zombie = zombieHorde(Size, "Test");
+	public	:
+				HumanB();
+				~HumanB();
 
-	delete [] Zombie;
-	return (0);
-}
+	private	:
+};
+
+#endif

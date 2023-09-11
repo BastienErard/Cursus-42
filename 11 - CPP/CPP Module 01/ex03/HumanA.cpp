@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 11:24:37 by berard            #+#    #+#             */
-/*   Updated: 2023/09/11 10:03:45 by berard           ###   ########.fr       */
+/*   Created: 2023/09/11 11:37:35 by berard            #+#    #+#             */
+/*   Updated: 2023/09/11 11:43:20 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int	main(void)
+HumanA::HumanA()
 {
-	int	Size = -4;
-	Zombie*	Zombie = zombieHorde(Size, "Test");
+	return;
+}
 
-	delete [] Zombie;
-	return (0);
+HumanA::~HumanA();
+{
+	return;
 }

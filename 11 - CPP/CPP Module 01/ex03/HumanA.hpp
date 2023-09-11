@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 11:24:37 by berard            #+#    #+#             */
-/*   Updated: 2023/09/11 10:03:45 by berard           ###   ########.fr       */
+/*   Created: 2023/09/11 11:37:57 by berard            #+#    #+#             */
+/*   Updated: 2023/09/11 13:30:15 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-int	main(void)
+class HumanA
 {
-	int	Size = -4;
-	Zombie*	Zombie = zombieHorde(Size, "Test");
+	public	:
+				HumanA();
+				~HumanA();
 
-	delete [] Zombie;
-	return (0);
-}
+	private	:
+			std::string	_
+};
+
+#endif
