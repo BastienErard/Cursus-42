@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:37:59 by berard            #+#    #+#             */
-/*   Updated: 2023/09/11 11:42:55 by berard           ###   ########.fr       */
+/*   Updated: 2023/09/13 14:51:07 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@
 class HumanB
 {
 	public	:
-				HumanB();
+				HumanB(std::string	name);
 				~HumanB();
+				void	attack(void);
+				void	setWeapon(Weapon Weapon);
 
 	private	:
+			std::string	_Name;
+			std::string	_Weapon;
 };
 
 #endif
