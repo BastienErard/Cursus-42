@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:37:59 by berard            #+#    #+#             */
-/*   Updated: 2023/09/13 14:51:07 by berard           ###   ########.fr       */
+/*   Updated: 2023/09/22 17:51:55 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANB_HPP
 # define HUMANB_HPP
+
+#include "Weapon.hpp"
 
 class HumanB
 {
@@ -19,11 +21,11 @@ class HumanB
 				HumanB(std::string	name);
 				~HumanB();
 				void	attack(void);
-				void	setWeapon(Weapon Weapon);
+				void	setWeapon(Weapon &Weapon);
 
 	private	:
-			std::string	_Name;
-			std::string	_Weapon;
+			std::string	_name;
+			Weapon 		*_weapon;
 };
 
 #endif

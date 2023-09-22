@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:45:06 by berard            #+#    #+#             */
-/*   Updated: 2023/09/13 15:00:03 by berard           ###   ########.fr       */
+/*   Updated: 2023/09/22 17:15:24 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,14 @@ Weapon::~Weapon()
 	return ;
 }
 
+std::string const	&Weapon::getType(void)
+{
+	std::string	&type = _type;
+	return (type);
+}
+
 void	Weapon::setType(std::string type)
 {
 	_type = type;
 }
+
