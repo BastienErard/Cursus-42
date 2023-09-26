@@ -6,14 +6,14 @@
 #    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 18:35:42 by tastybao          #+#    #+#              #
-#    Updated: 2023/09/23 18:35:59 by tastybao         ###   ########.fr        #
+#    Updated: 2023/09/26 18:28:10 by tastybao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		=	Sed
 
 SRCS		=	main.cpp \
-
+				sed.cpp \
 
 OBJS		=	$(SRCS:.cpp=.o)
 

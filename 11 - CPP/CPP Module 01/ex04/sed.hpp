@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:56:20 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/25 14:46:07 by berard           ###   ########.fr       */
+/*   Updated: 2023/09/26 19:59:00 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ class Str
 	public	:
 				Str();
 				~Str();
-				void	RegisterString(std::string s1, std::string s2);
+				void	RegisterStr(std::string s1, std::string s2);
+				std::string	GetS1(void);
+				std::string	GetS2(void);
 
 	private	:
 				std::string	_s1;
