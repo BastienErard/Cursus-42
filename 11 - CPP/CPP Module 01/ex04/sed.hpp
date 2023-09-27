@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:56:20 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/26 19:59:00 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:45:52 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <istream>
+#include <fstream>
 #include <string>
 
 class Str
