@@ -1,45 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.cpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 11:40:41 by berard            #+#    #+#             */
-/*   Updated: 2023/09/28 13:27:21 by berard           ###   ########.fr       */
+/*   Created: 2023/09/28 14:32:28 by berard            #+#    #+#             */
+/*   Updated: 2023/09/28 15:30:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sed.hpp"
+#include "Harl.hpp"
 
-Str::Str()
+int	main(void)
 {
-	return;
-}
+	Harl	Harl;
 
-Str::~Str()
-{
-	return;
-}
+	std::cout << "DEBUG :" << std::endl;
+	Harl.complain("debug");
 
-void	Str::RegisterStr(std::string s1, std::string s2)
-{
-	_s1 = s1;
-	_s2 = s2;
-	return;
-}
+	std::cout << "INFO :" << std::endl;
+	Harl.complain("info");
 
-std::string	Str::ReplaceStr(void)
-{
-	size_t	pos;
-	std::string	newLine;
+	std::cout << "WARNING :" << std::endl;
+	Harl.complain("warning");
 
-	pos = 0;
-	while ((pos = line.find(_s1)) != std::string::npos)
-	{
-		newLine += line.substr(0, pos);
-		newLine += _s2;
-		line.erase(0, pos + _s1.length());
-	}
-	return (newLine + line);
+	std::cout << "ERROR" << std::endl;
+	Harl.complain("error");
+
+	std::cout << "END" << std::endl;
+	std::cout << "This is the end" << std::endl;
+	return (0);
 }

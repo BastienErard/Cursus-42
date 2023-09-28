@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 18:56:20 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/28 13:26:58 by berard           ###   ########.fr       */
+/*   Created: 2023/09/28 14:32:26 by berard            #+#    #+#             */
+/*   Updated: 2023/09/28 15:03:48 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-# define SED_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
 #include <iostream>
 #include <istream>
-#include <fstream>
 #include <iomanip>
 #include <string>
 
-class Str
+class Harl
 {
-	public	:
-				Str();
-				~Str();
-				std::string	line;
-				std::string	ReplaceStr(void);
-				void		RegisterStr(std::string s1, std::string s2);
+	public :
+			Harl();
+			~Harl();
+			void	complain(std::string level);
 
-	private	:
-				std::string	_s1;
-				std::string	_s2;
+	private :
+			void	_debug(void);
+			void	_info(void);
+			void	_warning(void);
+			void	_error(void);
 };
 
 #endif

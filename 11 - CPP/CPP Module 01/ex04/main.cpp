@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 18:35:23 by tastybao          #+#    #+#             */
-/*   Updated: 2023/09/27 19:25:23 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:27:26 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char *argv[])
 {
 	Str	Str;
 	std::string	OutputFile;
+	std::string	NewLine;
 
 	if (argc != 4)
 	{
@@ -23,7 +24,6 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	OutputFile = (std::string)argv[1] + (std::string)".replace";
-	std::cout << OutputFile << std::endl;
 	std::ifstream	Input(argv[1]);
 	if (Input.fail())
 	{
@@ -38,5 +38,12 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	Str.RegisterStr(argv[2], argv[3]);
+	while (std::getline(Input, Str.line))
+	{
+		NewLine = Str.ReplaceStr();
+		Output << NewLine << std::endl;
+	}
+	Input.close();
+	Output.close();
 	return (0);
 }
