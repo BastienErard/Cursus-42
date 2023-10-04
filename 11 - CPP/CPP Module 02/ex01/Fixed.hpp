@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 17:14:45 by berard            #+#    #+#             */
-/*   Updated: 2023/10/04 18:02:56 by tastybao         ###   ########.fr       */
+/*   Created: 2023/10/04 18:06:26 by tastybao          #+#    #+#             */
+/*   Updated: 2023/10/04 18:17:02 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,17 @@
 # define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
 	public :
-		Fixed(void);
-		Fixed(Fixed const & src);
-		~Fixed(void);
-
-		Fixed & operator=(Fixed const & rhs);
-
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+			Fixed(void);
+			Fixed(const int i);
+			Fixed (const float f)
 
 	private :
-		int	_n;
-		static int const	_bits = 8;
+
 };
 
 #endif

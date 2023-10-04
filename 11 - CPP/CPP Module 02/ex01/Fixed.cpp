@@ -1,35 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 17:14:45 by berard            #+#    #+#             */
-/*   Updated: 2023/10/04 18:02:56 by tastybao         ###   ########.fr       */
+/*   Created: 2023/10/04 18:06:28 by tastybao          #+#    #+#             */
+/*   Updated: 2023/10/04 18:14:48 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-
-class Fixed
-{
-	public :
-		Fixed(void);
-		Fixed(Fixed const & src);
-		~Fixed(void);
-
-		Fixed & operator=(Fixed const & rhs);
-
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-
-	private :
-		int	_n;
-		static int const	_bits = 8;
-};
-
-#endif
