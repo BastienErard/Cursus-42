@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:17:36 by tastybao          #+#    #+#             */
-/*   Updated: 2023/10/07 19:24:59 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/10/07 20:42:31 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ ClapTrap::ClapTrap(void) : _name("ClapTrap"), _HitPoints(10), _EnergyPoints(10),
 ClapTrap::ClapTrap(std::string name) : _name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
 	std::cout << "A new ClapTrap is created. It is.... " << _name << "!" << std::endl;
+	return;
+}
+
+ClapTrap::ClapTrap(std::string name, unsigned int Hit, unsigned int Energy, unsigned int Attack) : _name(name), _HitPoints(Hit), _EnergyPoints(Energy), _AttackDamage(Attack)
+{
+	std::cout << "Full ClapTrap built" << std::endl;
 	return;
 }
 
@@ -66,13 +72,14 @@ void	ClapTrap::attack(const std::string &target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_HitPoints == 0)
+	if (_HitPoints == 0)
 		std::cout << "ClapTrap " << _name << " is already on the ground. Don't attack a dead body!" << std::endl;
 	else
 	{
 		if (_HitPoints <= amount)
 		{
-			std::cout << "ClapTrap " << _name << " is attacked and takes " << amount << " damage. He is dead!" << std::endl;
+			amount = _HitPoints;
+			std::cout << "ClapTrap " << _name << " is attacked and takes " << amount << " damage. He is dead and can't take it anymore!" << std::endl;
 			_HitPoints = 0;
 		}
 		else
