@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Wrongcat.cpp                                       :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 17:26:06 by berard            #+#    #+#             */
-/*   Updated: 2023/10/12 15:14:38 by berard           ###   ########.fr       */
+/*   Created: 2023/10/10 17:25:18 by berard            #+#    #+#             */
+/*   Updated: 2023/10/13 14:55:29 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Animal.hpp"
 
-WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
+Animal::Animal(void) : _type("Animal")
 {
 	std::cout << _type << " name constructor called" << std::endl;
 	return;
 }
 
-WrongCat::WrongCat(std::string type) : WrongAnimal(type)
+Animal::Animal(std::string type) : _type(type)
 {
-	std::cout << _type << " name constructor called" << std::endl;
+	std::cout << "Uber " << _type << " constructor called" << std::endl;
 	return;
 }
 
-WrongCat::WrongCat(WrongCat const & src)
+Animal::Animal(Animal const & src)
 {
 	std::cout << _type << " name copy constructor called" << std::endl;
 	*this = src;
 	return;
 }
 
-WrongCat::~WrongCat(void)
+Animal::~Animal(void)
 {
 	std::cout << _type << " name destructor called" << std::endl;
 	return;
 }
 
-WrongCat	&WrongCat::operator=(WrongCat const & rhs)
+Animal	&Animal::operator=(Animal const & rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	_type = rhs._type;
@@ -45,8 +45,13 @@ WrongCat	&WrongCat::operator=(WrongCat const & rhs)
 	return *this;
 }
 
-void	WrongCat::makeSound(void) const
+void	Animal::makeSound(void) const
 {
-	std::cout << _type << " makes this sound : AAAAAAAAA." << std::endl;
+	std::cout << "This animal is mute." << std::endl;
 	return;
+}
+
+std::string	Animal::getType(void) const
+{
+	return _type;
 }

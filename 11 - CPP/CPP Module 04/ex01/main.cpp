@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:24:08 by berard            #+#    #+#             */
-/*   Updated: 2023/10/12 15:53:09 by berard           ###   ########.fr       */
+/*   Updated: 2023/10/13 14:55:30 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,5 @@ int	main(void)
 	delete Meta;
 
 	std::cout << std::endl;
-	const WrongAnimal 	*WrongMeta = new WrongAnimal();
-	const WrongAnimal	*Dusty = new WrongCat();
-
-	std::cout << "Dusty is a " << Dusty->getType() << "." << std::endl;
-	Dusty->makeSound();
-	WrongMeta->makeSound();
-
-	delete Dusty;
-	delete WrongMeta;
 	return (0);
 }
