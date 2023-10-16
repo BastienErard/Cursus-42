@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:25:18 by berard            #+#    #+#             */
-/*   Updated: 2023/10/13 14:55:29 by berard           ###   ########.fr       */
+/*   Updated: 2023/10/16 14:03:20 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Animal::Animal(Animal const & src)
 
 Animal::~Animal(void)
 {
-	std::cout << _type << " name destructor called" << std::endl;
+	std::cout << _type << " name destructor called (Uber)" << std::endl;
 	return;
 }
 

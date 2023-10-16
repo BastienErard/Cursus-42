@@ -1,56 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 17:25:20 by berard            #+#    #+#             */
-/*   Updated: 2023/10/16 14:03:40 by berard           ###   ########.fr       */
+/*   Created: 2023/10/10 17:25:18 by berard            #+#    #+#             */
+/*   Updated: 2023/10/16 15:44:59 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Animal.hpp"
 
-Cat::Cat(void) : Animal("Cat")
+Animal::Animal(void) : _type("Animal")
 {
 	std::cout << _type << " name constructor called" << std::endl;
-	_Brain = new Brain();
 	return;
 }
 
-Cat::Cat(Cat const & src)
+Animal::Animal(std::string type) : _type(type)
+{
+	std::cout << "Uber " << _type << " constructor called" << std::endl;
+	return;
+}
+
+Animal::Animal(Animal const & src)
 {
 	std::cout << _type << " name copy constructor called" << std::endl;
-	_type = src._type;
-	_Brain = new Brain(*src._Brain);
+	*this = src;
 	return;
 }
 
-Cat::~Cat(void)
+Animal::~Animal(void)
 {
-	std::cout << _type << " name destructor called (lower)" << std::endl;
-	delete _Brain;
+	std::cout << _type << " name destructor called (Uber)" << std::endl;
 	return;
 }
 
-Cat	&Cat::operator=(Cat const & rhs)
+Animal	&Animal::operator=(Animal const & rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	_type = rhs._type;
-	delete _Brain;
-	_Brain = new Brain(*rhs._Brain);
 
 	return *this;
 }
 
-void	Cat::makeSound(void) const
+std::string	Animal::getType(void) const
 {
-	std::cout << _type << " makes this sound : Miaou." << std::endl;
-	return;
+	return _type;
 }
-
-Brain	*Cat::getBrain(void) const
-{
-	return _Brain;
-}
+// COPY BECAUSE PURE CLASS //
+// void	Animal::makeSound(void) const
+// {
+// 	std::cout << "This animal is mute." << std::endl;
+// 	return;
+// }

@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:24:08 by berard            #+#    #+#             */
-/*   Updated: 2023/10/16 15:32:46 by berard           ###   ########.fr       */
+/*   Updated: 2023/10/16 15:59:40 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(void)
 	int	nb = 5;
 	int	i = -1;
 	const Animal	*Herd[nb];
+	// Animal	test;
 
 	while (++i < nb)
 	{

@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:26:18 by berard            #+#    #+#             */
-/*   Updated: 2023/10/12 16:32:18 by berard           ###   ########.fr       */
+/*   Updated: 2023/10/16 14:43:50 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class Dog : public Animal
 	public :
 		Dog(void);
 		Dog(Dog const & src);
-		virtual ~Dog(void);
+		~Dog(void);
 
 		Dog & operator=(Dog const & rhs);
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 		Brain	*getBrain(void) const;
 
 	private :

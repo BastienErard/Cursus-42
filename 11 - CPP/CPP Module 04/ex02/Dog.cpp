@@ -1,52 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Wrongcat.cpp                                       :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 17:26:06 by berard            #+#    #+#             */
-/*   Updated: 2023/10/12 15:14:38 by berard           ###   ########.fr       */
+/*   Created: 2023/10/10 17:26:03 by berard            #+#    #+#             */
+/*   Updated: 2023/10/16 15:35:17 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
+Dog::Dog(void) : Animal("Dog")
 {
 	std::cout << _type << " name constructor called" << std::endl;
+	_Brain = new Brain();
 	return;
 }
 
-WrongCat::WrongCat(std::string type) : WrongAnimal(type)
-{
-	std::cout << _type << " name constructor called" << std::endl;
-	return;
-}
-
-WrongCat::WrongCat(WrongCat const & src)
+Dog::Dog(Dog const & src)
 {
 	std::cout << _type << " name copy constructor called" << std::endl;
-	*this = src;
+	_type = src._type;
+	_Brain = new Brain(*src._Brain);
 	return;
 }
 
-WrongCat::~WrongCat(void)
+Dog::~Dog(void)
 {
-	std::cout << _type << " name destructor called" << std::endl;
+	std::cout << _type << " name destructor called (lower)" << std::endl;
+	delete _Brain;
 	return;
 }
 
-WrongCat	&WrongCat::operator=(WrongCat const & rhs)
+Dog	&Dog::operator=(Dog const & rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	_type = rhs._type;
+	delete _Brain;
+	_Brain = new Brain(*rhs._Brain);
 
 	return *this;
 }
 
-void	WrongCat::makeSound(void) const
+void	Dog::makeSound(void) const
 {
-	std::cout << _type << " makes this sound : AAAAAAAAA." << std::endl;
+	std::cout << _type << " makes this sound : Waouf." << std::endl;
 	return;
+}
+
+Brain	*Dog::getBrain(void) const
+{
+	return _Brain;
 }
