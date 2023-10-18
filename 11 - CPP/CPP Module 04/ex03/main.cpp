@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:59:25 by tastybao          #+#    #+#             */
-/*   Updated: 2023/10/18 11:45:06 by berard           ###   ########.fr       */
+/*   Updated: 2023/10/18 18:12:41 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
 
 int	main(void)
 {
