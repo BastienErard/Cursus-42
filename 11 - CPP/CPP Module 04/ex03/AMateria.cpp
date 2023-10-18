@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:07:06 by tastybao          #+#    #+#             */
-/*   Updated: 2023/10/17 20:03:00 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:13:41 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ std::string const	&AMateria::getType(void) const
 
 void	AMateria::use(ICharacter &target)
 {
-	std::cout << // TO DO, RESTE OK
+	std::cout << "* shoots an " << type << " at " << target.getName() << " *" << std::endl;
+	return;
 }

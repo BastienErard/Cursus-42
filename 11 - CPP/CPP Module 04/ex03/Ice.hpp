@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 19:07:01 by tastybao          #+#    #+#             */
-/*   Updated: 2023/10/18 10:41:23 by berard           ###   ########.fr       */
+/*   Created: 2023/10/18 11:44:53 by berard            #+#    #+#             */
+/*   Updated: 2023/10/18 13:24:04 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-#include <iostream>
+#include "AMateria.hpp"
 
-class AMateria
+class Ice : public AMateria
 {
-	protected :
-		std::string	type;
-
 	public :
-		AMateria(void);
-		AMateria(std::string const &type);
-		AMateria(AMateria const &src);
-		virtual ~AMateria(void);
+		Ice(void);
+		Ice(Ice const &src);
+		~Ice(void);
 
-		AMateria	&operator=(AMateria const &rhs);
-
-		std::string const	&getType(void) const;
-		virtual AMateria*	clone(void) const = 0;
-		virtual void		use(ICharacter &target);
-
+		Ice	&operator=(Ice const &rhs);
+		AMateria	*clone(void) const;
+		void		use(ICharacter &target);
 };
 
 #endif

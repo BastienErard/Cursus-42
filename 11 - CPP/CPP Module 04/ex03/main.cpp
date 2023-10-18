@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:59:25 by tastybao          #+#    #+#             */
-/*   Updated: 2023/10/17 19:37:20 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:45:06 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "Ice.hpp"
 
 int	main(void)
 {
