@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:12:00 by tastybao          #+#    #+#             */
-/*   Updated: 2023/10/18 18:19:35 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/10/19 11:22:29 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,4 @@ class Character : public ICharacter
 		AMateria	*_ground[4];
 };
 
-
-
 #endif
-
-
-		virtual std::string const 	&getName() const = 0;
-		virtual void				equip(AMateria* m) = 0;
-		virtual void				unequip(int idx) = 0;
-		virtual void				use(int idx, ICharacter& target) = 0;

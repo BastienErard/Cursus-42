@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:12:10 by tastybao          #+#    #+#             */
-/*   Updated: 2023/10/18 18:33:13 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/10/19 11:23:23 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,27 @@ Character::Character(std::string name) : _name(name)
 	return;
 }
 
+Character::Character(Character const &src)
+{
+	int	i = -1;
+
+	std::cout << "Character copy constructor called" << std::endl;
+
+	_name = src._name;
+	while (++i < 4)
+	{
+		if (src._inventory[i])
+			_inventory[i] = src._inventory[i]->clone();
+		else
+			_inventory[i] = nullptr;
+		if (src._ground[i])
+			_ground[i] = src._ground[i]->clone();
+		else
+			_ground[i] = nullptr;
+	}
+	return ;
+}
+
 Character::~Character(void)
 {
 	int	i = -1
@@ -54,3 +75,9 @@ Character::~Character(void)
 	return;
 }
 
+Character	&Character::operator=(Character const &rhs)
+{
+	std::cout << "Character copy assignment operator called" << std::endl;
+
+	return *this;
+}
