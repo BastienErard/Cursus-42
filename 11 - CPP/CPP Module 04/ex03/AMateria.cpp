@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:07:06 by tastybao          #+#    #+#             */
-/*   Updated: 2023/10/18 16:42:25 by tastybao         ###   ########.fr       */
+/*   Updated: 2023/10/20 16:28:59 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ AMateria::AMateria(std::string const &type) : type(type)
 AMateria::AMateria(AMateria const &src)
 {
 	std::cout << "AMateria copy constructor called" << std::endl;
-	*this = src;
+	type = src.type;
 	return;
 }
 
@@ -51,6 +51,6 @@ std::string const	&AMateria::getType(void) const
 
 void	AMateria::use(ICharacter &target)
 {
-	std::cout << "We don't use this function." << std::endl;
+	std::cout << target.getName() << " don't use this function." << std::endl;
 	return;
 }

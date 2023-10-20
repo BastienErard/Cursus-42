@@ -3,16 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
+#    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 18:32:41 by tastybao          #+#    #+#              #
-#    Updated: 2023/10/17 18:59:18 by tastybao         ###   ########.fr        #
+#    Updated: 2023/10/20 16:48:00 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		=	Materia
 
 SRCS		=	main.cpp \
+				AMateria.cpp \
+				Character.cpp \
+				Cure.cpp \
+				Ice.cpp \
+				MateriaSource.cpp \
 
 OBJS		=	$(SRCS:.cpp=.o)
 

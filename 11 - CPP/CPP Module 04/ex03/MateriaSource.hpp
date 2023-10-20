@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 19:07:01 by tastybao          #+#    #+#             */
-/*   Updated: 2023/10/20 16:29:00 by berard           ###   ########.fr       */
+/*   Created: 2023/10/20 15:14:35 by berard            #+#    #+#             */
+/*   Updated: 2023/10/20 16:56:36 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-#include <iostream>
-#include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
 
-class AMateria
+class MateriaSource : public IMateriaSource
 {
-	protected :
-		std::string	type;
-
 	public :
-		AMateria(void);
-		AMateria(std::string const &type);
-		AMateria(AMateria const &src);
-		virtual ~AMateria(void);
+		MateriaSource(void);
+		MateriaSource(MateriaSource const &src);
+		~MateriaSource(void);
 
-		AMateria	&operator=(AMateria const &rhs);
+		MateriaSource	&operator=(MateriaSource const &rhs);
 
-		std::string const	&getType(void) const;
-		virtual AMateria	*clone(void) const = 0;
-		virtual void		use(ICharacter &target);
+		void			learnMateria(AMateria *materia);
+		AMateria		*createMateria(std::string const &type);
 
+	private :
+		AMateria	*_stock[4];
+		int			_nb;
 };
 
 #endif
+
