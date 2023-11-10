@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:53:21 by berard            #+#    #+#             */
-/*   Updated: 2023/11/09 16:44:39 by berard           ###   ########.fr       */
+/*   Updated: 2023/11/10 15:30:45 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,42 @@ int	main(void)
 
 	try
 	{
-		Bureaucrat	Bob = Bureaucrat("Bob", 148);
-		Bureaucrat abricot = Bob;
+		Bureaucrat	Bob = Bureaucrat("Bob", 143);
 		std::cout << Bob << std::endl;
 	}
 	catch (std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+	std::cout << std::endl;
+	std::cout << "This is a wrong grade" << std::endl;
+
+	try
+	{
+		Bureaucrat	Barbara = Bureaucrat("Barabara", 154);
+		std::cout << Barbara << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+	std::cout << "And now, let's do some increment / decrement" << std::endl;
+
+	try
+	{
+		Bureaucrat	John = Bureaucrat("John", 143);
+		John.decrement(5);
+		John.increment(2);
+		John.increment(150);
+		std::cout << John << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
 	return (0);
 }
