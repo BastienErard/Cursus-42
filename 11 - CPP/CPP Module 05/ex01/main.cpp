@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:53:21 by berard            #+#    #+#             */
-/*   Updated: 2024/01/05 15:46:16 by berard           ###   ########.fr       */
+/*   Updated: 2024/01/09 13:49:26 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {

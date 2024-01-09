@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:17:48 by berard            #+#    #+#             */
-/*   Updated: 2024/01/05 17:26:47 by berard           ###   ########.fr       */
+/*   Updated: 2024/01/09 14:00:49 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -24,7 +25,7 @@ class Form
 		public :
 			virtual const char *what() const throw()
 			{
-				return ("Grade is too high!");
+				return ("Grade is too high to sign or execute!");
 			}
 	};
 
@@ -33,18 +34,33 @@ class Form
 		public :
 			virtual const char *what() const throw()
 			{
-				return ("Grade is too low!");
+				return ("Grade is too low to sign or execute!");
 			}
 	};
 
 	public :
+		Form(std::string name, int gradeSigned, int gradeExecuted)
+		Form(Form const & src);
+		~Form(void);
+
+		Form &operator=(Form const & rhs);
+
+		void		beSigned(Bureaucrat &bureaucrat);
+
+		std::string	getName(void) const;
+		bool		getSignStatus(void) const;
+		int			getGradeSigned(void) const;
+		int			getGradeExecuted(void) const;
 
 	private :
+		Form(void);
 		const std::string	_name;
-		bool				_signed;
-		const int			_grade_sign;
-		const int			_grade_execute;
+		bool				_signStatus;
+		const int			_gradeSigned;
+		const int			_gradeExecuted;
 
-}
+};
+
+std::ostream &operator<<(std::ostream &out, Form const & rhs);
 
 #endif
