@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:17:48 by berard            #+#    #+#             */
-/*   Updated: 2024/01/09 14:00:49 by tastybao         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:34:22 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-#include <iostream>
-#include <string>
-#include <stdexcept>
 #include "Bureaucrat.hpp"
+#include <string>
 
 class Form
 {
@@ -39,7 +37,7 @@ class Form
 	};
 
 	public :
-		Form(std::string name, int gradeSigned, int gradeExecuted)
+		Form(std::string name, int gradeSigned, int gradeExecuted);
 		Form(Form const & src);
 		~Form(void);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:53:25 by berard            #+#    #+#             */
-/*   Updated: 2024/01/09 11:17:05 by tastybao         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:34:09 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -45,6 +46,7 @@ class Bureaucrat
 			Bureaucrat &operator=(Bureaucrat const & rhs);
 			void	increment(int n);
 			void	decrement(int n);
+			void	signForm(Form &form);
 
 			std::string	getName(void) const;
 			int			getGrade(void) const;

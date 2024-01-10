@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:53:21 by berard            #+#    #+#             */
-/*   Updated: 2024/01/09 13:49:26 by tastybao         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:28:36 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 int	main(void)
 {
-	std::cout << "This is a normal bureaucrat" << std::endl;
-
+	std::cout << "This is bureaucrat grade 20 with a form grade 30" << std::endl;
 	try
 	{
 		Bureaucrat	Bob = Bureaucrat("Bob", 124);
+		Form		Paper = Form("Paper", 30, 30);
+		Bob.signForm(Paper);
 		std::cout << Bob << std::endl;
+		std::cout << Paper << std::endl;
 	}
 	catch (std::exception& e)
 	{
@@ -28,12 +30,15 @@ int	main(void)
 	}
 
 	std::cout << std::endl;
-	std::cout << "This is a wrong grade" << std::endl;
 
+	std::cout << "This is a bureaucrat grade 20 with a form grade 165" << std::endl;
 	try
 	{
-		Bureaucrat	Barbara = Bureaucrat("Barabara", 154);
+		Bureaucrat	Barbara = Bureaucrat("Barabara", 20);
+		Form		Taxes = Form("Taxes", 165, 30);
+		Barbara.signForm(Taxes);
 		std::cout << Barbara << std::endl;
+		std::cout << Taxes << std::endl;
 	}
 	catch (std::exception& e)
 	{
@@ -41,15 +46,17 @@ int	main(void)
 	}
 
 	std::cout << std::endl;
-	std::cout << "And now, let's do some increment / decrement" << std::endl;
 
+	std::cout << "And now, let's do some increment / decrement with a higher grade for the Form" << std::endl;
 	try
 	{
-		Bureaucrat	John = Bureaucrat("John", 143);
+		Bureaucrat	John = Bureaucrat("John", 20);
+		Form		Payroll = Form("Payroll", 1, 1);
 		John.decrement(5);
 		John.increment(2);
 		John.increment(10);
 		std::cout << John << std::endl;
+		std::cout << Payroll << std::endl;
 	}
 	catch (std::exception& e)
 	{
