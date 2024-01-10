@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:17:48 by berard            #+#    #+#             */
-/*   Updated: 2024/01/10 11:34:22 by berard           ###   ########.fr       */
+/*   Updated: 2024/01/10 17:13:45 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "Bureaucrat.hpp"
 #include <string>
+
+class Bureaucrat;
 
 class Form
 {

@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:53:21 by berard            #+#    #+#             */
-/*   Updated: 2024/01/10 11:28:36 by berard           ###   ########.fr       */
+/*   Updated: 2024/01/10 11:51:31 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 	std::cout << "This is bureaucrat grade 20 with a form grade 30" << std::endl;
 	try
 	{
-		Bureaucrat	Bob = Bureaucrat("Bob", 124);
+		Bureaucrat	Bob = Bureaucrat("Bob", 20);
 		Form		Paper = Form("Paper", 30, 30);
 		Bob.signForm(Paper);
 		std::cout << Bob << std::endl;
@@ -55,6 +55,7 @@ int	main(void)
 		John.decrement(5);
 		John.increment(2);
 		John.increment(10);
+		John.signForm(Payroll);
 		std::cout << John << std::endl;
 		std::cout << Payroll << std::endl;
 	}

@@ -6,20 +6,19 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:17:56 by berard            #+#    #+#             */
-/*   Updated: 2024/01/10 11:10:17 by berard           ###   ########.fr       */
+/*   Updated: 2024/01/10 11:45:13 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(void)
+Form::Form(void) : _name("Unknown"), _signStatus(false), _gradeSigned(30), _gradeExecuted(30)
 {
 	return;
 }
 
-Form::Form(std::string name, int gradeSigned, int gradeExecuted) : _name(name), _gradeSigned(gradeSigned), _gradeExecuted(gradeExecuted)
+Form::Form(std::string name, int gradeSigned, int gradeExecuted) : _name(name), _signStatus(false), _gradeSigned(gradeSigned), _gradeExecuted(gradeExecuted)
 {
-	_signStatus = false;
 	if (_gradeSigned > 150 || _gradeExecuted > 150)
 		throw (Form::GradeTooLowException());
 	else if (_gradeSigned < 1 || _gradeExecuted < 1)
@@ -27,9 +26,8 @@ Form::Form(std::string name, int gradeSigned, int gradeExecuted) : _name(name), 
 	return;
 }
 
-Form::Form(Form const & src)
+Form::Form(Form const & src) : _name(src._name), _signStatus(src._signStatus), _gradeSigned(src._gradeSigned), _gradeExecuted(src._gradeExecuted)
 {
-	*this = src;
 	return;
 }
 
@@ -40,10 +38,7 @@ Form::~Form(void)
 
 Form	&Form::operator=(Form const & rhs)
 {
-	_name = rhs._name;
 	_signStatus = rhs._signStatus;
-	_gradeSigned = rhs._gradeSigned;
-	_gradeExecuted = rhs._gradeExecuted;
 	return *this;
 }
 
