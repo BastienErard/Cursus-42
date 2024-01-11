@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:53:21 by berard            #+#    #+#             */
-/*   Updated: 2024/01/10 11:51:31 by berard           ###   ########.fr       */
+/*   Updated: 2024/01/11 14:26:31 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(void)
 	std::cout << "And now, let's do some increment / decrement with a higher grade for the Form" << std::endl;
 	try
 	{
-		Bureaucrat	John = Bureaucrat("John", 20);
+		Bureaucrat	John = Bureaucrat("John", 40);
 		Form		Payroll = Form("Payroll", 1, 1);
 		John.decrement(5);
 		John.increment(2);

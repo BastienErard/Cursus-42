@@ -6,7 +6,7 @@
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:53:23 by berard            #+#    #+#             */
-/*   Updated: 2024/01/10 11:31:20 by berard           ###   ########.fr       */
+/*   Updated: 2024/01/11 14:20:56 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	Bureaucrat::signForm(Form &form)
 	}
 	catch (std::exception& e)
 	{
-		std::cout << getName() << " couldn't sign the form " << form.getName() << " because grade is too low" << std::endl;
+		std::cout << getName() << " couldn't sign the form " << form.getName() << " because ";
+		std::cout << e.what() << std::endl;
 	}
 }
 
