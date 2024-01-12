@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:17:48 by berard            #+#    #+#             */
-/*   Updated: 2024/01/12 10:53:14 by berard           ###   ########.fr       */
+/*   Updated: 2024/01/12 14:48:27 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include "Bureaucrat.hpp"
 #include <string>
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	class GradeTooHighException : public std::exception
 	{
@@ -39,11 +39,11 @@ class Form
 	};
 
 	public :
-		Form(std::string name, int gradeSigned, int gradeExecuted);
-		Form(Form const & src);
-		~Form(void);
+		AForm(std::string name, int gradeSigned, int gradeExecuted);
+		AForm(AForm const & src);
+		virtual ~AForm(void);
 
-		Form &operator=(Form const & rhs);
+		AForm &operator=(AForm const & rhs);
 
 		void		beSigned(Bureaucrat &bureaucrat);
 
@@ -51,9 +51,15 @@ class Form
 		bool		getSignStatus(void) const;
 		int			getGradeSigned(void) const;
 		int			getGradeExecuted(void) const;
+		std::string	getTarget(void) const; // test
+
+	protected :
+		virtual void	execute(Bureaucrat const &executor) const = 0;
+		bool			auditGrade(const int grade) const; // test
+		std::string		target; // test
 
 	private :
-		Form(void);
+		AForm(void);
 		const std::string	_name;
 		bool				_signStatus;
 		const int			_gradeSigned;
@@ -61,6 +67,6 @@ class Form
 
 };
 
-std::ostream &operator<<(std::ostream &out, Form const & rhs);
+std::ostream &operator<<(std::ostream &out, AForm const & rhs);
 
 #endif
