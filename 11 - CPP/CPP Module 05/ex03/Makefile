@@ -6,7 +6,7 @@
 #    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 13:56:46 by berard            #+#    #+#              #
-#    Updated: 2024/01/14 12:43:44 by tastybao         ###   ########.fr        #
+#    Updated: 2024/01/14 13:23:53 by tastybao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS		=	main.cpp \
 				ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp \
 				PresidentialPardonForm.cpp \
+				Intern.cpp \
 
 OBJS		=	$(SRCS:.cpp=.o)
 
