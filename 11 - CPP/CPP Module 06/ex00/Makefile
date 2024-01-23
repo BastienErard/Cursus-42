@@ -6,11 +6,11 @@
 #    By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 13:56:46 by berard            #+#    #+#              #
-#    Updated: 2024/01/19 18:08:08 by tastybao         ###   ########.fr        #
+#    Updated: 2024/01/23 20:38:30 by tastybao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		=	ScalarConverter
+NAME 		=	convert
 
 SRCS		=	main.cpp \
 				ScalarConverter.cpp \
