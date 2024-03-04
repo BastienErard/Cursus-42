@@ -20,6 +20,11 @@ COPY	conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 COPY	tools/script_wdp.sh /usr/local/script_wdp.sh
 RUN		chmod +x /usr/local/script_wdp.sh
 
+# Install CLI to configure wordpress afterwards
+RUN		wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN		chmod +x wp-cli.phar
+RUN		mv wp-cli.phar /usr/local/bin/wp
+
 # Port display 9000
 EXPOSE	9000
 
