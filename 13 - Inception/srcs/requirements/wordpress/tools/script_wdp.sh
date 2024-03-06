@@ -5,7 +5,7 @@ php-fpm7.3 -v
 
 # Loop until mariaDB is launched
 while ! mariadb -u $MARIADB_USER --password=$MARIADB_PASS -h mariadb -P 3306 --silent; do
-	sleep 1
+	sleep 3
 	echo "Waiting for mariaDB"
 done
 
