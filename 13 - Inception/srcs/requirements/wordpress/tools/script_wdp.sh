@@ -5,23 +5,16 @@ php-fpm7.3 -v
 
 # Loop until mariaDB is launched
 while ! mariadb -u $MARIADB_USER --password=$MARIADB_PASS -h mariadb -P 3306 --silent; do
-	sleep 3
+	sleep 5
 	echo "Waiting for mariaDB"
 done
-
-mariadb -u $MARIADB_USER --password=$MARIADB_PASS -h mariadb -P 3306 -e "SHOW DATABASES;"
 
 # Install wordpress if not already done
 if [ -e /var/www/wordpress/wp-config.php ]
 then
 	echo "wordpress already downloaded"
 else
-	# Install CLI to configure wordpress afterwards - PUT IN DOCKERFILE
-	# wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-	# chmod +x wp-cli.phar
-	# mv wp-cli.phar /usr/local/bin/wp
-
-	# Insall wordpress
+	# Install wordpress
 	cd /var/www/wordpress
 	wp core download --allow-root
 

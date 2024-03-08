@@ -18,10 +18,9 @@ RUN		chown -R www-data:www-data /var/www/wordpress
 
 # Copy configuration file
 COPY	conf/nginx.conf /etc/nginx/nginx.conf
-# COPY	index.html /var/www/wordpress
 
 # Port display 443 is the port required for the SSL protocol (https)
 EXPOSE	443
 
 #Run the Nginx web server in foreground mode, using the configuration specified
-CMD		["nginx", "-g", "daemon off;"]
+ENTRYPOINT	["nginx", "-g", "daemon off;"]

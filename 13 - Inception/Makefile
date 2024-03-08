@@ -6,14 +6,14 @@
 #    By: berard <berard@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 10:56:15 by berard            #+#    #+#              #
-#    Updated: 2024/03/06 10:58:54 by berard           ###   ########.fr        #
+#    Updated: 2024/03/08 16:27:10 by berard           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = inception
 PATH_DOCKER_COMPOSE = srcs/docker-compose.yml
-PATH_V_WORDPRESS = /Users/berard/data/wordpress
-PATH_V_MARIADB = /Users/berard/data/mariadb
+PATH_V_WORDPRESS =  /Users/berard/data/wordpress
+PATH_V_MARIADB =  /Users/berard/data/mariadb
 PATH_TO_ENV_FILE = srcs/.env
 RESET_COLOR = \033[0m
 

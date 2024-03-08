@@ -7,9 +7,6 @@ RUN		apt-get update && \
 
 # Creating directories and changing rights
 RUN		mkdir -p /run/mysqld /var/lib/mysql
-RUN		chmod -R 755 /run/mysqld /var/lib/mysql
-RUN		chown -R mysql:mysql /var/lib/mysql;
-RUN		chown -R mysql:mysql /run/mysqld;
 
 # Copy configuration file and the script and grant access to execute
 COPY	conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
@@ -20,4 +17,4 @@ RUN 	chmod +x /usr/local/script_mdb.sh
 EXPOSE	3306
 
 # Run MariaDB on
-CMD		["sh", "/usr/local/script_mdb.sh"]
+ENTRYPOINT	["sh", "/usr/local/script_mdb.sh"]

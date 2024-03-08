@@ -12,8 +12,11 @@ RUN 	apt-get install -y php7.3\
 						php-mysql\
 						mariadb-client
 
-# Creating directory for php
+# Creating directory for php and wordpress
 RUN		mkdir -p /run/php
+RUN		mkdir -p /var/www/wordpress
+RUN		chown -R www-data:www-data /var/www
+RUN		chmod -R 755 /var/www
 
 # Copy configuration file && change the rights
 COPY	conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
@@ -29,4 +32,4 @@ RUN		mv wp-cli.phar /usr/local/bin/wp
 EXPOSE	9000
 
 # Run Wordpress (script)
-CMD		["sh", "/usr/local/script_wdp.sh"]
+ENTRYPOINT	["sh", "/usr/local/script_wdp.sh"]

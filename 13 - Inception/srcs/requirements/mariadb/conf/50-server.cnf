@@ -3,7 +3,7 @@
 [mysqld]
 
 user                    = mysql
-pid-file                = /run/mysqld/mysqld.pid   #le dossier /run/mysqld/ sera créé via le Dockerfile
+pid-file                = /run/mysqld/mysqld.pid
 socket                  = /run/mysqld/mysqld.sock
 port                    = 3306
 basedir                 = /usr
