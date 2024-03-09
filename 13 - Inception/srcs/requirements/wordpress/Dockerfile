@@ -7,9 +7,9 @@ RUN		apt-get update && \
 
 # Install php7.3 and php-fpm to manage .php
 # Install mysql and maria-db client to handle .sql
-RUN 	apt-get install -y php7.3\
-						php-fpm\
-						php-mysql\
+RUN 	apt-get install -y php7.3 \
+						php-fpm \
+						php-mysql \
 						mariadb-client
 
 # Creating directory for php and wordpress

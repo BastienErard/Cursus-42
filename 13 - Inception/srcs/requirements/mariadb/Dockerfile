@@ -13,7 +13,7 @@ COPY	conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
 COPY	tools/script_mdb.sh /usr/local/script_mdb.sh
 RUN 	chmod +x /usr/local/script_mdb.sh
 
-# Port display 3306 to communicate between Wordpress and mariDB
+# Port display 3306 to communicate between Wordpress and mariaDB
 EXPOSE	3306
 
 # Run MariaDB on

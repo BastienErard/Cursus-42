@@ -1,36 +1,29 @@
-echo "------------------------------- MARIADB START -------------------------------------"
+echo "\ MARIADB /"
 
-# Initialisation de la base de données
+# Initialise the database
 mysqld --initialize --user=mysql --datadir=/var/lib/mysql;
 
+# Modifie the owners and groups of the directories
 chown -R mysql:mysql /var/lib/mysql;
 chown -R mysql:mysql /run/mysqld;
 
-# Lancement de mariadb en arrière plan
+# Launch of mariadb in the background
 mysqld --user=mysql --datadir=/var/lib/mysql &
 
 pid=$!
 
-
-# Attente de la fin de lancement de mariadb
+# Waiting for the end of the mariadb launch
 sleep 10
 
-# Configuration de la base de données
+# Database configuration
 mysql -u root -p${MARIADB_ROOT_PASSWORD} -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MARIADB_ROOT_PASSWORD}';"
 mysql -u root -p${MARIADB_ROOT_PASSWORD} -e "CREATE DATABASE IF NOT EXISTS ${MARIADB_DB_NAME};"
 mysql -u root -p${MARIADB_ROOT_PASSWORD} -e "CREATE USER IF NOT EXISTS '${MARIADB_USER}' IDENTIFIED BY '${MARIADB_PASS}';"
 mysql -u root -p${MARIADB_ROOT_PASSWORD} -e "GRANT ALL PRIVILEGES ON *.* TO '${MARIADB_USER}';"
 mysql -u root -p${MARIADB_ROOT_PASSWORD} -e "FLUSH PRIVILEGES;"
 
-# Affichage des bases de données dans le terminal
-echo "------------------\n"
-mysql -u root -p${MARIADB_ROOT_PASSWORD} -e "SHOW DATABASES;"
-echo "------------------\n"
-mysql -u root -p${MARIADB_ROOT_PASSWORD} -e "SELECT User FROM mysql.user"
-echo "------------------\n"
-
-# Kill de mysqld
+# Kill mysqld
 kill "$pid"
 
-# Remplacement du processus shell par mysqld
+# Replacing the shell process with mysqld
 exec mysqld --user=mysql --datadir=/var/lib/mysql
