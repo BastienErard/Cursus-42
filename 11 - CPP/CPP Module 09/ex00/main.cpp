@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:18:12 by berard            #+#    #+#             */
-/*   Updated: 2024/03/13 18:13:05 by berard           ###   ########.fr       */
+/*   Updated: 2024/03/14 19:46:21 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,19 @@
 int	main(int argc, char *argv[])
 {
 	if (argc != 2)
-		std::cout << "Please pass only one argument as a parameter (input.txt)" << std::endl;
-	else
 	{
-
+			std::cerr << "Please pass only one argument as a parameter (input.txt)" << std::endl;
+			return (1);
+	}
+	try
+	{
+		BitcoinExchange	bitcoin("data.csv");
+		bitcoin.processingInput(argv[1]);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+		return (1);
 	}
 	return (0);
 }
