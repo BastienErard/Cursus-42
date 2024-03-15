@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:18:10 by berard            #+#    #+#             */
-/*   Updated: 2024/03/14 19:47:34 by tastybao         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:44:04 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ BitcoinExchange::BitcoinExchange(const std::string file)
 {
 	std::ifstream	data_csv(file);
 	if (!data_csv.is_open())
-		throw std::ifstream::failure("Unable to open file");
+		throw std::ifstream::failure("Unable to open file csv");
 	std::string		line;
 	size_t			delimit;
 	while (std::getline(data_csv, line))
@@ -55,7 +55,19 @@ BitcoinExchange	&BitcoinExchange::operator=(BitcoinExchange const & rhs)
 
 void							BitcoinExchange::processingInput(char* input)
 {
+	std::ifstream	input_file(input);
+	if (!input_file.is_open())
+		throw std::ifstream::failure("Unable to open input file");
+	std::string		line;
+	// size_t			delimit;
+	while (std::getline(input_file, line))
+	{
+		if (checkFirstLine(line))
+			continue;
 
+		std::cout << line << std::endl;
+	}
+	input_file.close();
 }
 
 std::map<std::string, float>	BitcoinExchange::getCsv(void) const
