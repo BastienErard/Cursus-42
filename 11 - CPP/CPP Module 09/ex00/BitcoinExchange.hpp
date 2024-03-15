@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:18:14 by berard            #+#    #+#             */
-/*   Updated: 2024/03/15 11:00:28 by berard           ###   ########.fr       */
+/*   Updated: 2024/03/15 18:14:07 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <map>
 #include <fstream>
+#include <sstream>
 #include <algorithm>
 
 class BitcoinExchange
@@ -28,6 +29,10 @@ class BitcoinExchange
 		BitcoinExchange	&operator=(BitcoinExchange const & rhs);
 
 		void							processingInput(char* input);
+		bool							checkFirstLine(std::string line);
+		bool							checkCorrectFormat(std::string line);
+		bool							checkDate(std::string& date);
+		bool							checkRate(std::string& rate);
 
 		std::map<std::string, float>	getCsv(void) const;
 
