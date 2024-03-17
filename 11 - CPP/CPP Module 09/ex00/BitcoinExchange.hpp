@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:18:14 by berard            #+#    #+#             */
-/*   Updated: 2024/03/15 18:14:07 by tastybao         ###   ########.fr       */
+/*   Updated: 2024/03/17 13:25:45 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <cstdlib>
+#include <cstring>
 
 class BitcoinExchange
 {
@@ -33,6 +35,7 @@ class BitcoinExchange
 		bool							checkCorrectFormat(std::string line);
 		bool							checkDate(std::string& date);
 		bool							checkRate(std::string& rate);
+		void							calculateRate(std::string& line);
 
 		std::map<std::string, float>	getCsv(void) const;
 

@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:18:10 by berard            #+#    #+#             */
-/*   Updated: 2024/03/15 18:32:35 by tastybao         ###   ########.fr       */
+/*   Updated: 2024/03/17 13:55:55 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ BitcoinExchange::BitcoinExchange(const std::string file)
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const & src)
 {
-	// to complete ?
 	*this = src;
 	return;
 }
@@ -49,7 +48,7 @@ BitcoinExchange::~BitcoinExchange(void)
 
 BitcoinExchange	&BitcoinExchange::operator=(BitcoinExchange const & rhs)
 {
-	_csv = rhs._csv;// to complete
+	_csv = rhs._csv;
 	return *this;
 }
 
@@ -59,15 +58,13 @@ void							BitcoinExchange::processingInput(char* input)
 	if (!input_file.is_open())
 		throw std::ifstream::failure("Unable to open input file");
 	std::string		line;
-	// size_t			delimit;
 	while (std::getline(input_file, line))
 	{
 		if (checkFirstLine(line))
 			continue;
 		if (!checkCorrectFormat(line))
 			continue;
-
-		std::cout << line << std::endl;
+		calculateRate(line);
 	}
 	input_file.close();
 }
@@ -131,16 +128,15 @@ bool	BitcoinExchange::checkDate(std::string& date)
 
 bool	BitcoinExchange::checkRate(std::string& rate)
 {
-	std::istringstream	iss(rate);
-	float	value;
-	char	extraChar;
+	char	*endptr;
 
-	iss >> std::noskipws >> value >> extraChar;
-	if (!iss.eof() || extraChar != '\0')
+	strtod(rate.c_str(), &endptr);
+	if (rate.empty() || rate.c_str() == endptr || *endptr != '\0')
 	{
 		std::cerr << "Error: not a float" << std::endl;
 		return (false);
 	}
+	float	value = atof(rate.c_str());
 	if (value < 0)
 	{
 		std::cerr << "Error: not a positive number." << std::endl;
@@ -151,7 +147,26 @@ bool	BitcoinExchange::checkRate(std::string& rate)
 		std::cerr << "Error: too large a number." << std::endl;
 		return (false);
 	}
-		return (true);
+	return (true);
+}
+
+void	BitcoinExchange::calculateRate(std::string& line)
+{
+	size_t	delimit = line.find('|');
+	std::string	date = line.substr(0, delimit - 1);
+	std::string	rate = line.substr(delimit + 2);
+	float	f_rate = atof(rate.c_str());
+
+	std::map<std::string, float>::iterator it = _csv.find(date);
+	if (it != _csv.end())
+		std::cout << date << " => " << f_rate << " = " << f_rate * it->second << std::endl;
+	else
+	{
+		it = _csv.lower_bound(date);
+		--it;
+		std::cout << date << " => " << f_rate << " = " << f_rate * it->second << std::endl;
+	}
+	return ;
 }
 
 std::map<std::string, float>	BitcoinExchange::getCsv(void) const
