@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 14:18:25 by tastybao          #+#    #+#             */
-/*   Updated: 2024/03/18 17:22:18 by berard           ###   ########.fr       */
+/*   Updated: 2024/03/19 17:49:33 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class RPN
 		void	checkCharacter(char c);
 		void	processingStack(char c);
 		void	calculation(char c);
+		void	displayResult(void);
 		std::stack<long>	getStack(void) const;
 
 	private :
