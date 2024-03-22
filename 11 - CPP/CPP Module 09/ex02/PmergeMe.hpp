@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 18:29:24 by tastybao          #+#    #+#             */
-/*   Updated: 2024/03/19 18:30:39 by tastybao         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:11:16 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 class PmergeMe
 {
 	public :
+		PmergeMe(void);
+		~PmergeMe(void);
+		PmergeMe(PmergeMe const & src);
+
+		PmergeMe	&operator=(PmergeMe const & rhs);
 
 	private :
 };
