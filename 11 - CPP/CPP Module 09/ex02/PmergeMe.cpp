@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 18:29:13 by tastybao          #+#    #+#             */
-/*   Updated: 2024/03/26 22:00:33 by tastybao         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:43:40 by berard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,8 @@ void	PmergeMe::display(void) const
 	for (size_t i = 0; i < _deque_sorted.size(); i++)
 		std::cout << _deque_sorted[i] << " ";
 	std::cout << std::endl;
-	std::cout << "Time to process a range of " << _deque_sorted.size() << "elements with std::deque<int> : " << _time_deque << " us" << std::endl;
-	std::cout << "Time to process a range of " << _vector_sorted.size() << "elements with std::vector<int> : " << _time_vector << " us" << std::endl;
-	if (_deque_sorted == std::deque<int>(_vector_sorted.begin(), _vector_sorted.end()))
-		std::cout << "The sorted sequences are equal." << std::endl;
-	else
-		std::cout << "The sorted sequences are not equal." << std::endl;
+	std::cout << "Time to process a range of " << _deque_sorted.size() << " elements with std::deque<int> : " << _time_deque << " us" << std::endl;
+	std::cout << "Time to process a range of " << _vector_sorted.size() << " elements with std::vector<int> : " << _time_vector << " us" << std::endl;
 }
 
 void	PmergeMe::sortDeque(std::deque<int> &deque_to_sort)
