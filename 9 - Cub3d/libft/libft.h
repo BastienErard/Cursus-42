@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 12:08:26 by fgrasset          #+#    #+#             */
-/*   Updated: 2023/10/26 14:46:09 by berard           ###   ########.fr       */
+/*   Updated: 2024/10/27 22:04:18 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <ctype.h>
 # include <stdlib.h>
 # include <unistd.h>
-// # include "ft_printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
 
 size_t	ft_strlen(const char *s);

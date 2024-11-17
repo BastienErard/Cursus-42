@@ -6,7 +6,7 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 21:21:04 by tastybao          #+#    #+#             */
-/*   Updated: 2023/07/26 21:21:05 by tastybao         ###   ########.fr       */
+/*   Updated: 2024/10/27 22:08:42 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	free_textures(void *mlx, t_textures *textures);
 char	**parse_map(int fd, char *filename, t_vector2 *map_size);
 bool	check_map_validity(char **map);
 char	*get_next_unempty_line(int fd);
+void	*free_map(char **map);
 
 #endif
