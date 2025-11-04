@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:26:05 by berard            #+#    #+#             */
-/*   Updated: 2023/02/27 18:40:16 by berard           ###   ########.fr       */
+/*   Updated: 2025/11/04 17:30:18 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,13 @@ void	ft_initialization(t_data *data)
 }
 
 /*	Function called in the mlx_loop_hook */
-void	ft_render(t_data *data)
+int	ft_render(t_data *data)
 {
 	ft_draw_background(data);
 	ft_convert(data);
 	ft_connect(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 						data->img.mlx_img, 0, 0);
+
+	return (0);
 }

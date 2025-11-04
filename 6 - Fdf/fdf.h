@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: berard <berard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:39:19 by tastybao          #+#    #+#             */
-/*   Updated: 2023/03/01 11:22:54 by berard           ###   ########.fr       */
+/*   Updated: 2025/11/04 17:33:36 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	ft_convert_fy(t_data *data, int x, int y, int i);
 
 // Graphic
 void	ft_initialization(t_data *data);
-void	ft_render(t_data *data);
+int		ft_render(t_data *data);
 
 // Draw
 void	ft_put_pixel(t_data *data, int x, int y, int color);
@@ -113,9 +113,9 @@ void	ft_line(t_data *data, int start, int end, int color);
 
 // Hook
 void	ft_instructions(t_data *data);
-void	ft_keyboard(int keycode, t_data *data);
-void	ft_shutdown(t_data *data);
-void	ft_mouse(int button, int x, int y, t_data *data);
+int		ft_keyboard(int keycode, t_data *data);
+int		ft_shutdown(t_data *data);
+int		ft_mouse(int button, int x, int y, t_data *data);
 
 // Colors
 int		ft_colors(t_data *data, int x, int y);

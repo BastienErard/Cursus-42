@@ -6,22 +6,23 @@
 /*   By: tastybao <tastybao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:40:30 by berard            #+#    #+#             */
-/*   Updated: 2023/02/28 18:22:39 by tastybao         ###   ########.fr       */
+/*   Updated: 2025/11/04 17:33:48 by tastybao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 /*	Function used when the window is closed. */
-void	ft_shutdown(t_data *data)
+int		ft_shutdown(t_data *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	ft_free_map_parse(data);
 	exit (0);
+	return (0);
 }
 
 /*	Different actions that can be performed with the keyboard. */
-void	ft_keyboard(int keycode, t_data *data)
+int		ft_keyboard(int keycode, t_data *data)
 {
 	if (keycode == 53)
 		ft_shutdown(data);
@@ -45,10 +46,12 @@ void	ft_keyboard(int keycode, t_data *data)
 		data->size += ZOOM;
 	else if (keycode == 7 && data->size > 5)
 		data->size -= ZOOM;
+
+	return (0);
 }
 
 /*	Different actions that can be performed with the mouse. */
-void	ft_mouse(int button, int x, int y, t_data *data)
+int		ft_mouse(int button, int x, int y, t_data *data)
 {
 	(void) x;
 	(void) y;
@@ -60,6 +63,8 @@ void	ft_mouse(int button, int x, int y, t_data *data)
 		data->key.background += 1;
 	else if (button == 2)
 		data->key.background -= 1;
+
+	return (0);
 }
 
 /*	The various possible actions described above. */
